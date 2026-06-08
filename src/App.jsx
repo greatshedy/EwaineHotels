@@ -10,6 +10,7 @@ const Hotels = lazy(() => import("./pages/Hotels"));
 const HotelDetails = lazy(() => import("./pages/HotelDetails"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Favorites = lazy(() => import("./pages/Favorites"));
+const UserDashboard = lazy(() => import("./pages/UserDashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="hotel/:id" element={<HotelDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="favorites" element={<Favorites />} />
+          <Route path="dashboard" element={<UserDashboard />} />
         </Route>
 
         <Route element={<AdminProvider><Outlet /></AdminProvider>}>

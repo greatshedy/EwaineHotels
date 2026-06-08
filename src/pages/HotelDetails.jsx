@@ -11,6 +11,7 @@ import HotelCard from "../components/HotelCard";
 import Button from "../components/Button";
 import BackToTop from "../components/BackToTop";
 import { useRecentlyViewed } from "../context/RecentlyViewedContext";
+import { useUser } from "../context/UserContext";
 
 const amenityIcons = {
   "Swimming Pool": Waves, WiFi: Wifi, Restaurant: Utensils, Gym: Dumbbell, Parking: Car,
@@ -23,15 +24,16 @@ export default function HotelDetails() {
   const { id } = useParams();
   const hotel = getHotels().find((h) => h.id === Number(id));
   const { addRecent } = useRecentlyViewed();
+  const { profile } = useUser();
   const [imgIdx, setImgIdx] = useState(0);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(1);
   const [selectedRoom, setSelectedRoom] = useState("");
   const [showBooking, setShowBooking] = useState(false);
-  const [guestName, setGuestName] = useState("");
-  const [guestEmail, setGuestEmail] = useState("");
-  const [guestPhone, setGuestPhone] = useState("");
+  const [guestName, setGuestName] = useState(profile?.name || "");
+  const [guestEmail, setGuestEmail] = useState(profile?.email || "");
+  const [guestPhone, setGuestPhone] = useState(profile?.phone || "");
 
   useEffect(() => {
     if (hotel) addRecent({ id: hotel.id, name: hotel.name, city: hotel.city, price: hotel.price, rating: hotel.rating, image: hotel.images[0] });

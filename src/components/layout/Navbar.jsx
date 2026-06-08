@@ -9,6 +9,7 @@ const links = [
   { to: "/hotels", label: "Hotels" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/dashboard", label: "Dashboard" },
 ];
 
 export default function Navbar() {

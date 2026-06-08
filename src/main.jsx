@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./context/ThemeContext";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { RecentlyViewedProvider } from "./context/RecentlyViewedContext";
+import { UserProvider } from "./context/UserContext";
 import App from "./App";
 import "./index.css";
 
@@ -14,8 +15,10 @@ createRoot(document.getElementById("root")).render(
       <ThemeProvider>
         <FavoritesProvider>
           <RecentlyViewedProvider>
-            <App />
-            <Toaster position="top-right" toastOptions={{ duration: 3000, style: { borderRadius: "12px", padding: "12px 16px" } }} />
+            <UserProvider>
+              <App />
+              <Toaster position="top-right" toastOptions={{ duration: 3000, style: { borderRadius: "12px", padding: "12px 16px" } }} />
+            </UserProvider>
           </RecentlyViewedProvider>
         </FavoritesProvider>
       </ThemeProvider>
