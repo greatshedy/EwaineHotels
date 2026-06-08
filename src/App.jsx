@@ -1,6 +1,8 @@
 ﻿import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
+import { AdminProvider } from "./context/AdminContext";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -9,6 +11,12 @@ const HotelDetails = lazy(() => import("./pages/HotelDetails"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+
+const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminLayout = lazy(() => import("./components/layout/AdminLayout"));
+const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminHotels = lazy(() => import("./pages/admin/AdminHotels"));
+const AdminBookings = lazy(() => import("./pages/admin/AdminBookings"));
 
 function PageLoader() {
   return (
@@ -29,8 +37,22 @@ export default function App() {
           <Route path="hotel/:id" element={<HotelDetails />} />
           <Route path="contact" element={<Contact />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+
+        <Route element={<AdminProvider><Outlet /></AdminProvider>}>
+          <Route path="ewaine-admin/login" element={<AdminLogin />} />
+          <Route
+            path="ewaine-admin"
+            element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="hotels" element={<AdminHotels />} />
+            <Route path="bookings" element={<AdminBookings />} />
+          </Route>
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

@@ -2,12 +2,12 @@
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
 import { useFavorites } from "../context/FavoritesContext";
-import hotelsData from "../data/hotels.json";
+import { getHotels } from "../data/hotelStore";
 import HotelCard from "../components/HotelCard";
 
 export default function Favorites() {
   const { favorites } = useFavorites();
-  const favHotels = hotelsData.filter((h) => favorites.includes(h.id));
+  const favHotels = getHotels().filter((h) => favorites.includes(h.id));
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">

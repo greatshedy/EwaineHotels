@@ -1,8 +1,12 @@
 ﻿import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Star, MapPin, Phone, Mail, Globe, ChevronLeft, ChevronRight, Wifi, Waves, Dumbbell, Car, Wind, Coffee, PawPrint } from "lucide-react";
-import hotelsData from "../data/hotels.json";
+import {
+  Star, MapPin, Phone, Mail, Globe, ChevronLeft, ChevronRight,
+  Wifi, Waves, Dumbbell, Car, Wind, Coffee, PawPrint, X,
+} from "lucide-react";
+import toast from "react-hot-toast";
+import { getHotels } from "../data/hotelStore";
 import HotelCard from "../components/HotelCard";
 import Button from "../components/Button";
 import BackToTop from "../components/BackToTop";
@@ -17,9 +21,17 @@ function Utensils() { return <svg className="w-5 h-5" fill="none" stroke="curren
 
 export default function HotelDetails() {
   const { id } = useParams();
-  const hotel = hotelsData.find((h) => h.id === Number(id));
+  const hotel = getHotels().find((h) => h.id === Number(id));
   const { addRecent } = useRecentlyViewed();
   const [imgIdx, setImgIdx] = useState(0);
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
+  const [guests, setGuests] = useState(1);
+  const [selectedRoom, setSelectedRoom] = useState("");
+  const [showBooking, setShowBooking] = useState(false);
+  const [guestName, setGuestName] = useState("");
+  const [guestEmail, setGuestEmail] = useState("");
+  const [guestPhone, setGuestPhone] = useState("");
 
   useEffect(() => {
     if (hotel) addRecent({ id: hotel.id, name: hotel.name, city: hotel.city, price: hotel.price, rating: hotel.rating, image: hotel.images[0] });
@@ -34,7 +46,55 @@ export default function HotelDetails() {
     );
   }
 
-  const related = hotelsData.filter((h) => h.city === hotel.city && h.id !== hotel.id).slice(0, 4);
+  const related = getHotels().filter((h) => h.city === hotel.city && h.id !== hotel.id).slice(0, 4);
+
+  const roomPrice = hotel.roomTypes.find((r) => r.type === selectedRoom)?.price || hotel.price;
+  const nights = checkIn && checkOut
+    ? Math.max(1, Math.round((new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24)))
+    : 1;
+
+  const handleBookNow = () => {
+    if (!checkIn || !checkOut) {
+      toast.error("Please select check-in and check-out dates");
+      return;
+    }
+    if (new Date(checkOut) <= new Date(checkIn)) {
+      toast.error("Check-out must be after check-in");
+      return;
+    }
+    setShowBooking(true);
+  };
+
+  const handleConfirmBooking = () => {
+    if (!guestName || !guestEmail) {
+      toast.error("Please fill in your name and email");
+      return;
+    }
+    const booking = {
+      hotelId: hotel.id,
+      hotelName: hotel.name,
+      guestName,
+      guestEmail,
+      guestPhone,
+      checkIn,
+      checkOut,
+      guests,
+      roomType: selectedRoom || hotel.roomTypes[0]?.type || "Standard",
+      totalPrice: roomPrice * nights,
+    };
+    try {
+      const stored = JSON.parse(localStorage.getItem("ewaine-bookings") || "[]");
+      stored.push({ ...booking, id: Date.now(), status: "pending", createdAt: new Date().toISOString() });
+      localStorage.setItem("ewaine-bookings", JSON.stringify(stored));
+    } catch {
+      /* ignore */
+    }
+    setShowBooking(false);
+    setGuestName("");
+    setGuestEmail("");
+    setGuestPhone("");
+    toast.success("Booking submitted! Awaiting confirmation.");
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
@@ -163,15 +223,27 @@ export default function HotelDetails() {
           <div className="lg:sticky lg:top-24 space-y-4">
             <div className="glass rounded-2xl p-6 space-y-4">
               <div>
-                <span className="text-3xl font-bold text-primary">${hotel.price}</span>
+                <span className="text-3xl font-bold text-primary">${roomPrice}</span>
                 <span className="text-text-secondary text-sm"> / night</span>
               </div>
               <div className="space-y-3">
-                <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                <div><label className="block text-xs font-medium mb-1">Guests</label><select className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
+                <div>
+                  <label className="block text-xs font-medium mb-1">Room Type</label>
+                  <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                    {hotel.roomTypes.map((r) => (
+                      <option key={r.type} value={r.type}>{r.type} - ${r.price}</option>
+                    ))}
+                  </select>
+                </div>
+                <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
               </div>
-              <Button size="lg" className="w-full">Book Now</Button>
+              <div className="flex items-center justify-between text-sm text-text-secondary">
+                <span>${roomPrice} x {nights} night{nights > 1 ? "s" : ""}</span>
+                <span className="font-bold text-primary text-lg">${roomPrice * nights}</span>
+              </div>
+              <Button size="lg" className="w-full" onClick={handleBookNow}>Book Now</Button>
               <p className="text-xs text-text-secondary text-center">You will not be charged yet</p>
             </div>
             <div className="glass rounded-2xl p-4">
@@ -185,6 +257,40 @@ export default function HotelDetails() {
           </div>
         </div>
       </div>
+
+      {/* Booking Modal */}
+      {showBooking && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => setShowBooking(false)}>
+          <div className="w-full max-w-md bg-white dark:bg-dark-surface rounded-2xl shadow-xl border border-border dark:border-dark-border overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark-border">
+              <h2 className="font-bold">Confirm Booking</h2>
+              <button onClick={() => setShowBooking(false)} className="p-1 hover:text-primary"><X className="w-5 h-5" /></button>
+            </div>
+            <div className="p-4 space-y-4">
+              <div className="bg-surface-alt dark:bg-dark-bg rounded-xl p-3 space-y-1 text-sm">
+                <p className="font-semibold">{hotel.name}</p>
+                <p className="text-text-secondary">{selectedRoom || hotel.roomTypes[0]?.type} — ${roomPrice}/night</p>
+                <p className="text-text-secondary">{new Date(checkIn).toLocaleDateString()} → {new Date(checkOut).toLocaleDateString()}</p>
+                <p className="text-text-secondary">{guests} guest{guests > 1 ? "s" : ""} · {nights} night{nights > 1 ? "s" : ""}</p>
+                <p className="text-lg font-bold text-primary">Total: ${roomPrice * nights}</p>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Full Name</label>
+                <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="John Doe" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Email</label>
+                <input type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} placeholder="john@example.com" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-1">Phone (optional)</label>
+                <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+              </div>
+              <Button size="lg" className="w-full" onClick={handleConfirmBooking}>Confirm Booking</Button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <BackToTop />
     </div>

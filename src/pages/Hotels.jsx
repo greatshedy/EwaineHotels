@@ -2,7 +2,7 @@
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SlidersHorizontal, Grid3X3, List, X, ChevronDown, Search, MapPin } from "lucide-react";
-import hotelsData from "../data/hotels.json";
+import { getHotels } from "../data/hotelStore";
 import HotelCard from "../components/HotelCard";
 import BackToTop from "../components/BackToTop";
 
@@ -40,7 +40,7 @@ export default function Hotels() {
   };
 
   const filtered = useMemo(() => {
-    let result = [...hotelsData];
+    let result = [...getHotels()];
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       result = result.filter((h) => h.name.toLowerCase().includes(q) || h.city.toLowerCase().includes(q) || h.state.toLowerCase().includes(q));
@@ -62,7 +62,7 @@ export default function Hotels() {
   const totalPages = Math.ceil(filtered.length / perPage);
   const paginated = filtered.slice((page - 1) * perPage, page * perPage);
 
-  const cities = [...new Set(hotelsData.map((h) => h.city))].sort();
+  const cities = [...new Set(getHotels().map((h) => h.city))].sort();
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
