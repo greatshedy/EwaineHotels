@@ -1,0 +1,50 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-primary-light: #60a5fa;
+  --color-secondary: #f59e0b;
+  --color-accent: #8b5cf6;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-border: #e2e8f0;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-text: #f1f5f9;
+  --color-dark-text-secondary: #94a3b8;
+  --color-dark-border: #334155;
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-surface text-text font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .dark body, body.dark {
+    @apply bg-dark-bg text-dark-text;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-text-secondary/20 rounded-full; }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  .dark .glass {
+    @apply bg-dark-surface/70 border-dark-border/30;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+}
