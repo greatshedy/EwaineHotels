@@ -8,6 +8,9 @@ import {
   Menu,
   X,
   Hotel,
+  MessageSquareQuote,
+  Settings,
+  FileText,
 } from "lucide-react";
 import { useAdmin } from "../../context/AdminContext";
 
@@ -15,6 +18,9 @@ const sidebarLinks = [
   { to: "/ewaine-admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/ewaine-admin/hotels", label: "Hotels", icon: Building2 },
   { to: "/ewaine-admin/bookings", label: "Bookings", icon: CalendarCheck },
+  { to: "/ewaine-admin/testimonials", label: "Testimonials", icon: MessageSquareQuote },
+  { to: "/ewaine-admin/settings", label: "Settings", icon: Settings },
+  { to: "/ewaine-admin/blog", label: "Blog", icon: FileText },
 ];
 
 export default function AdminLayout() {

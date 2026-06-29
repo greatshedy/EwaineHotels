@@ -1,0 +1,105 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "EwaineHotels" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img [ref=e10]
+        - generic [ref=e13]: EwaineHotels
+      - generic [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: /
+        - link "Hotels" [ref=e16] [cursor=pointer]:
+          - /url: /hotels
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /favorites
+          - img [ref=e21]
+        - link "Admin" [ref=e23] [cursor=pointer]:
+          - /url: /ewaine-admin
+          - img [ref=e24]
+          - text: Admin
+        - button "Toggle dark mode" [ref=e26]:
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e31]:
+      - generic [ref=e32]:
+        - heading "TripAdvisor Results" [level=1] [ref=e422]
+        - paragraph
+      - generic [ref=e36]:
+        - button "Our Hotels" [ref=e37]
+        - button "TripAdvisor" [active] [ref=e38]:
+          - img [ref=e39]
+          - text: TripAdvisor
+  - contentinfo [ref=e366]:
+    - generic [ref=e367]:
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - link "EwaineHotels" [ref=e370] [cursor=pointer]:
+            - /url: /
+            - img [ref=e371]
+            - generic [ref=e374]: EwaineHotels
+          - paragraph [ref=e375]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+        - generic [ref=e376]:
+          - heading "Quick Links" [level=3] [ref=e377]
+          - list [ref=e378]:
+            - listitem [ref=e379]:
+              - link "Home" [ref=e380] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e381]:
+              - link "Hotels" [ref=e382] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e383]:
+              - link "About Us" [ref=e384] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e385]:
+              - link "Contact" [ref=e386] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e387]:
+          - heading "Support" [level=3] [ref=e388]
+          - list [ref=e389]:
+            - listitem [ref=e390]:
+              - link "Help Center" [ref=e391] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e392]:
+              - link "Cancellation Policy" [ref=e393] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e394]:
+              - link "Privacy Policy" [ref=e395] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e396]:
+              - link "Terms of Service" [ref=e397] [cursor=pointer]:
+                - /url: /hotels
+        - generic [ref=e398]:
+          - heading "Contact" [level=3] [ref=e399]
+          - list [ref=e400]:
+            - listitem [ref=e401]:
+              - link "+234 800 123 4567" [ref=e402] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e403]
+                - text: +234 800 123 4567
+            - listitem [ref=e405]:
+              - link "hello@ewainehotels.com" [ref=e406] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e407]
+                - text: hello@ewainehotels.com
+            - listitem [ref=e410]:
+              - link "Lagos, Nigeria" [ref=e411] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e412]
+                - text: Lagos, Nigeria
+      - generic [ref=e415]:
+        - paragraph [ref=e416]: © 2026 EwaineHotels. All rights reserved.
+        - generic [ref=e417]:
+          - link "Twitter" [ref=e418] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e419] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=e420] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=e421] [cursor=pointer]:
+            - /url: "#"

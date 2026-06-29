@@ -1,0 +1,516 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "EwaineHotels" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img [ref=e10]
+        - generic [ref=e13]: EwaineHotels
+      - generic [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: /
+        - link "Hotels" [ref=e16] [cursor=pointer]:
+          - /url: /hotels
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /favorites
+          - img [ref=e21]
+        - link "Admin" [ref=e23] [cursor=pointer]:
+          - /url: /ewaine-admin
+          - img [ref=e24]
+          - text: Admin
+        - button "Toggle dark mode" [ref=e26]:
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - img "Luxury hotel lobby" [ref=e33]
+        - generic [ref=e35]:
+          - heading "Find Your Perfect Stay Anywhere" [level=1] [ref=e36]
+          - paragraph [ref=e37]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - img [ref=e42]
+              - textbox "Destination, hotel name..." [ref=e45]
+            - generic [ref=e46]:
+              - img [ref=e47]
+              - textbox [ref=e49]
+            - generic [ref=e50]:
+              - img [ref=e51]
+              - textbox [ref=e53]
+            - generic [ref=e54]:
+              - img [ref=e55]
+              - combobox [ref=e60]:
+                - option "1 Guest" [selected]
+                - option "2 Guests"
+                - option "3 Guests"
+                - option "4 Guests"
+                - option "5 Guests"
+                - option "6 Guests"
+            - button "Search" [ref=e61]:
+              - img [ref=e62]
+              - text: Search
+      - generic [ref=e66]:
+        - generic [ref=e67]:
+          - heading "Popular Destinations" [level=2] [ref=e68]
+          - paragraph [ref=e69]: Explore our most sought-after destinations across Africa.
+        - generic [ref=e70]:
+          - link "Lagos Lagos 156 Hotels" [ref=e71] [cursor=pointer]:
+            - /url: /hotels?search=Lagos
+            - generic [ref=e72]:
+              - img "Lagos" [ref=e73]
+              - generic [ref=e75]:
+                - heading "Lagos" [level=3] [ref=e76]
+                - paragraph [ref=e77]: 156 Hotels
+          - link "Abuja Abuja 89 Hotels" [ref=e78] [cursor=pointer]:
+            - /url: /hotels?search=Abuja
+            - generic [ref=e79]:
+              - img "Abuja" [ref=e80]
+              - generic [ref=e82]:
+                - heading "Abuja" [level=3] [ref=e83]
+                - paragraph [ref=e84]: 89 Hotels
+          - link "Port Harcourt Port Harcourt 45 Hotels" [ref=e85] [cursor=pointer]:
+            - /url: /hotels?search=Port Harcourt
+            - generic [ref=e86]:
+              - img "Port Harcourt" [ref=e87]
+              - generic [ref=e89]:
+                - heading "Port Harcourt" [level=3] [ref=e90]
+                - paragraph [ref=e91]: 45 Hotels
+          - link "Accra Accra 72 Hotels" [ref=e92] [cursor=pointer]:
+            - /url: /hotels?search=Accra
+            - generic [ref=e93]:
+              - img "Accra" [ref=e94]
+              - generic [ref=e96]:
+                - heading "Accra" [level=3] [ref=e97]
+                - paragraph [ref=e98]: 72 Hotels
+          - link "Nairobi Nairobi 94 Hotels" [ref=e99] [cursor=pointer]:
+            - /url: /hotels?search=Nairobi
+            - generic [ref=e100]:
+              - img "Nairobi" [ref=e101]
+              - generic [ref=e103]:
+                - heading "Nairobi" [level=3] [ref=e104]
+                - paragraph [ref=e105]: 94 Hotels
+          - link "Cape Town Cape Town 118 Hotels" [ref=e106] [cursor=pointer]:
+            - /url: /hotels?search=Cape Town
+            - generic [ref=e107]:
+              - img "Cape Town" [ref=e108]
+              - generic [ref=e110]:
+                - heading "Cape Town" [level=3] [ref=e111]
+                - paragraph [ref=e112]: 118 Hotels
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - heading "Featured Hotels" [level=2] [ref=e117]
+            - paragraph [ref=e118]: Hand-picked accommodations for an exceptional experience.
+          - link "View All" [ref=e120] [cursor=pointer]:
+            - /url: /hotels
+            - text: View All
+            - img [ref=e121]
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - link "Eko Atlantic Suites Featured 2 Photos" [ref=e125] [cursor=pointer]:
+              - /url: /hotel/1
+              - img "Eko Atlantic Suites" [ref=e126]
+              - generic [ref=e128]: Featured
+              - generic [ref=e129]: 2 Photos
+            - generic [ref=e130]:
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - link "Eko Atlantic Suites" [ref=e133] [cursor=pointer]:
+                    - /url: /hotel/1
+                  - generic [ref=e134]:
+                    - img [ref=e135]
+                    - generic [ref=e138]: Lagos, Lagos
+                - button "Add to favorites" [ref=e139]:
+                  - img [ref=e140]
+              - generic [ref=e142]:
+                - img [ref=e143]
+                - generic [ref=e145]: "4.8"
+                - generic [ref=e146]: (342 reviews)
+              - generic [ref=e147]:
+                - generic [ref=e148]:
+                  - img [ref=e149]
+                  - text: Swimming Pool
+                - generic [ref=e153]:
+                  - img [ref=e154]
+                  - text: WiFi
+                - generic [ref=e158]: Restaurant
+                - generic [ref=e159]:
+                  - img [ref=e160]
+                  - text: Gym
+              - generic [ref=e166]:
+                - generic [ref=e167]:
+                  - generic [ref=e168]: $450
+                  - text: / night
+                - link "Book Now" [ref=e169] [cursor=pointer]:
+                  - /url: /hotel/1
+          - generic [ref=e170]:
+            - link "Transcorp Hilton Abuja Featured 2 Photos" [ref=e171] [cursor=pointer]:
+              - /url: /hotel/2
+              - img "Transcorp Hilton Abuja" [ref=e172]
+              - generic [ref=e174]: Featured
+              - generic [ref=e175]: 2 Photos
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]:
+                  - link "Transcorp Hilton Abuja" [ref=e179] [cursor=pointer]:
+                    - /url: /hotel/2
+                  - generic [ref=e180]:
+                    - img [ref=e181]
+                    - generic [ref=e184]: Abuja, FCT
+                - button "Add to favorites" [ref=e185]:
+                  - img [ref=e186]
+              - generic [ref=e188]:
+                - img [ref=e189]
+                - generic [ref=e191]: "4.7"
+                - generic [ref=e192]: (528 reviews)
+              - generic [ref=e193]:
+                - generic [ref=e194]:
+                  - img [ref=e195]
+                  - text: Swimming Pool
+                - generic [ref=e199]:
+                  - img [ref=e200]
+                  - text: WiFi
+                - generic [ref=e204]: Restaurant
+                - generic [ref=e205]:
+                  - img [ref=e206]
+                  - text: Gym
+              - generic [ref=e212]:
+                - generic [ref=e213]:
+                  - generic [ref=e214]: $380
+                  - text: / night
+                - link "Book Now" [ref=e215] [cursor=pointer]:
+                  - /url: /hotel/2
+          - generic [ref=e216]:
+            - link "Hotel Presidential Port Harcourt Featured 2 Photos" [ref=e217] [cursor=pointer]:
+              - /url: /hotel/3
+              - img "Hotel Presidential Port Harcourt" [ref=e218]
+              - generic [ref=e220]: Featured
+              - generic [ref=e221]: 2 Photos
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - generic [ref=e224]:
+                  - link "Hotel Presidential Port Harcourt" [ref=e225] [cursor=pointer]:
+                    - /url: /hotel/3
+                  - generic [ref=e226]:
+                    - img [ref=e227]
+                    - generic [ref=e230]: Port Harcourt, Rivers
+                - button "Add to favorites" [ref=e231]:
+                  - img [ref=e232]
+              - generic [ref=e234]:
+                - img [ref=e235]
+                - generic [ref=e237]: "4.5"
+                - generic [ref=e238]: (189 reviews)
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - img [ref=e241]
+                  - text: Swimming Pool
+                - generic [ref=e245]:
+                  - img [ref=e246]
+                  - text: WiFi
+                - generic [ref=e250]: Restaurant
+                - generic [ref=e251]:
+                  - img [ref=e252]
+                  - text: Parking
+              - generic [ref=e256]:
+                - generic [ref=e257]:
+                  - generic [ref=e258]: $220
+                  - text: / night
+                - link "Book Now" [ref=e259] [cursor=pointer]:
+                  - /url: /hotel/3
+          - generic [ref=e260]:
+            - link "Labadi Beach Hotel Featured 2 Photos" [ref=e261] [cursor=pointer]:
+              - /url: /hotel/4
+              - img "Labadi Beach Hotel" [ref=e262]
+              - generic [ref=e264]: Featured
+              - generic [ref=e265]: 2 Photos
+            - generic [ref=e266]:
+              - generic [ref=e267]:
+                - generic [ref=e268]:
+                  - link "Labadi Beach Hotel" [ref=e269] [cursor=pointer]:
+                    - /url: /hotel/4
+                  - generic [ref=e270]:
+                    - img [ref=e271]
+                    - generic [ref=e274]: Accra, Greater Accra
+                - button "Add to favorites" [ref=e275]:
+                  - img [ref=e276]
+              - generic [ref=e278]:
+                - img [ref=e279]
+                - generic [ref=e281]: "4.6"
+                - generic [ref=e282]: (412 reviews)
+              - generic [ref=e283]:
+                - generic [ref=e284]:
+                  - img [ref=e285]
+                  - text: Swimming Pool
+                - generic [ref=e289]:
+                  - img [ref=e290]
+                  - text: WiFi
+                - generic [ref=e294]: Restaurant
+                - generic [ref=e295]:
+                  - img [ref=e296]
+                  - text: Gym
+              - generic [ref=e302]:
+                - generic [ref=e303]:
+                  - generic [ref=e304]: $290
+                  - text: / night
+                - link "Book Now" [ref=e305] [cursor=pointer]:
+                  - /url: /hotel/4
+          - generic [ref=e306]:
+            - link "Nairobi Serena Hotel Featured 2 Photos" [ref=e307] [cursor=pointer]:
+              - /url: /hotel/5
+              - img "Nairobi Serena Hotel" [ref=e308]
+              - generic [ref=e310]: Featured
+              - generic [ref=e311]: 2 Photos
+            - generic [ref=e312]:
+              - generic [ref=e313]:
+                - generic [ref=e314]:
+                  - link "Nairobi Serena Hotel" [ref=e315] [cursor=pointer]:
+                    - /url: /hotel/5
+                  - generic [ref=e316]:
+                    - img [ref=e317]
+                    - generic [ref=e320]: Nairobi, Nairobi County
+                - button "Add to favorites" [ref=e321]:
+                  - img [ref=e322]
+              - generic [ref=e324]:
+                - img [ref=e325]
+                - generic [ref=e327]: "4.7"
+                - generic [ref=e328]: (567 reviews)
+              - generic [ref=e329]:
+                - generic [ref=e330]:
+                  - img [ref=e331]
+                  - text: Swimming Pool
+                - generic [ref=e335]:
+                  - img [ref=e336]
+                  - text: WiFi
+                - generic [ref=e340]: Restaurant
+                - generic [ref=e341]:
+                  - img [ref=e342]
+                  - text: Gym
+              - generic [ref=e348]:
+                - generic [ref=e349]:
+                  - generic [ref=e350]: $320
+                  - text: / night
+                - link "Book Now" [ref=e351] [cursor=pointer]:
+                  - /url: /hotel/5
+          - generic [ref=e352]:
+            - link "The Table Bay Hotel Featured 2 Photos" [ref=e353] [cursor=pointer]:
+              - /url: /hotel/6
+              - img "The Table Bay Hotel" [ref=e354]
+              - generic [ref=e356]: Featured
+              - generic [ref=e357]: 2 Photos
+            - generic [ref=e358]:
+              - generic [ref=e359]:
+                - generic [ref=e360]:
+                  - link "The Table Bay Hotel" [ref=e361] [cursor=pointer]:
+                    - /url: /hotel/6
+                  - generic [ref=e362]:
+                    - img [ref=e363]
+                    - generic [ref=e366]: Cape Town, Western Cape
+                - button "Add to favorites" [ref=e367]:
+                  - img [ref=e368]
+              - generic [ref=e370]:
+                - img [ref=e371]
+                - generic [ref=e373]: "4.9"
+                - generic [ref=e374]: (723 reviews)
+              - generic [ref=e375]:
+                - generic [ref=e376]:
+                  - img [ref=e377]
+                  - text: Swimming Pool
+                - generic [ref=e381]:
+                  - img [ref=e382]
+                  - text: WiFi
+                - generic [ref=e386]: Restaurant
+                - generic [ref=e387]:
+                  - img [ref=e388]
+                  - text: Gym
+              - generic [ref=e394]:
+                - generic [ref=e395]:
+                  - generic [ref=e396]: $550
+                  - text: / night
+                - link "Book Now" [ref=e397] [cursor=pointer]:
+                  - /url: /hotel/6
+      - generic [ref=e399]:
+        - generic [ref=e400]:
+          - generic [ref=e401]:
+            - heading "TripAdvisor Picks" [level=2] [ref=e402]
+            - paragraph [ref=e403]: Top-rated hotels from TripAdvisor
+          - link "View All" [ref=e405] [cursor=pointer]:
+            - /url: /hotels?search=Lagos
+            - text: View All
+            - img [ref=e406]
+        - generic [ref=e408]:
+          - generic [ref=e409]:
+            - link "Presken Hotels @ Victoria Island Booking.com" [ref=e410] [cursor=pointer]:
+              - /url: /hotel/21505670?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D189057383%26geo%3D21505670%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsAc7B69SenJ9at8rQwa1dVbvIsJ5vDbyckRMwitWah1rN6_4l5HfSG4gPEGtprYcc3nU3ZlwDMD1_3vRLyid5POqqnhjH_BWRQY0qZ2De-X4JvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8gDqWpGjoXwyXxIpyXQYrg2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D60.5100%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DLOSE%26mbldelta%3D200%26rq%3DP%26rate%3D52.62%26taxesRate%3D7.8900%26feesRate%3D0%26fees%3D7.8900%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_1e6fdf3c45b46adbafae23fc7a250d41%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3Dc350b1ba-030d-414e-a839-f0566220050a%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1409138622947c25134efe6684bae54e3%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da8322712d0554682b864b44ed85522ac%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - img "Presken Hotels @ Victoria Island" [ref=e411]
+              - generic [ref=e413]: Booking.com
+            - generic [ref=e414]:
+              - link "Presken Hotels @ Victoria Island" [ref=e415] [cursor=pointer]:
+                - /url: /hotel/21505670?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D189057383%26geo%3D21505670%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsAc7B69SenJ9at8rQwa1dVbvIsJ5vDbyckRMwitWah1rN6_4l5HfSG4gPEGtprYcc3nU3ZlwDMD1_3vRLyid5POqqnhjH_BWRQY0qZ2De-X4JvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8gDqWpGjoXwyXxIpyXQYrg2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D60.5100%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DLOSE%26mbldelta%3D200%26rq%3DP%26rate%3D52.62%26taxesRate%3D7.8900%26feesRate%3D0%26fees%3D7.8900%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_1e6fdf3c45b46adbafae23fc7a250d41%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3Dc350b1ba-030d-414e-a839-f0566220050a%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1409138622947c25134efe6684bae54e3%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da8322712d0554682b864b44ed85522ac%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - generic [ref=e416]:
+                - img [ref=e417]
+                - generic [ref=e419]: "5"
+                - generic [ref=e420]: (1 reviews)
+              - generic [ref=e421]:
+                - generic [ref=e422]:
+                  - generic [ref=e423]: $61
+                  - text: / night
+                - link "View" [ref=e424] [cursor=pointer]:
+                  - /url: /hotel/21505670?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D189057383%26geo%3D21505670%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsAc7B69SenJ9at8rQwa1dVbvIsJ5vDbyckRMwitWah1rN6_4l5HfSG4gPEGtprYcc3nU3ZlwDMD1_3vRLyid5POqqnhjH_BWRQY0qZ2De-X4JvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8gDqWpGjoXwyXxIpyXQYrg2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D60.5100%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DLOSE%26mbldelta%3D200%26rq%3DP%26rate%3D52.62%26taxesRate%3D7.8900%26feesRate%3D0%26fees%3D7.8900%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_1e6fdf3c45b46adbafae23fc7a250d41%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3Dc350b1ba-030d-414e-a839-f0566220050a%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1409138622947c25134efe6684bae54e3%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da8322712d0554682b864b44ed85522ac%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+          - generic [ref=e425]:
+            - link "The Habitat Suites International Booking.com" [ref=e426] [cursor=pointer]:
+              - /url: /hotel/7335472?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D69568148%26geo%3D7335472%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsCyLwejzSMNyfWDudBSnLS3MKaSBlsk-XtQHf5nryVmF96_4l5HfSG4gPEGtprYcc0cFIGlJ2M-yFbtR5AvN87u8z_WkeKaNkOarHEb_h38GpvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8jAnkDgyiB_8ZqVTNooObJ2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D45.0000%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D41.86%26taxesRate%3D3.1400%26feesRate%3D0%26fees%3D3.1400%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_29ee4f93053f07979ffa014926fb0de%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3De16c70bf-4b71-48db-8150-cc720260fed3%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D10ef1c0f2e3b7b71d5e1b1542fbae3c24%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da158e220f907486580396d7a3e438514%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - img "The Habitat Suites International" [ref=e427]
+              - generic [ref=e429]: Booking.com
+            - generic [ref=e430]:
+              - link "The Habitat Suites International" [ref=e431] [cursor=pointer]:
+                - /url: /hotel/7335472?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D69568148%26geo%3D7335472%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsCyLwejzSMNyfWDudBSnLS3MKaSBlsk-XtQHf5nryVmF96_4l5HfSG4gPEGtprYcc0cFIGlJ2M-yFbtR5AvN87u8z_WkeKaNkOarHEb_h38GpvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8jAnkDgyiB_8ZqVTNooObJ2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D45.0000%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D41.86%26taxesRate%3D3.1400%26feesRate%3D0%26fees%3D3.1400%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_29ee4f93053f07979ffa014926fb0de%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3De16c70bf-4b71-48db-8150-cc720260fed3%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D10ef1c0f2e3b7b71d5e1b1542fbae3c24%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da158e220f907486580396d7a3e438514%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - generic [ref=e432]:
+                - img [ref=e433]
+                - generic [ref=e435]: "5"
+                - generic [ref=e436]: (1 reviews)
+              - generic [ref=e437]:
+                - generic [ref=e438]:
+                  - generic [ref=e439]: $45
+                  - text: / night
+                - link "View" [ref=e440] [cursor=pointer]:
+                  - /url: /hotel/7335472?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D69568148%26geo%3D7335472%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995258%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3Dh6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsCyLwejzSMNyfWDudBSnLS3MKaSBlsk-XtQHf5nryVmF96_4l5HfSG4gPEGtprYcc0cFIGlJ2M-yFbtR5AvN87u8z_WkeKaNkOarHEb_h38GpvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8jAnkDgyiB_8ZqVTNooObJ2MAt_g090yexoUb3R5foONH-zMeRojrfzWEVxaMfi4y1tAlur57af2uH0-2-QSmnw%26priceShown%3D45.0000%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D41.86%26taxesRate%3D3.1400%26feesRate%3D0%26fees%3D3.1400%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_29ee4f93053f07979ffa014926fb0de%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3De16c70bf-4b71-48db-8150-cc720260fed3%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D10ef1c0f2e3b7b71d5e1b1542fbae3c24%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Da158e220f907486580396d7a3e438514%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+          - generic [ref=e441]:
+            - link "Executive Hotel and Suites Booking.com" [ref=e442] [cursor=pointer]:
+              - /url: /hotel/33318754?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D267497414%26geo%3D33318754%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995260%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3D-ed4tcijuRGUe0aAo_NrBrgmQR9dK_6MSENCZSJPnWlDiDDxLA9ivH0InDvOFUF1XePuMr0nrQEwjXT-r7KK3s08j5Gn-dfnFLPv9GKytfWSUjCLpKfzxhVunwIzYyK1ROuPuOhDExf1XGsCZlUbXDaD3iI7ZCyW-CG02IeJ26R18bqAvgDHzhbR2MSi1jOcCA_1qPAQutPF6AQLHxutgtKQhXsEjfMmyiW_YqLidDMcLW0QxnHfHJQLk-XeyVGTVjUEyCDKX9w7OOMGt_6nSA%26priceShown%3D81.6700%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D74.25%26taxesRate%3D7.4200%26feesRate%3D0%26fees%3D7.4200%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_54afed231dc59360779fd1426fdb8420%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3D2b792952-6c53-4194-8e12-0eed35b418da%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1cc71f60de090321e01b3e6b7186260cf%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Dfd91fee21d2b44cfb7f6e6ba3be1b80b%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - img "Executive Hotel and Suites" [ref=e443]
+              - generic [ref=e445]: Booking.com
+            - generic [ref=e446]:
+              - link "Executive Hotel and Suites" [ref=e447] [cursor=pointer]:
+                - /url: /hotel/33318754?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D267497414%26geo%3D33318754%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995260%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3D-ed4tcijuRGUe0aAo_NrBrgmQR9dK_6MSENCZSJPnWlDiDDxLA9ivH0InDvOFUF1XePuMr0nrQEwjXT-r7KK3s08j5Gn-dfnFLPv9GKytfWSUjCLpKfzxhVunwIzYyK1ROuPuOhDExf1XGsCZlUbXDaD3iI7ZCyW-CG02IeJ26R18bqAvgDHzhbR2MSi1jOcCA_1qPAQutPF6AQLHxutgtKQhXsEjfMmyiW_YqLidDMcLW0QxnHfHJQLk-XeyVGTVjUEyCDKX9w7OOMGt_6nSA%26priceShown%3D81.6700%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D74.25%26taxesRate%3D7.4200%26feesRate%3D0%26fees%3D7.4200%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_54afed231dc59360779fd1426fdb8420%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3D2b792952-6c53-4194-8e12-0eed35b418da%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1cc71f60de090321e01b3e6b7186260cf%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Dfd91fee21d2b44cfb7f6e6ba3be1b80b%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+              - generic [ref=e448]:
+                - img [ref=e449]
+                - generic [ref=e451]: "5"
+                - generic [ref=e452]: (2 reviews)
+              - generic [ref=e453]:
+                - generic [ref=e454]:
+                  - generic [ref=e455]: $82
+                  - text: / night
+                - link "View" [ref=e456] [cursor=pointer]:
+                  - /url: /hotel/33318754?commerceUrl=https%3A%2F%2Fwww.tripadvisor.in%2FCommerce%3Fp%3DBookingCom%26src%3D267497414%26geo%3D33318754%26from%3DHotelDateSearch_Hotels%26slot%3D1%26matchID%3D1%26oos%3D0%26cnt%3D1%26silo%3D47212%26bucket%3D995260%26nrank%3D1%26crank%3D1%26clt%3DSLMM%26ttype%3DSponsoredMobileMeta%26tm%3D360935939%26managed%3Dfalse%26capped%3Dfalse%26gosox%3D-ed4tcijuRGUe0aAo_NrBrgmQR9dK_6MSENCZSJPnWlDiDDxLA9ivH0InDvOFUF1XePuMr0nrQEwjXT-r7KK3s08j5Gn-dfnFLPv9GKytfWSUjCLpKfzxhVunwIzYyK1ROuPuOhDExf1XGsCZlUbXDaD3iI7ZCyW-CG02IeJ26R18bqAvgDHzhbR2MSi1jOcCA_1qPAQutPF6AQLHxutgtKQhXsEjfMmyiW_YqLidDMcLW0QxnHfHJQLk-XeyVGTVjUEyCDKX9w7OOMGt_6nSA%26priceShown%3D81.6700%26pm%3DAI%26hac%3DAVAILABLE%26mbl%3DMEET%26mbldelta%3D0%26rq%3DP%26rate%3D74.25%26taxesRate%3D7.4200%26feesRate%3D0%26fees%3D7.4200%26cur%3DUSD%26adults%3D1%26child_rm_ages%3D%26inDay%3D9%26outDay%3D12%26rdex%3DRDEX_54afed231dc59360779fd1426fdb8420%26rooms%3D1%26inMonth%3D6%26inYear%3D2026%26outMonth%3D6%26outYear%3D2026%26auid%3D2b792952-6c53-4194-8e12-0eed35b418da%26def_d%3Dtrue%26bld%3DL_3%2CD_0%2CG_1%2CW_2%2CU_1%2CC_260609%2CT_18%26bh%3Dtrue%26cs%3D1cc71f60de090321e01b3e6b7186260cf%26ik%3Df9fc927515ea4ba89ba9bf747261bf47%26aok%3Dfd91fee21d2b44cfb7f6e6ba3be1b80b%26tp%3DAPS-Hotels%26pageLocId%3D304026%26area%3DSpons%257CSpons_Meta_Pref
+      - generic [ref=e457]:
+        - generic [ref=e458]:
+          - heading "Why Choose Us" [level=2] [ref=e459]
+          - paragraph [ref=e460]: We make booking your perfect stay effortless and secure.
+        - generic [ref=e461]:
+          - generic [ref=e462]:
+            - img [ref=e464]
+            - heading "Verified Hotels" [level=3] [ref=e467]
+            - paragraph [ref=e468]: All properties are thoroughly vetted for quality and authenticity.
+          - generic [ref=e469]:
+            - img [ref=e471]
+            - heading "Best Price Guarantee" [level=3] [ref=e474]
+            - paragraph [ref=e475]: We match any lower price and give you an extra 10% off.
+          - generic [ref=e476]:
+            - img [ref=e478]
+            - heading "Secure Booking" [level=3] [ref=e480]
+            - paragraph [ref=e481]: Your payment information is encrypted and fully protected.
+          - generic [ref=e482]:
+            - img [ref=e484]
+            - heading "24/7 Support" [level=3] [ref=e486]
+            - paragraph [ref=e487]: Our team is available around the clock to assist you.
+      - generic [ref=e489]:
+        - heading "What Our Guests Say" [level=2] [ref=e490]
+        - generic [ref=e491]:
+          - generic [ref=e492]:
+            - generic [ref=e493]:
+              - img [ref=e494]
+              - img [ref=e496]
+              - img [ref=e498]
+              - img [ref=e500]
+              - img [ref=e502]
+            - paragraph [ref=e504]: “Absolutely stunning experience! The Eko Atlantic Suites exceeded all my expectations. The service was impeccable and the ocean views were breathtaking.”
+            - generic [ref=e506]:
+              - paragraph [ref=e507]: Sarah Johnson
+              - paragraph [ref=e508]: Business Traveler
+          - button "Previous testimonial" [ref=e509]:
+            - img [ref=e510]
+          - button "Next testimonial" [ref=e512]:
+            - img [ref=e513]
+      - generic [ref=e517]:
+        - heading "Stay in the Loop" [level=2] [ref=e518]
+        - paragraph [ref=e519]: Subscribe for exclusive deals, new hotel listings, and travel inspiration.
+        - generic [ref=e520]:
+          - generic [ref=e521]:
+            - img [ref=e522]
+            - textbox "your@email.com" [ref=e525]
+          - button "Subscribe" [ref=e526]
+      - button "Back to top" [ref=e527]:
+        - img [ref=e528]
+  - contentinfo [ref=e530]:
+    - generic [ref=e531]:
+      - generic [ref=e532]:
+        - generic [ref=e533]:
+          - link "EwaineHotels" [ref=e534] [cursor=pointer]:
+            - /url: /
+            - img [ref=e535]
+            - generic [ref=e538]: EwaineHotels
+          - paragraph [ref=e539]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+        - generic [ref=e540]:
+          - heading "Quick Links" [level=3] [ref=e541]
+          - list [ref=e542]:
+            - listitem [ref=e543]:
+              - link "Home" [ref=e544] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e545]:
+              - link "Hotels" [ref=e546] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e547]:
+              - link "About Us" [ref=e548] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e549]:
+              - link "Contact" [ref=e550] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e551]:
+          - heading "Support" [level=3] [ref=e552]
+          - list [ref=e553]:
+            - listitem [ref=e554]:
+              - link "Help Center" [ref=e555] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e556]:
+              - link "Cancellation Policy" [ref=e557] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e558]:
+              - link "Privacy Policy" [ref=e559] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e560]:
+              - link "Terms of Service" [ref=e561] [cursor=pointer]:
+                - /url: /
+        - generic [ref=e562]:
+          - heading "Contact" [level=3] [ref=e563]
+          - list [ref=e564]:
+            - listitem [ref=e565]:
+              - link "+234 800 123 4567" [ref=e566] [cursor=pointer]:
+                - /url: /
+                - img [ref=e567]
+                - text: +234 800 123 4567
+            - listitem [ref=e569]:
+              - link "hello@ewainehotels.com" [ref=e570] [cursor=pointer]:
+                - /url: /
+                - img [ref=e571]
+                - text: hello@ewainehotels.com
+            - listitem [ref=e574]:
+              - link "Lagos, Nigeria" [ref=e575] [cursor=pointer]:
+                - /url: /
+                - img [ref=e576]
+                - text: Lagos, Nigeria
+      - generic [ref=e579]:
+        - paragraph [ref=e580]: © 2026 EwaineHotels. All rights reserved.
+        - generic [ref=e581]:
+          - link "Twitter" [ref=e582] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e583] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=e584] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=e585] [cursor=pointer]:
+            - /url: "#"

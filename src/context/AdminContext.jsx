@@ -1,141 +1,207 @@
 import { createContext, useContext, useState, useCallback } from "react";
-import { getHotels, saveHotels } from "../data/hotelStore";
-
-const AUTH_KEY = "ewaine-admin-auth";
-const BOOKINGS_KEY = "ewaine-bookings";
+import {
+  login as apiLogin,
+  getHotels,
+  createHotel,
+  updateHotel,
+  deleteHotel,
+  getBookings,
+  createBooking,
+  updateBookingStatus,
+  getTestimonials,
+  createTestimonial,
+  updateTestimonial,
+  deleteTestimonial,
+  getSettings,
+  updateSettings,
+  getBlogPosts,
+  createBlogPost,
+  updateBlogPost,
+  deleteBlogPost,
+  setToken,
+  getToken,
+} from "../services/api";
 
 const AdminContext = createContext(null);
 
-function loadStoredAuth() {
-  try {
-    const raw = localStorage.getItem(AUTH_KEY);
-    if (!raw) return null;
-    const data = JSON.parse(raw);
-    if (data.expiresAt > Date.now()) return data;
-    localStorage.removeItem(AUTH_KEY);
-  } catch {
-    /* ignore */
-  }
-  return null;
-}
-
-function loadStoredBookings() {
-  try {
-    const raw = localStorage.getItem(BOOKINGS_KEY);
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    /* ignore */
-  }
-  return [];
-}
-
-function saveBookings(data) {
-  try {
-    localStorage.setItem(BOOKINGS_KEY, JSON.stringify(data));
-  } catch {
-    /* ignore */
-  }
-}
-
 export function AdminProvider({ children }) {
-  const initAuth = loadStoredAuth();
-  const [isAuthenticated, setIsAuthenticated] = useState(!!initAuth);
-  const [adminUser, setAdminUser] = useState(initAuth);
-  const [hotels, setHotels] = useState(() => getHotels());
-  const [bookings, setBookings] = useState(() => loadStoredBookings());
+  const [isAuthenticated, setIsAuthenticated] = useState(!!getToken());
+  const [adminUser, setAdminUser] = useState(() => {
+    const token = getToken();
+    return token ? { token } : null;
+  });
+  const [hotels, setHotels] = useState([]);
+  const [bookings, setBookings] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [whatsapp, setWhatsapp] = useState("");
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const login = useCallback((email, password) => {
-    if (email !== "admin@ewaine.com" || password !== "admin123") return false;
-    const data = {
-      email,
-      loggedInAt: Date.now(),
-      expiresAt: Date.now() + 24 * 60 * 60 * 1000,
-    };
+  const login = useCallback(async (email, password) => {
     try {
-      localStorage.setItem(AUTH_KEY, JSON.stringify(data));
+      const data = await apiLogin(email, password);
+      setToken(data.token);
+      setIsAuthenticated(true);
+      setAdminUser({ token: data.token, email: data.email });
+      return true;
     } catch {
-      /* ignore */
+      return false;
     }
-    setIsAuthenticated(true);
-    setAdminUser(data);
-    return true;
   }, []);
 
   const logout = useCallback(() => {
-    try {
-      localStorage.removeItem(AUTH_KEY);
-    } catch {
-      /* ignore */
-    }
+    setToken(null);
     setIsAuthenticated(false);
     setAdminUser(null);
+    setHotels([]);
+    setBookings([]);
+    setTestimonials([]);
+    setWhatsapp("");
+    setBlogPosts([]);
   }, []);
 
-  const refreshHotels = useCallback(() => {
-    setHotels([...getHotels()]);
+  const refreshHotels = useCallback(async () => {
+    try {
+      const data = await getHotels();
+      setHotels(data);
+    } catch {}
   }, []);
 
-  const addHotel = useCallback((hotel) => {
-    const all = getHotels();
-    const maxId = all.reduce((max, h) => Math.max(max, h.id), 0);
-    const newHotel = {
-      ...hotel,
-      id: maxId + 1,
-      slug: hotel.name.toLowerCase().replace(/\s+/g, "-"),
-      reviews: 0,
-      latitude: 0,
-      longitude: 0,
-    };
-    all.push(newHotel);
-    saveHotels(all);
-    setHotels([...all]);
-    return newHotel;
+  const refreshBookings = useCallback(async () => {
+    try {
+      const data = await getBookings();
+      setBookings(data);
+    } catch {}
   }, []);
 
-  const updateHotel = useCallback((id, updates) => {
-    const all = getHotels();
-    const idx = all.findIndex((h) => h.id === id);
-    if (idx === -1) return false;
-    all[idx] = { ...all[idx], ...updates };
-    saveHotels(all);
-    setHotels([...all]);
-    return true;
+  const refreshTestimonials = useCallback(async () => {
+    try {
+      const data = await getTestimonials();
+      setTestimonials(data);
+    } catch {}
   }, []);
 
-  const deleteHotel = useCallback((id) => {
-    const all = getHotels().filter((h) => h.id !== id);
-    saveHotels(all);
-    setHotels(all);
+  const addHotel = useCallback(async (hotel) => {
+    try {
+      const created = await createHotel(hotel);
+      setHotels((prev) => [...prev, created]);
+      return created;
+    } catch {
+      return null;
+    }
   }, []);
 
-  const addBooking = useCallback(
-    (booking) => {
-      const newBooking = {
-        ...booking,
-        id: Date.now(),
-        status: "pending",
-        createdAt: new Date().toISOString(),
-      };
-      const all = [...bookings, newBooking];
-      setBookings(all);
-      saveBookings(all);
-      return newBooking;
-    },
-    [bookings]
-  );
+  const updateHotelCtx = useCallback(async (id, updates) => {
+    try {
+      const updated = await updateHotel(id, updates);
+      setHotels((prev) => prev.map((h) => (h.id === id ? updated : h)));
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
 
-  const updateBookingStatus = useCallback(
-    (id, status) => {
-      const all = bookings.map((b) =>
-        b.id === id ? { ...b, status } : b
-      );
-      setBookings(all);
-      saveBookings(all);
-    },
-    [bookings]
-  );
+  const deleteHotelCtx = useCallback(async (id) => {
+    try {
+      await deleteHotel(id);
+      setHotels((prev) => prev.filter((h) => h.id !== id));
+    } catch {}
+  }, []);
+
+  const addBooking = useCallback(async (booking) => {
+    try {
+      const created = await createBooking(booking);
+      setBookings((prev) => [...prev, created]);
+      return created;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const updateBookingStatusCtx = useCallback(async (id, status) => {
+    try {
+      const updated = await updateBookingStatus(id, status);
+      setBookings((prev) => prev.map((b) => (b.id === id ? updated : b)));
+    } catch {}
+  }, []);
+
+  const addTestimonial = useCallback(async (data) => {
+    try {
+      const created = await createTestimonial(data);
+      setTestimonials((prev) => [...prev, created]);
+      return created;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const updateTestimonialCtx = useCallback(async (id, data) => {
+    try {
+      const updated = await updateTestimonial(id, data);
+      setTestimonials((prev) => prev.map((t) => (t.id === id ? updated : t)));
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const deleteTestimonialCtx = useCallback(async (id) => {
+    try {
+      await deleteTestimonial(id);
+      setTestimonials((prev) => prev.filter((t) => t.id !== id));
+    } catch {}
+  }, []);
+
+  const refreshSettings = useCallback(async () => {
+    try {
+      const data = await getSettings();
+      setWhatsapp(data.whatsapp || "");
+    } catch {}
+  }, []);
+
+  const updateWhatsApp = useCallback(async (number) => {
+    try {
+      const data = await updateSettings(number);
+      setWhatsapp(data.whatsapp || "");
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const refreshBlogPosts = useCallback(async () => {
+    try {
+      const data = await getBlogPosts(true);
+      setBlogPosts(data || []);
+    } catch {}
+  }, []);
+
+  const addBlogPost = useCallback(async (data) => {
+    try {
+      const created = await createBlogPost(data);
+      setBlogPosts((prev) => [created, ...prev]);
+      return created;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const updateBlogPostCtx = useCallback(async (id, data) => {
+    try {
+      const updated = await updateBlogPost(id, data);
+      setBlogPosts((prev) => prev.map((p) => (p.id === id ? updated : p)));
+      return true;
+    } catch {
+      return false;
+    }
+  }, []);
+
+  const deleteBlogPostCtx = useCallback(async (id) => {
+    try {
+      await deleteBlogPost(id);
+      setBlogPosts((prev) => prev.filter((p) => p.id !== id));
+    } catch {}
+  }, []);
 
   const getRevenue = useCallback(() => {
     return bookings
@@ -148,17 +214,31 @@ export function AdminProvider({ children }) {
       value={{
         isAuthenticated,
         adminUser,
-        loading: false,
+        loading,
         login,
         logout,
         hotels,
         refreshHotels,
         addHotel,
-        updateHotel,
-        deleteHotel,
+        updateHotel: updateHotelCtx,
+        deleteHotel: deleteHotelCtx,
         bookings,
+        refreshBookings,
         addBooking,
-        updateBookingStatus,
+        updateBookingStatus: updateBookingStatusCtx,
+        testimonials,
+        whatsapp,
+        refreshSettings,
+        updateWhatsApp,
+        blogPosts,
+        refreshBlogPosts,
+        addBlogPost,
+        updateBlogPost: updateBlogPostCtx,
+        deleteBlogPost: deleteBlogPostCtx,
+        refreshTestimonials,
+        addTestimonial,
+        updateTestimonial: updateTestimonialCtx,
+        deleteTestimonial: deleteTestimonialCtx,
         getRevenue,
       }}
     >

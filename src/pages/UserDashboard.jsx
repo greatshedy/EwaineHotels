@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   User, Mail, Phone, CalendarCheck, DollarSign, TrendingUp,
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import { useUser } from "../context/UserContext";
 import { useFavorites } from "../context/FavoritesContext";
 import { useRecentlyViewed } from "../context/RecentlyViewedContext";
+import { getBookings } from "../services/api";
 
 const statusColors = {
   pending: "bg-secondary/10 text-secondary",
@@ -17,7 +18,8 @@ const statusColors = {
 };
 
 export default function UserDashboard() {
-  const { profile, saveProfile, clearProfile } = useUser();
+  const { profile, saveProfile, clearProfile, logout } = useUser();
+  const navigate = useNavigate();
   const { favorites } = useFavorites();
   const { recent } = useRecentlyViewed();
 
@@ -25,17 +27,19 @@ export default function UserDashboard() {
   const [name, setName] = useState(profile?.name || "");
   const [email, setEmail] = useState(profile?.email || "");
   const [phone, setPhone] = useState(profile?.phone || "");
+  const [bookings, setBookings] = useState([]);
+  const [bookingsLoading, setBookingsLoading] = useState(false);
 
-  const bookings = useMemo(() => {
-    if (!profile?.email) return [];
-    try {
-      const all = JSON.parse(localStorage.getItem("ewaine-bookings") || "[]");
-      return Array.isArray(all)
-        ? all.filter((b) => b.guestEmail === profile.email)
-        : [];
-    } catch {
-      return [];
+  useEffect(() => {
+    if (!profile?.email) {
+      setBookings([]);
+      return;
     }
+    setBookingsLoading(true);
+    getBookings(profile.email)
+      .then((data) => setBookings(data || []))
+      .catch(() => setBookings([]))
+      .finally(() => setBookingsLoading(false));
   }, [profile]);
 
   const totalSpent = bookings
@@ -64,6 +68,16 @@ export default function UserDashboard() {
     setPhone("");
     setEditing(true);
     toast.success("Profile cleared");
+  };
+
+  const handleLogout = () => {
+    logout();
+    setName("");
+    setEmail("");
+    setPhone("");
+    setEditing(true);
+    toast.success("Logged out");
+    navigate("/");
   };
 
   const statCards = [
@@ -225,9 +239,9 @@ export default function UserDashboard() {
                     <Edit3 className="w-4 h-4" />
                   </button>
                   <button
-                    onClick={handleClearProfile}
+                    onClick={handleLogout}
                     className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors"
-                    title="Clear profile"
+                    title="Logout"
                   >
                     <LogOut className="w-4 h-4" />
                   </button>
@@ -275,7 +289,11 @@ export default function UserDashboard() {
             )}
           </div>
 
-          {!profile ? (
+          {bookingsLoading ? (
+            <div className="flex items-center justify-center py-10">
+              <div className="w-6 h-6 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : !profile ? (
             <div className="text-center py-10">
               <CalendarCheck className="w-12 h-12 text-text-secondary/30 mx-auto mb-3" />
               <p className="text-text-secondary">

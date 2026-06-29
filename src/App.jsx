@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
 import { AdminProvider } from "./context/AdminContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -18,6 +19,11 @@ const AdminLayout = lazy(() => import("./components/layout/AdminLayout"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminHotels = lazy(() => import("./pages/admin/AdminHotels"));
 const AdminBookings = lazy(() => import("./pages/admin/AdminBookings"));
+const AdminTestimonials = lazy(() => import("./pages/admin/AdminTestimonials"));
+const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
+const AdminBlog = lazy(() => import("./pages/admin/AdminBlog"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 function PageLoader() {
   return (
@@ -29,7 +35,9 @@ function PageLoader() {
 
 export default function App() {
   return (
-    <Suspense fallback={<PageLoader />}>
+    <>
+      <ScrollToTop />
+      <Suspense fallback={<PageLoader />}>
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
@@ -37,6 +45,8 @@ export default function App() {
           <Route path="hotels" element={<Hotels />} />
           <Route path="hotel/:id" element={<HotelDetails />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="dashboard" element={<UserDashboard />} />
         </Route>
@@ -51,11 +61,15 @@ export default function App() {
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="hotels" element={<AdminHotels />} />
             <Route path="bookings" element={<AdminBookings />} />
+          <Route path="testimonials" element={<AdminTestimonials />} />
+          <Route path="settings" element={<AdminSettings />} />
+          <Route path="blog" element={<AdminBlog />} />
           </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
+    </>
   );
 }

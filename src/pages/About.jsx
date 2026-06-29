@@ -1,7 +1,8 @@
-﻿import { motion } from "framer-motion";
+﻿import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BadgeCheck, Target, Eye, Heart, Award, Users, Building2, MapPin } from "lucide-react";
-import teamData from "../data/team.json";
+import { getTeam } from "../services/api";
 import Button from "../components/Button";
 
 const fadeUp = { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
@@ -30,6 +31,13 @@ const timeline = [
 ];
 
 export default function About() {
+  const [team, setTeam] = useState([]);
+
+  useEffect(() => {
+    getTeam()
+      .then((data) => setTeam(data || []))
+      .catch(() => {});
+  }, []);
   return (
     <div>
       {/* Hero */}
@@ -105,7 +113,7 @@ export default function About() {
       <section className="py-20 max-w-7xl mx-auto px-4">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-center mb-12">Meet the Team</motion.h2>
         <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {teamData.map((t) => (
+          {team.map((t) => (
             <motion.div key={t.id} variants={fadeUp} className="glass rounded-2xl p-6 text-center">
               <img src={t.avatar} alt={t.name} className="w-20 h-20 rounded-full mx-auto mb-4 object-cover" />
               <h3 className="font-bold text-lg">{t.name}</h3>

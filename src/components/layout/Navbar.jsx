@@ -1,12 +1,14 @@
 ﻿import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Moon, Sun, Heart, Hotel, Shield } from "lucide-react";
+import { Menu, X, Moon, Sun, Heart, Shield } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { useFavorites } from "../../context/FavoritesContext";
+import logo from "../../assets/ewainehotel.png";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/hotels", label: "Hotels" },
+  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
   { to: "/dashboard", label: "Dashboard" },
@@ -21,9 +23,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 glass border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-            <Hotel className="w-6 h-6 text-primary" />
-            <span className="text-gradient">EwaineHotels</span>
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="EwaineHotels" className="h-16 w-auto" />
           </Link>
 
           <div className="hidden md:flex items-center gap-6">

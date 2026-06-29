@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { registerUser, loginUser, getProfile, updateProfile, setUserToken, getUserToken } from "../services/api";
 
 const PROFILE_KEY = "ewaine-user-profile";
 
@@ -15,27 +16,72 @@ function loadProfile() {
 
 export function UserProvider({ children }) {
   const [profile, setProfile] = useState(loadProfile);
+  const [loading, setLoading] = useState(!!getUserToken());
 
-  const saveProfile = (data) => {
-    setProfile(data);
-    try {
-      localStorage.setItem(PROFILE_KEY, JSON.stringify(data));
-    } catch {
-      /* ignore */
+  useEffect(() => {
+    const token = getUserToken();
+    if (!token) {
+      setLoading(false);
+      return;
     }
-  };
+    getProfile()
+      .then((data) => {
+        setProfile(data);
+        try { localStorage.setItem(PROFILE_KEY, JSON.stringify(data)); } catch {}
+      })
+      .catch(() => {
+        setUserToken(null);
+        setProfile(null);
+        localStorage.removeItem(PROFILE_KEY);
+      })
+      .finally(() => setLoading(false));
+  }, []);
 
-  const clearProfile = () => {
+  const register = useCallback(async (name, email, password) => {
+    const data = await registerUser(name, email, password);
+    setUserToken(data.token);
+    const p = { email: data.email, name: data.name, phone: "" };
+    setProfile(p);
+    try { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch {}
+    return data;
+  }, []);
+
+  const login = useCallback(async (email, password) => {
+    const data = await loginUser(email, password);
+    setUserToken(data.token);
+    const p = { email: data.email, name: data.name, phone: "" };
+    setProfile(p);
+    try { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch {}
+    return data;
+  }, []);
+
+  const logout = useCallback(() => {
+    setUserToken(null);
     setProfile(null);
-    try {
-      localStorage.removeItem(PROFILE_KEY);
-    } catch {
-      /* ignore */
+    localStorage.removeItem(PROFILE_KEY);
+  }, []);
+
+  const saveProfile = useCallback(async (data) => {
+    const token = getUserToken();
+    if (token) {
+      try {
+        const updated = await updateProfile(data);
+        setProfile(updated);
+        try { localStorage.setItem(PROFILE_KEY, JSON.stringify(updated)); } catch {}
+        return;
+      } catch {}
     }
-  };
+    setProfile(data);
+    try { localStorage.setItem(PROFILE_KEY, JSON.stringify(data)); } catch {}
+  }, []);
+
+  const clearProfile = useCallback(() => {
+    setProfile(null);
+    try { localStorage.removeItem(PROFILE_KEY); } catch {}
+  }, []);
 
   return (
-    <UserContext.Provider value={{ profile, saveProfile, clearProfile }}>
+    <UserContext.Provider value={{ profile, loading, register, login, logout, saveProfile, clearProfile }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,0 +1,210 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "EwaineHotels" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img [ref=e10]
+        - generic [ref=e13]: EwaineHotels
+      - generic [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: /
+        - link "Hotels" [ref=e16] [cursor=pointer]:
+          - /url: /hotels
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /favorites
+          - img [ref=e21]
+        - link "Admin" [ref=e23] [cursor=pointer]:
+          - /url: /ewaine-admin
+          - img [ref=e24]
+          - text: Admin
+        - button "Toggle dark mode" [ref=e26]:
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e762]:
+      - navigation [ref=e763]:
+        - link "Home" [ref=e764] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e765]: /
+        - link "Hotels" [ref=e766] [cursor=pointer]:
+          - /url: /hotels
+        - generic [ref=e767]: /
+        - generic [ref=e768]: Caritas Inn Lekki
+      - generic [ref=e769]:
+        - generic [ref=e770]:
+          - generic [ref=e771]:
+            - img "Caritas Inn Lekki" [ref=e772]
+            - button [ref=e773]:
+              - img [ref=e774]
+            - button [ref=e776]:
+              - img [ref=e777]
+            - generic [ref=e779]:
+              - button [ref=e780]
+              - button [ref=e781]
+              - button [ref=e782]
+              - button [ref=e783]
+              - button [ref=e784]
+              - button [ref=e785]
+              - button [ref=e786]
+              - button [ref=e787]
+              - button [ref=e788]
+              - button [ref=e789]
+          - generic [ref=e790]:
+            - button [ref=e791]
+            - button [ref=e792]
+            - button [ref=e793]
+            - button [ref=e794]
+            - button [ref=e795]
+            - button [ref=e796]
+            - button [ref=e797]
+            - button [ref=e798]
+            - button [ref=e799]
+            - button [ref=e800]
+          - generic [ref=e801]:
+            - heading "Caritas Inn Lekki" [level=1] [ref=e802]
+            - generic [ref=e803]:
+              - generic [ref=e804]:
+                - img [ref=e805]
+                - text: 3 Ibiyinka Salvador Street, Lekki Phase 1, Lagos 101222 Nigeria
+              - generic [ref=e808]:
+                - img [ref=e809]
+                - text: 4 (4 reviews)
+              - generic [ref=e811]: via Booking.com
+            - paragraph [ref=e812]: "#2 of 9 inns in Lagos"
+            - paragraph
+          - generic [ref=e813]:
+            - generic [ref=e814]: Luxury
+            - generic [ref=e815]: Quaint
+          - generic [ref=e816]:
+            - heading "Amenities" [level=2] [ref=e817]
+            - generic [ref=e818]:
+              - generic [ref=e819]:
+                - img [ref=e820]
+                - generic [ref=e822]: Free parking
+              - generic [ref=e823]:
+                - img [ref=e824]
+                - generic [ref=e826]: Pool
+              - generic [ref=e827]:
+                - img [ref=e828]
+                - generic [ref=e830]: Bar / lounge
+              - generic [ref=e831]:
+                - img [ref=e832]
+                - generic [ref=e834]: 24-hour security
+          - generic [ref=e835]:
+            - heading "Location" [level=2] [ref=e836]
+            - generic [ref=e838]:
+              - img [ref=e839]
+              - paragraph [ref=e842]: 3 Ibiyinka Salvador Street, Lekki Phase 1, Lagos 101222 Nigeria
+              - paragraph [ref=e843]: "Lat: 6.451218, Lng: 3.397282"
+          - generic [ref=e844]:
+            - heading "Guest Reviews" [level=2] [ref=e845]
+            - generic [ref=e846]:
+              - generic [ref=e847]:
+                - generic [ref=e849]:
+                  - paragraph [ref=e850]: 1 contribution
+                  - paragraph [ref=e851]: Written 16/05/26
+                - paragraph [ref=e852]: Flawless stay
+                - paragraph [ref=e853]: "Just spent 3 nights at caritas inn lekkj and honestly, it exceeded expectations.<br /><br />*Room &amp; Comfort*: The room was spotless, modern, and way quieter than I expected for a downtown spot. Bed was cloud-level comfy, AC worked perfectly, and the blackout curtains actually meant blackout.<br /><br />*Service*: Staff were genuinely friendly without being over the top. Front desk sorted my late check-in in 2 minutes and the housekeeping team was discreet and thorough. Felt taken care of the whole time."
+              - generic [ref=e854]:
+                - generic [ref=e856]:
+                  - paragraph [ref=e857]: 2 contributions
+                  - paragraph [ref=e858]: Written 16/06/25
+                - paragraph [ref=e859]: Great place
+                - paragraph [ref=e860]: Actually came with a friend to have a drink at the up bar then I decided to walk around and fallen in love with the environment and some rooms I was shown I ended up lodging.. it's a great place to be. Quiet, friendly staffs and 24 hours light.. I'll give it a 4star
+              - generic [ref=e861]:
+                - generic [ref=e863]:
+                  - paragraph [ref=e864]: 1 contribution
+                  - paragraph [ref=e865]: Written 14/10/24
+                - paragraph [ref=e866]: Great value for money paid.
+                - paragraph [ref=e867]: I stayed for 3 nights with my wife.<br />My wife loves sitting at the restaurant, where they have beautifully selected love music playing softly.<br />I didn't get Internet at the lounge though, was forced to stay at the restaurant area with wifey, Win win for her 😊 <br /> Lovely fragrance, beautiful room, courteous staff.
+        - generic [ref=e869]:
+          - generic [ref=e870]:
+            - generic [ref=e871]:
+              - generic [ref=e872]: $47
+              - text: / night
+              - paragraph [ref=e873]: via Booking.com
+            - generic [ref=e874]:
+              - paragraph [ref=e875]: This hotel is listed on TripAdvisor. Visit their site to book.
+              - link "View on TripAdvisor" [ref=e876] [cursor=pointer]:
+                - /url: https://www.tripadvisor.in/Commerce?p=BookingCom&src=265829631&geo=25300361&from=HotelDateSearch_Hotels&slot=1&matchID=1&oos=0&cnt=1&silo=47212&bucket=995258&nrank=1&crank=1&clt=SLMM&ttype=SponsoredMobileMeta&tm=360933812&managed=false&capped=false&gosox=h6AByGnXUFMbqZCCOXD4nB-B2b8gKreL9QyU3vVUYsBPfrjPhLjTmfvylGwS-2LkvmQgC3jTLLFCP2k4Mq4Vq96_4l5HfSG4gPEGtprYcc0cFIGlJ2M-yFbtR5AvN87upvkJ5VDLAqwwReL4Q4MFyJvDoiG9Z0Xe1LNTx28tZIrWU411ZiBQMfpivU77Yet8a9Gv43yUaaEMQgi9pCt1UvBxasIDu_nq0Pl3kGJPhpU_pXAhltliwfBQZwVFHtqDojuYeWMmh70ZailXzpjZFQ&priceShown=46.9100&pm=AI&hac=AVAILABLE&mbl=MEET&mbldelta=0&rq=ML&rate=42.65&taxesRate=4.2600&feesRate=0&fees=4.2600&cur=USD&adults=1&child_rm_ages=&inDay=9&outDay=12&rdex=RDEX_1e9f2052831dae4b61652e168209936e&rooms=1&inMonth=6&inYear=2026&outMonth=6&outYear=2026&auid=c966e5fa-a3d2-45f3-b97d-2e6c1611e731&def_d=true&bld=L_3,D_0,G_1,W_2,U_1,C_260609,T_18&bh=true&cs=1334b57fc6ad9b691d342f5d6916cb271&ik=3ebc2c4e16684a6a88bc3fbb51555a87&aok=051105a18b5a4bcbaf7b1305bf6dda58&tp=APS-Hotels&pageLocId=304026&area=Spons%7CSpons_Meta_Pref
+                - text: View on TripAdvisor
+                - img [ref=e877]
+          - generic [ref=e881]:
+            - heading "Hotel Policies" [level=3] [ref=e882]
+            - list [ref=e883]:
+              - listitem [ref=e884]: "Check-in: 2:00 PM - 11:00 PM"
+              - listitem [ref=e885]: "Check-out: 11:00 AM"
+              - listitem [ref=e886]: Free cancellation up to 24 hours before
+  - contentinfo [ref=e45]:
+    - generic [ref=e46]:
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - link "EwaineHotels" [ref=e49] [cursor=pointer]:
+            - /url: /
+            - img [ref=e50]
+            - generic [ref=e53]: EwaineHotels
+          - paragraph [ref=e54]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+        - generic [ref=e55]:
+          - heading "Quick Links" [level=3] [ref=e56]
+          - list [ref=e57]:
+            - listitem [ref=e58]:
+              - link "Home" [ref=e59] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e60]:
+              - link "Hotels" [ref=e61] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e62]:
+              - link "About Us" [ref=e63] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e64]:
+              - link "Contact" [ref=e65] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e66]:
+          - heading "Support" [level=3] [ref=e67]
+          - list [ref=e68]:
+            - listitem [ref=e69]:
+              - link "Help Center" [ref=e70] [cursor=pointer]:
+                - /url: /hotel/25300361
+            - listitem [ref=e71]:
+              - link "Cancellation Policy" [ref=e72] [cursor=pointer]:
+                - /url: /hotel/25300361
+            - listitem [ref=e73]:
+              - link "Privacy Policy" [ref=e74] [cursor=pointer]:
+                - /url: /hotel/25300361
+            - listitem [ref=e75]:
+              - link "Terms of Service" [ref=e76] [cursor=pointer]:
+                - /url: /hotel/25300361
+        - generic [ref=e77]:
+          - heading "Contact" [level=3] [ref=e78]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - link "+234 800 123 4567" [ref=e81] [cursor=pointer]:
+                - /url: /hotel/25300361
+                - img [ref=e82]
+                - text: +234 800 123 4567
+            - listitem [ref=e84]:
+              - link "hello@ewainehotels.com" [ref=e85] [cursor=pointer]:
+                - /url: /hotel/25300361
+                - img [ref=e86]
+                - text: hello@ewainehotels.com
+            - listitem [ref=e89]:
+              - link "Lagos, Nigeria" [ref=e90] [cursor=pointer]:
+                - /url: /hotel/25300361
+                - img [ref=e91]
+                - text: Lagos, Nigeria
+      - generic [ref=e94]:
+        - paragraph [ref=e95]: © 2026 EwaineHotels. All rights reserved.
+        - generic [ref=e96]:
+          - link "Twitter" [ref=e97] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e98] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=e99] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=e100] [cursor=pointer]:
+            - /url: "#"

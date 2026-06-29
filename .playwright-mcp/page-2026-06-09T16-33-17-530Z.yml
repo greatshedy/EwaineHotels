@@ -1,0 +1,111 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "EwaineHotels" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img [ref=e10]
+        - generic [ref=e13]: EwaineHotels
+      - generic [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: /
+        - link "Hotels" [ref=e16] [cursor=pointer]:
+          - /url: /hotels
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /favorites
+          - img [ref=e21]
+        - link "Admin" [ref=e23] [cursor=pointer]:
+          - /url: /ewaine-admin
+          - img [ref=e24]
+          - text: Admin
+        - button "Toggle dark mode" [ref=e26]:
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "TripAdvisor Results" [level=1] [ref=e33]
+          - paragraph
+        - generic [ref=e35]:
+          - button "Our Hotels" [ref=e36]
+          - button "TripAdvisor" [active] [ref=e37]:
+            - img [ref=e38]
+            - text: TripAdvisor
+      - generic [ref=e43]:
+        - img [ref=e44]
+        - heading "No TripAdvisor results" [level=3] [ref=e47]
+        - paragraph [ref=e48]: Try searching for a different destination.
+        - button "Back to Our Hotels" [ref=e49]
+  - contentinfo [ref=e50]:
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - link "EwaineHotels" [ref=e54] [cursor=pointer]:
+            - /url: /
+            - img [ref=e55]
+            - generic [ref=e58]: EwaineHotels
+          - paragraph [ref=e59]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+        - generic [ref=e60]:
+          - heading "Quick Links" [level=3] [ref=e61]
+          - list [ref=e62]:
+            - listitem [ref=e63]:
+              - link "Home" [ref=e64] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e65]:
+              - link "Hotels" [ref=e66] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e67]:
+              - link "About Us" [ref=e68] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e69]:
+              - link "Contact" [ref=e70] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e71]:
+          - heading "Support" [level=3] [ref=e72]
+          - list [ref=e73]:
+            - listitem [ref=e74]:
+              - link "Help Center" [ref=e75] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e76]:
+              - link "Cancellation Policy" [ref=e77] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e78]:
+              - link "Privacy Policy" [ref=e79] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e80]:
+              - link "Terms of Service" [ref=e81] [cursor=pointer]:
+                - /url: /hotels
+        - generic [ref=e82]:
+          - heading "Contact" [level=3] [ref=e83]
+          - list [ref=e84]:
+            - listitem [ref=e85]:
+              - link "+234 800 123 4567" [ref=e86] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e87]
+                - text: +234 800 123 4567
+            - listitem [ref=e89]:
+              - link "hello@ewainehotels.com" [ref=e90] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e91]
+                - text: hello@ewainehotels.com
+            - listitem [ref=e94]:
+              - link "Lagos, Nigeria" [ref=e95] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e96]
+                - text: Lagos, Nigeria
+      - generic [ref=e99]:
+        - paragraph [ref=e100]: © 2026 EwaineHotels. All rights reserved.
+        - generic [ref=e101]:
+          - link "Twitter" [ref=e102] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e103] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=e104] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=e105] [cursor=pointer]:
+            - /url: "#"

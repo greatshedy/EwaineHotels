@@ -1,8 +1,0 @@
-﻿[
-  {"id":1,"name":"Lagos","country":"Nigeria","count":156,"image":"https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600"},
-  {"id":2,"name":"Abuja","country":"Nigeria","count":89,"image":"https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600"},
-  {"id":3,"name":"Port Harcourt","country":"Nigeria","count":45,"image":"https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600"},
-  {"id":4,"name":"Accra","country":"Ghana","count":72,"image":"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600"},
-  {"id":5,"name":"Nairobi","country":"Kenya","count":94,"image":"https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600"},
-  {"id":6,"name":"Cape Town","country":"South Africa","count":118,"image":"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600"}
-]

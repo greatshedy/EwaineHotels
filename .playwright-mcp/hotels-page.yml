@@ -1,0 +1,397 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - link "EwaineHotels" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img [ref=e10]
+        - generic [ref=e13]: EwaineHotels
+      - generic [ref=e14]:
+        - link "Home" [ref=e15] [cursor=pointer]:
+          - /url: /
+        - link "Hotels" [ref=e16] [cursor=pointer]:
+          - /url: /hotels
+        - link "About" [ref=e17] [cursor=pointer]:
+          - /url: /about
+        - link "Contact" [ref=e18] [cursor=pointer]:
+          - /url: /contact
+        - link "Dashboard" [ref=e19] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=e20] [cursor=pointer]:
+          - /url: /favorites
+          - img [ref=e21]
+        - link "Admin" [ref=e23] [cursor=pointer]:
+          - /url: /ewaine-admin
+          - img [ref=e24]
+          - text: Admin
+        - button "Toggle dark mode" [ref=e26]:
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "Hotels" [level=1] [ref=e33]
+          - paragraph [ref=e34]: 6 properties found
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - button "Our Hotels" [ref=e37]
+            - button "TripAdvisor" [ref=e38]:
+              - img [ref=e39]
+              - text: TripAdvisor
+          - generic [ref=e42]:
+            - button "Grid view" [ref=e43]:
+              - img [ref=e44]
+            - button "List view" [ref=e46]:
+              - img [ref=e47]
+          - combobox [ref=e48]:
+            - option "Sort by" [selected]
+            - 'option "Price: Low to High"'
+            - 'option "Price: High to Low"'
+            - option "Rating"
+            - option "Name"
+      - generic [ref=e49]:
+        - complementary [ref=e50]:
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - generic [ref=e54]: Search
+              - generic [ref=e55]:
+                - img [ref=e56]
+                - textbox "Hotel name..." [ref=e59]: Lagos
+            - generic [ref=e60]:
+              - generic [ref=e61]: Location
+              - generic [ref=e62]:
+                - img [ref=e63]
+                - combobox [ref=e66]:
+                  - option "All Cities" [selected]
+                  - option "Abuja"
+                  - option "Accra"
+                  - option "Cape Town"
+                  - option "Lagos"
+                  - option "Nairobi"
+                  - option "Port Harcourt"
+            - generic [ref=e67]:
+              - generic [ref=e68]: Price Range
+              - generic [ref=e69]:
+                - spinbutton [ref=e70]
+                - spinbutton [ref=e71]
+            - generic [ref=e72]:
+              - generic [ref=e73]: Minimum Rating
+              - combobox [ref=e74]:
+                - option "Any Rating" [selected]
+                - option "4.5+ Stars"
+                - option "4+ Stars"
+                - option "3.5+ Stars"
+                - option "3+ Stars"
+            - generic [ref=e75]:
+              - generic [ref=e76]: Amenities
+              - generic [ref=e77]:
+                - generic [ref=e78] [cursor=pointer]:
+                  - checkbox "Swimming Pool" [ref=e79]
+                  - text: Swimming Pool
+                - generic [ref=e80] [cursor=pointer]:
+                  - checkbox "WiFi" [ref=e81]
+                  - text: WiFi
+                - generic [ref=e82] [cursor=pointer]:
+                  - checkbox "Restaurant" [ref=e83]
+                  - text: Restaurant
+                - generic [ref=e84] [cursor=pointer]:
+                  - checkbox "Gym" [ref=e85]
+                  - text: Gym
+                - generic [ref=e86] [cursor=pointer]:
+                  - checkbox "Parking" [ref=e87]
+                  - text: Parking
+                - generic [ref=e88] [cursor=pointer]:
+                  - checkbox "Pet Friendly" [ref=e89]
+                  - text: Pet Friendly
+                - generic [ref=e90] [cursor=pointer]:
+                  - checkbox "Air Conditioning" [ref=e91]
+                  - text: Air Conditioning
+                - generic [ref=e92] [cursor=pointer]:
+                  - checkbox "Free Breakfast" [ref=e93]
+                  - text: Free Breakfast
+            - button "Clear all filters" [ref=e94]
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - link "Eko Atlantic Suites Featured 2 Photos" [ref=e98] [cursor=pointer]:
+              - /url: /hotel/1
+              - img "Eko Atlantic Suites" [ref=e99]
+              - generic [ref=e101]: Featured
+              - generic [ref=e102]: 2 Photos
+            - generic [ref=e103]:
+              - generic [ref=e104]:
+                - generic [ref=e105]:
+                  - link "Eko Atlantic Suites" [ref=e106] [cursor=pointer]:
+                    - /url: /hotel/1
+                  - generic [ref=e107]:
+                    - img [ref=e108]
+                    - generic [ref=e111]: Lagos, Lagos
+                - button "Add to favorites" [ref=e112]:
+                  - img [ref=e113]
+              - generic [ref=e115]:
+                - img [ref=e116]
+                - generic [ref=e118]: "4.8"
+                - generic [ref=e119]: (342 reviews)
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - img [ref=e122]
+                  - text: Swimming Pool
+                - generic [ref=e126]:
+                  - img [ref=e127]
+                  - text: WiFi
+                - generic [ref=e131]: Restaurant
+                - generic [ref=e132]:
+                  - img [ref=e133]
+                  - text: Gym
+              - generic [ref=e139]:
+                - generic [ref=e140]:
+                  - generic [ref=e141]: $450
+                  - text: / night
+                - link "Book Now" [ref=e142] [cursor=pointer]:
+                  - /url: /hotel/1
+          - generic [ref=e143]:
+            - link "Wheatbaker Hotel Lagos 2 Photos" [ref=e144] [cursor=pointer]:
+              - /url: /hotel/7
+              - img "Wheatbaker Hotel Lagos" [ref=e145]
+              - generic [ref=e147]: 2 Photos
+            - generic [ref=e148]:
+              - generic [ref=e149]:
+                - generic [ref=e150]:
+                  - link "Wheatbaker Hotel Lagos" [ref=e151] [cursor=pointer]:
+                    - /url: /hotel/7
+                  - generic [ref=e152]:
+                    - img [ref=e153]
+                    - generic [ref=e156]: Lagos, Lagos
+                - button "Add to favorites" [ref=e157]:
+                  - img [ref=e158]
+              - generic [ref=e160]:
+                - img [ref=e161]
+                - generic [ref=e163]: "4.6"
+                - generic [ref=e164]: (234 reviews)
+              - generic [ref=e165]:
+                - generic [ref=e166]:
+                  - img [ref=e167]
+                  - text: Swimming Pool
+                - generic [ref=e171]:
+                  - img [ref=e172]
+                  - text: WiFi
+                - generic [ref=e176]: Restaurant
+                - generic [ref=e177]:
+                  - img [ref=e178]
+                  - text: Gym
+              - generic [ref=e184]:
+                - generic [ref=e185]:
+                  - generic [ref=e186]: $350
+                  - text: / night
+                - link "Book Now" [ref=e187] [cursor=pointer]:
+                  - /url: /hotel/7
+          - generic [ref=e188]:
+            - link "Radisson Blu Anchorage Lagos 2 Photos" [ref=e189] [cursor=pointer]:
+              - /url: /hotel/13
+              - img "Radisson Blu Anchorage Lagos" [ref=e190]
+              - generic [ref=e192]: 2 Photos
+            - generic [ref=e193]:
+              - generic [ref=e194]:
+                - generic [ref=e195]:
+                  - link "Radisson Blu Anchorage Lagos" [ref=e196] [cursor=pointer]:
+                    - /url: /hotel/13
+                  - generic [ref=e197]:
+                    - img [ref=e198]
+                    - generic [ref=e201]: Lagos, Lagos
+                - button "Add to favorites" [ref=e202]:
+                  - img [ref=e203]
+              - generic [ref=e205]:
+                - img [ref=e206]
+                - generic [ref=e208]: "4.5"
+                - generic [ref=e209]: (278 reviews)
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - img [ref=e212]
+                  - text: Swimming Pool
+                - generic [ref=e216]:
+                  - img [ref=e217]
+                  - text: WiFi
+                - generic [ref=e221]: Restaurant
+                - generic [ref=e222]:
+                  - img [ref=e223]
+                  - text: Gym
+              - generic [ref=e229]:
+                - generic [ref=e230]:
+                  - generic [ref=e231]: $310
+                  - text: / night
+                - link "Book Now" [ref=e232] [cursor=pointer]:
+                  - /url: /hotel/13
+          - generic [ref=e233]:
+            - link "Four Points Lagos 2 Photos" [ref=e234] [cursor=pointer]:
+              - /url: /hotel/19
+              - img "Four Points Lagos" [ref=e235]
+              - generic [ref=e237]: 2 Photos
+            - generic [ref=e238]:
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - link "Four Points Lagos" [ref=e241] [cursor=pointer]:
+                    - /url: /hotel/19
+                  - generic [ref=e242]:
+                    - img [ref=e243]
+                    - generic [ref=e246]: Lagos, Lagos
+                - button "Add to favorites" [ref=e247]:
+                  - img [ref=e248]
+              - generic [ref=e250]:
+                - img [ref=e251]
+                - generic [ref=e253]: "4.3"
+                - generic [ref=e254]: (187 reviews)
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - img [ref=e257]
+                  - text: Swimming Pool
+                - generic [ref=e261]:
+                  - img [ref=e262]
+                  - text: WiFi
+                - generic [ref=e266]: Restaurant
+                - generic [ref=e267]:
+                  - img [ref=e268]
+                  - text: Gym
+              - generic [ref=e274]:
+                - generic [ref=e275]:
+                  - generic [ref=e276]: $200
+                  - text: / night
+                - link "Book Now" [ref=e277] [cursor=pointer]:
+                  - /url: /hotel/19
+          - generic [ref=e278]:
+            - link "Ibis Lagos Airport 2 Photos" [ref=e279] [cursor=pointer]:
+              - /url: /hotel/25
+              - img "Ibis Lagos Airport" [ref=e280]
+              - generic [ref=e282]: 2 Photos
+            - generic [ref=e283]:
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - link "Ibis Lagos Airport" [ref=e286] [cursor=pointer]:
+                    - /url: /hotel/25
+                  - generic [ref=e287]:
+                    - img [ref=e288]
+                    - generic [ref=e291]: Lagos, Lagos
+                - button "Add to favorites" [ref=e292]:
+                  - img [ref=e293]
+              - generic [ref=e295]:
+                - img [ref=e296]
+                - generic [ref=e298]: "3.8"
+                - generic [ref=e299]: (234 reviews)
+              - generic [ref=e300]:
+                - generic [ref=e301]:
+                  - img [ref=e302]
+                  - text: WiFi
+                - generic [ref=e306]: Restaurant
+                - generic [ref=e307]:
+                  - img [ref=e308]
+                  - text: Parking
+                - generic [ref=e312]:
+                  - img [ref=e313]
+                  - text: Air Conditioning
+              - generic [ref=e317]:
+                - generic [ref=e318]:
+                  - generic [ref=e319]: $80
+                  - text: / night
+                - link "Book Now" [ref=e320] [cursor=pointer]:
+                  - /url: /hotel/25
+          - generic [ref=e321]:
+            - link "Lagos Marriott Hotel 2 Photos" [ref=e322] [cursor=pointer]:
+              - /url: /hotel/31
+              - img "Lagos Marriott Hotel" [ref=e323]
+              - generic [ref=e325]: 2 Photos
+            - generic [ref=e326]:
+              - generic [ref=e327]:
+                - generic [ref=e328]:
+                  - link "Lagos Marriott Hotel" [ref=e329] [cursor=pointer]:
+                    - /url: /hotel/31
+                  - generic [ref=e330]:
+                    - img [ref=e331]
+                    - generic [ref=e334]: Lagos, Lagos
+                - button "Add to favorites" [ref=e335]:
+                  - img [ref=e336]
+              - generic [ref=e338]:
+                - img [ref=e339]
+                - generic [ref=e341]: "4.4"
+                - generic [ref=e342]: (167 reviews)
+              - generic [ref=e343]:
+                - generic [ref=e344]:
+                  - img [ref=e345]
+                  - text: Swimming Pool
+                - generic [ref=e349]:
+                  - img [ref=e350]
+                  - text: WiFi
+                - generic [ref=e354]: Restaurant
+                - generic [ref=e355]:
+                  - img [ref=e356]
+                  - text: Gym
+              - generic [ref=e362]:
+                - generic [ref=e363]:
+                  - generic [ref=e364]: $230
+                  - text: / night
+                - link "Book Now" [ref=e365] [cursor=pointer]:
+                  - /url: /hotel/31
+  - contentinfo [ref=e366]:
+    - generic [ref=e367]:
+      - generic [ref=e368]:
+        - generic [ref=e369]:
+          - link "EwaineHotels" [ref=e370] [cursor=pointer]:
+            - /url: /
+            - img [ref=e371]
+            - generic [ref=e374]: EwaineHotels
+          - paragraph [ref=e375]: Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
+        - generic [ref=e376]:
+          - heading "Quick Links" [level=3] [ref=e377]
+          - list [ref=e378]:
+            - listitem [ref=e379]:
+              - link "Home" [ref=e380] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e381]:
+              - link "Hotels" [ref=e382] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e383]:
+              - link "About Us" [ref=e384] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e385]:
+              - link "Contact" [ref=e386] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e387]:
+          - heading "Support" [level=3] [ref=e388]
+          - list [ref=e389]:
+            - listitem [ref=e390]:
+              - link "Help Center" [ref=e391] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e392]:
+              - link "Cancellation Policy" [ref=e393] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e394]:
+              - link "Privacy Policy" [ref=e395] [cursor=pointer]:
+                - /url: /hotels
+            - listitem [ref=e396]:
+              - link "Terms of Service" [ref=e397] [cursor=pointer]:
+                - /url: /hotels
+        - generic [ref=e398]:
+          - heading "Contact" [level=3] [ref=e399]
+          - list [ref=e400]:
+            - listitem [ref=e401]:
+              - link "+234 800 123 4567" [ref=e402] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e403]
+                - text: +234 800 123 4567
+            - listitem [ref=e405]:
+              - link "hello@ewainehotels.com" [ref=e406] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e407]
+                - text: hello@ewainehotels.com
+            - listitem [ref=e410]:
+              - link "Lagos, Nigeria" [ref=e411] [cursor=pointer]:
+                - /url: /hotels
+                - img [ref=e412]
+                - text: Lagos, Nigeria
+      - generic [ref=e415]:
+        - paragraph [ref=e416]: © 2026 EwaineHotels. All rights reserved.
+        - generic [ref=e417]:
+          - link "Twitter" [ref=e418] [cursor=pointer]:
+            - /url: "#"
+          - link "Instagram" [ref=e419] [cursor=pointer]:
+            - /url: "#"
+          - link "Facebook" [ref=e420] [cursor=pointer]:
+            - /url: "#"
+          - link "LinkedIn" [ref=e421] [cursor=pointer]:
+            - /url: "#"

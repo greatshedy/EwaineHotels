@@ -1,5 +1,6 @@
 ﻿import { Link } from "react-router-dom";
-import { Hotel, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "../../assets/ewainehotel.png";
 
 const sections = [
   {
@@ -36,9 +37,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <Link to="/" className="flex items-center gap-2 text-xl font-bold mb-4">
-              <Hotel className="w-6 h-6 text-primary" />
-              <span className="text-gradient">EwaineHotels</span>
+            <Link to="/" className="flex items-center mb-4">
+              <img src={logo} alt="EwaineHotels" className="h-16 w-auto brightness-0 invert" />
             </Link>
             <p className="text-dark-text-secondary text-sm leading-relaxed">
               Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.

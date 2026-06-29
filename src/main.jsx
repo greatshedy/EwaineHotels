@@ -13,14 +13,14 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <FavoritesProvider>
-          <RecentlyViewedProvider>
-            <UserProvider>
+        <UserProvider>
+          <FavoritesProvider>
+            <RecentlyViewedProvider>
               <App />
               <Toaster position="top-right" toastOptions={{ duration: 3000, style: { borderRadius: "12px", padding: "12px 16px" } }} />
-            </UserProvider>
-          </RecentlyViewedProvider>
-        </FavoritesProvider>
+            </RecentlyViewedProvider>
+          </FavoritesProvider>
+        </UserProvider>
       </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
