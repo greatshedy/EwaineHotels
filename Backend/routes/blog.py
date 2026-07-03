@@ -19,9 +19,9 @@ def list_posts():
     all_param = request.args.get("all", "").strip().lower()
     coll = get_collection("blog")
     if all_param == "true":
-        docs = list(coll.find({}).sort("createdAt", -1))
+        docs = list(coll.find({}).sort({"createdAt": -1}))
     else:
-        docs = list(coll.find({"published": True}).sort("createdAt", -1))
+        docs = list(coll.find({"published": True}).sort({"createdAt": -1}))
     for d in docs:
         d.pop("_id", None)
     return jsonify(docs), 200

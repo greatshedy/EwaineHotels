@@ -13,7 +13,7 @@ def list_recent():
         return jsonify({"error": "email query param required"}), 400
 
     coll = get_collection("recent")
-    docs = list(coll.find({"email": email}).sort("viewedAt", -1).limit(10))
+    docs = list(coll.find({"email": email}).sort({"viewedAt": -1}).limit(10))
     for d in docs:
         d.pop("_id", None)
         d.pop("email", None)
