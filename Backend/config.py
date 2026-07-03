@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     admin_email: str
     admin_password: str
 
-    cors_origins: str = "http://localhost:5173"
+    cors_origins: str = "http://localhost:5173,http://localhost:5174"
     flask_env: str = "development"
 
     model_config = {
