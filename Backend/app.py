@@ -17,6 +17,7 @@ from routes.users import users_bp
 from routes.favorites import favorites_bp
 from routes.recent import recent_bp
 from routes.blog import blog_bp
+from seed import run_seed
 
 
 def create_app():
@@ -90,6 +91,8 @@ if __name__ == "__main__":
     )
 
     app = create_app()
+
+    run_seed()
 
     if settings.flask_env == "production":
         from waitress import serve

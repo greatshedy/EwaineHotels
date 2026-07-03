@@ -75,7 +75,7 @@ def seed_collection(collection_name, documents):
     print(f"Seeded {len(documents)} {collection_name}.")
 
 
-if __name__ == "__main__":
+def run_seed():
     print("Seeding database...")
     ensure_collections()
 
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         {"id": 2, "name": "Michael Osei", "role": "Vacationer", "avatar": "https://i.pravatar.cc/150?img=3", "rating": 5, "text": "Labadi Beach Hotel made our family holiday unforgettable. The staff treated us like royalty and the beach access was perfect for the kids."},
         {"id": 3, "name": "Emily Chemutai", "role": "Solo Traveler", "avatar": "https://i.pravatar.cc/150?img=5", "rating": 4, "text": "Nairobi Serena Hotel offers an incredible blend of luxury and authentic Kenyan culture. The food was amazing and the pool area is gorgeous."},
         {"id": 4, "name": "David Nkosi", "role": "Couples Getaway", "avatar": "https://i.pravatar.cc/150?img=7", "rating": 5, "text": "The Table Bay Hotel in Cape Town is pure magic. Watching the sunset over Table Mountain from our room was an experience we will never forget."},
-        {"id": 5, "name": "Amara Eze", "role": "Digital Nomad", "avatar": "https://i.pravatar.cc/150?img=9", "rating": 4, "text": "Transcorp Hilton Abuja has the best business facilities in West Africa. The WiFi was blazing fast and the executive lounge was perfect for working."},
+        {"id": 5, "name": "Amara Eze", "role": "Digital Nomad", "avatar": "https://i.pravatar.cc/150?img=9", "rating": 4, "text": "Eko Atlantic Suites is top-notch, the food was amazing and the pool area is gorgeous."},
     ])
 
     seed_collection("settings", [
@@ -112,3 +112,7 @@ if __name__ == "__main__":
     ])
 
     print("Done.")
+
+
+if __name__ == "__main__":
+    run_seed()
