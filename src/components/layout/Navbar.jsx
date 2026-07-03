@@ -1,6 +1,6 @@
 ﻿import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Moon, Sun, Heart, Shield } from "lucide-react";
+import { Menu, X, Moon, Sun, Heart } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { useFavorites } from "../../context/FavoritesContext";
 import logo from "../../assets/ewainehotel.png";
@@ -48,13 +48,6 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            <Link
-              to="/ewaine-admin"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border border-border dark:border-dark-border hover:border-primary hover:text-primary transition-colors"
-            >
-              <Shield className="w-3.5 h-3.5" />
-              Admin
-            </Link>
             <button onClick={toggle} className="p-2 rounded-full hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors" aria-label="Toggle dark mode">
               {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
@@ -68,9 +61,6 @@ export default function Navbar() {
                   {favorites.length}
                 </span>
               )}
-            </Link>
-            <Link to="/ewaine-admin" className="p-2 hover:text-primary" aria-label="Admin">
-              <Shield className="w-5 h-5" />
             </Link>
             <button onClick={toggle} className="p-2" aria-label="Toggle dark mode">
               {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

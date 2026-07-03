@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, Globe, Camera, Music, X } from "lucide-react";
 import logo from "../../assets/ewainehotel.png";
 
 const emails = [
@@ -72,26 +72,16 @@ export default function Footer() {
           <p className="text-sm text-dark-text-secondary">&copy; {new Date().getFullYear()} EwaineHotels. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="https://www.facebook.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
+              <Globe className="w-5 h-5" />
             </a>
             <a href="https://www.instagram.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <circle cx="12" cy="12" r="5" />
-                <circle cx="17.5" cy="6.5" r="1.5" />
-              </svg>
+              <Camera className="w-5 h-5" />
             </a>
             <a href="https://www.tiktok.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.69 2.89 2.89 0 0 1-2.88-2.69 2.89 2.89 0 0 1 2.88-2.69c.5 0 .97.13 1.38.35V8.65a6.27 6.27 0 0 0-1.38-.18A6.34 6.34 0 0 0 0 14.78a6.34 6.34 0 0 0 6.31 6.31 6.34 6.34 0 0 0 6.31-6.31V9.74c.89.7 2 1.13 3.26 1.17 0 0 .17 0 .26-.01v-3.1c-.38.01-.75-.05-1.05-.2a4.91 4.91 0 0 1-1.5-.91Z" />
-              </svg>
+              <Music className="w-5 h-5" />
             </a>
             <a href="https://www.x.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="X">
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
+              <X className="w-5 h-5" />
             </a>
           </div>
         </div>
