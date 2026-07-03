@@ -21,7 +21,9 @@ def ensure_collections():
 def seed_hotels():
     hotels_path = Path(__file__).resolve().parent.parent / "src" / "data" / "hotels.json"
     if not hotels_path.exists():
-        print(f"hotels.json not found at {hotels_path}, skipping hotel seed.")
+        hotels_path = Path(__file__).resolve().parent.parent / "data" / "hotels.json"
+    if not hotels_path.exists():
+        print(f"hotels.json not found, skipping hotel seed.")
         return
 
     with open(hotels_path, encoding="utf-8-sig") as f:

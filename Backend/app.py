@@ -93,6 +93,7 @@ if __name__ == "__main__":
     app = create_app()
 
     run_seed()
+    app.logger.info("Seed complete.")
 
     if settings.flask_env == "production":
         from waitress import serve
