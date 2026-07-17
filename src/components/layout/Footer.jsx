@@ -1,17 +1,22 @@
 ﻿import { Link } from "react-router-dom";
-import { Mail, Globe, Camera, Music, X } from "lucide-react";
+import { Mail, Globe, Camera, Music, X, MapPin, Phone, MessageCircle, Clock } from "lucide-react";
 import logo from "../../assets/ewainehotel.png";
 
-const emails = [
-  "info@ewainehotels.com",
-  "support@ewainehotels.com",
-  "finance@ewainehotels.com",
-  "corporate@ewainehotels.com",
-  "partners@ewainehotels.com",
-  "reservations@ewainehotels.com",
+const contactInfo = [
+  { icon: MapPin, label: "Address", value: "123 Awolowo Road, Ikoyi, Lagos, Nigeria" },
+  { icon: Phone, label: "Phone", value: "+234 800 123 4567", href: "tel:+2348001234567" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+234 800 123 4567", href: "https://wa.me/2348001234567" },
+  { icon: Clock, label: "Hours", value: "Mon–Sat: 8:00 AM – 6:00 PM" },
 ];
 
-const sections = [
+const contactEmails = [
+  { label: "Support", email: "support@ewainehotels.com" },
+  { label: "Reservations", email: "reservations@ewainehotels.com" },
+  { label: "Corporate", email: "corporate@ewainehotels.com" },
+  { label: "Partners", email: "partners@ewainehotels.com" },
+];
+
+const linkSections = [
   {
     title: "Quick Links",
     links: [
@@ -30,10 +35,6 @@ const sections = [
       { label: "Terms of Service", to: "#" },
     ],
   },
-  {
-    title: "Contact",
-    links: emails.map((email) => ({ label: email, icon: Mail, to: "#" })),
-  },
 ];
 
 export default function Footer() {
@@ -49,7 +50,7 @@ export default function Footer() {
               Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
             </p>
           </div>
-          {sections.map((s) => (
+          {linkSections.map((s) => (
             <div key={s.title}>
               <h3 className="font-semibold mb-4">{s.title}</h3>
               <ul className="space-y-3">
@@ -67,6 +68,39 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+          <div>
+            <h3 className="font-semibold mb-4">Contact</h3>
+            <ul className="space-y-3 mb-4">
+              {contactInfo.map((item) => (
+                <li key={item.label}>
+                  {item.href ? (
+                    <a href={item.href} target="_blank" rel="noopener noreferrer"
+                      className="flex items-start gap-2 text-sm text-dark-text-secondary hover:text-primary transition-colors">
+                      <item.icon className="w-4 h-4 mt-0.5 shrink-0" />
+                      <span>{item.value}</span>
+                    </a>
+                  ) : (
+                    <span className="flex items-start gap-2 text-sm text-dark-text-secondary">
+                      <item.icon className="w-4 h-4 mt-0.5 shrink-0" />
+                      <span>{item.value}</span>
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-dark-text-secondary mb-2">Email</h4>
+            <ul className="space-y-2">
+              {contactEmails.map((item) => (
+                <li key={item.email}>
+                  <a href={`mailto:${item.email}`}
+                    className="flex items-center gap-2 text-sm text-dark-text-secondary hover:text-primary transition-colors">
+                    <Mail className="w-4 h-4 shrink-0" />
+                    <span className="truncate">{item.email}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <div className="border-t border-dark-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-dark-text-secondary">&copy; {new Date().getFullYear()} EwaineHotels. All rights reserved.</p>
