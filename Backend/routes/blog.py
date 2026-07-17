@@ -121,6 +121,18 @@ def update_post(post_id):
     return jsonify(doc), 200
 
 
+@blog_bp.route("/bulk", methods=["DELETE"])
+@token_required
+def delete_bulk():
+    data = request.get_json()
+    if not data or "ids" not in data or not data["ids"]:
+        return jsonify({"error": "ids array required"}), 400
+    ids = data["ids"]
+    coll = get_collection("blog")
+    result = coll.delete_many({"id": {"$in": ids}})
+    return jsonify({"message": f"Deleted {result.deleted_count} posts", "count": result.deleted_count}), 200
+
+
 @blog_bp.route("/<int:post_id>", methods=["DELETE"])
 @token_required
 def delete_post(post_id):

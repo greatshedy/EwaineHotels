@@ -200,4 +200,8 @@ export function deleteBlogPost(id) {
   return api.delete(`/blog/${id}`).then((r) => r.data);
 }
 
+export function deleteMultipleBlogPosts(ids) {
+  return api.delete("/blog/bulk", { data: { ids } }).then((r) => r.data);
+}
+
 export default api;

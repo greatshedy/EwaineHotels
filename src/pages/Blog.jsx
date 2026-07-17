@@ -14,7 +14,10 @@ export default function Blog() {
 
   useEffect(() => {
     getBlogPosts()
-      .then((data) => setPosts(data || []))
+      .then((data) => {
+        const unique = [...new Map((data || []).map((p) => [p.id, p])).values()];
+        setPosts(unique);
+      })
       .catch(() => {})
       .finally(() => setLoading(false));
   }, []);

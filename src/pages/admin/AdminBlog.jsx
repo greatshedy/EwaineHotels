@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { useAdmin } from "../../context/AdminContext";
-import { Plus, Edit3, Trash2, Search, X, Image, Link2 } from "lucide-react";
+import { Plus, Edit3, Trash2, Search, X, Image, Link2, Trash } from "lucide-react";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
@@ -72,11 +72,30 @@ function TipTapInput({ value, onChange }) {
 }
 
 export default function AdminBlog() {
-  const { blogPosts, refreshBlogPosts, addBlogPost, updateBlogPost, deleteBlogPost } = useAdmin();
+  const { blogPosts, refreshBlogPosts, addBlogPost, updateBlogPost, deleteBlogPost, deleteMultipleBlogPosts } = useAdmin();
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({ ...emptyPost });
+  const [selectedIds, setSelectedIds] = useState([]);
+
+  const toggleSelect = (id) => {
+    setSelectedIds((prev) => prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]);
+  };
+
+  const toggleSelectAll = () => {
+    if (selectedIds.length === filtered.length) {
+      setSelectedIds([]);
+    } else {
+      setSelectedIds(filtered.map((p) => p.id));
+    }
+  };
+
+  const handleBulkDelete = async () => {
+    if (!window.confirm(`Delete ${selectedIds.length} selected post(s)? This cannot be undone.`)) return;
+    await deleteMultipleBlogPosts(selectedIds);
+    setSelectedIds([]);
+  };
 
   const resetForm = useCallback(() => {
     setForm({ ...emptyPost });
@@ -141,11 +160,27 @@ export default function AdminBlog() {
           className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
       </div>
 
+      {selectedIds.length > 0 && (
+        <div className="flex items-center justify-between mb-3 px-4 py-2 bg-error/5 border border-error/20 rounded-xl">
+          <span className="text-sm font-medium">{selectedIds.length} post(s) selected</span>
+          <div className="flex items-center gap-2">
+            <button onClick={() => setSelectedIds([])} className="px-3 py-1.5 text-sm font-medium rounded-lg border border-border hover:bg-surface-alt transition-colors">Cancel</button>
+            <button onClick={handleBulkDelete} className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-error text-white rounded-lg hover:bg-error/90 transition-colors">
+              <Trash className="w-4 h-4" /> Delete Selected
+            </button>
+          </div>
+        </div>
+      )}
+
       <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+              <table className="w-full text-sm">
             <thead>
               <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border bg-gray-50 dark:bg-dark-bg/50">
+                <th className="p-3 w-10">
+                  <input type="checkbox" checked={filtered.length > 0 && selectedIds.length === filtered.length}
+                    onChange={toggleSelectAll} className="rounded border-border text-primary focus:ring-primary" />
+                </th>
                 <th className="p-3 font-medium">Cover</th>
                 <th className="p-3 font-medium">Title</th>
                 <th className="p-3 font-medium">Author</th>
@@ -156,7 +191,11 @@ export default function AdminBlog() {
             </thead>
             <tbody>
               {filtered.map((p) => (
-                <tr key={p.id} className="border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30">
+                <tr key={p.id} className={`border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30 ${selectedIds.includes(p.id) ? "bg-primary/5" : ""}`}>
+                  <td className="p-3 w-10">
+                    <input type="checkbox" checked={selectedIds.includes(p.id)} onChange={() => toggleSelect(p.id)}
+                      className="rounded border-border text-primary focus:ring-primary" />
+                  </td>
                   <td className="p-3">
                     {p.coverImage ? (
                       <img src={p.coverImage} alt="" className="w-14 h-10 rounded-lg object-cover" />
@@ -181,7 +220,7 @@ export default function AdminBlog() {
                 </tr>
               ))}
               {filtered.length === 0 && (
-                <tr><td colSpan={6} className="p-8 text-center text-text-secondary">No posts found.</td></tr>
+                <tr><td colSpan={7} className="p-8 text-center text-text-secondary">No posts found.</td></tr>
               )}
             </tbody>
           </table>

@@ -18,6 +18,7 @@ import {
   createBlogPost,
   updateBlogPost,
   deleteBlogPost,
+  deleteMultipleBlogPosts,
   setToken,
   getToken,
 } from "../services/api";
@@ -172,7 +173,8 @@ export function AdminProvider({ children }) {
   const refreshBlogPosts = useCallback(async () => {
     try {
       const data = await getBlogPosts(true);
-      setBlogPosts(data || []);
+      const unique = [...new Map((data || []).map((p) => [p.id, p])).values()];
+      setBlogPosts(unique);
     } catch {}
   }, []);
 
@@ -201,6 +203,16 @@ export function AdminProvider({ children }) {
       await deleteBlogPost(id);
       setBlogPosts((prev) => prev.filter((p) => p.id !== id));
     } catch {}
+  }, []);
+
+  const deleteMultipleBlogPostsCtx = useCallback(async (ids) => {
+    try {
+      await deleteMultipleBlogPosts(ids);
+      setBlogPosts((prev) => prev.filter((p) => !ids.includes(p.id)));
+      return true;
+    } catch {
+      return false;
+    }
   }, []);
 
   const getRevenue = useCallback(() => {
@@ -235,6 +247,7 @@ export function AdminProvider({ children }) {
         addBlogPost,
         updateBlogPost: updateBlogPostCtx,
         deleteBlogPost: deleteBlogPostCtx,
+        deleteMultipleBlogPosts: deleteMultipleBlogPostsCtx,
         refreshTestimonials,
         addTestimonial,
         updateTestimonial: updateTestimonialCtx,

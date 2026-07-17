@@ -9,6 +9,7 @@ import SearchBar from "../components/SearchBar";
 import HotelCard from "../components/HotelCard";
 import BackToTop from "../components/BackToTop";
 
+
 const stagger = {
   animate: { transition: { staggerChildren: 0.08 } },
 };
@@ -36,13 +37,13 @@ export default function Home() {
   useEffect(() => {
     getFeatured()
       .then((data) => setFeatured((data || []).slice(0, 6)))
-      .catch(() => {});
+      .catch(() => { });
     getTestimonials()
       .then((data) => setTestimonials(data || []))
-      .catch(() => {});
+      .catch(() => { });
     getDestinations()
       .then((data) => setDestinations(data || []))
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   useEffect(() => {
@@ -67,8 +68,13 @@ export default function Home() {
     return () => { cancelled = true; };
   }, [taLoaded]);
 
+
+
   return (
     <div>
+
+
+
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -223,7 +229,7 @@ export default function Home() {
           <div className="relative">
             <motion.div key={testiIdx} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} transition={{ duration: 0.4 }} className="glass rounded-2xl p-8">
               <div className="flex justify-center mb-4">
-                  {testimonials.length > 0 && [...Array(testimonials[testiIdx]?.rating || 5)].map((_, i) => (
+                {testimonials.length > 0 && [...Array(testimonials[testiIdx]?.rating || 5)].map((_, i) => (
                   <svg key={i} className="w-5 h-5 fill-secondary text-secondary" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" /></svg>
                 ))}
               </div>
