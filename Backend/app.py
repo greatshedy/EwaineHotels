@@ -8,6 +8,7 @@ from extensions import limiter
 from routes.auth import auth_bp
 from routes.hotels import hotels_bp
 from routes.bookings import bookings_bp
+from routes.payments import payments_bp
 from routes.featured import featured_bp
 from routes.destinations import destinations_bp
 from routes.testimonials import testimonials_bp
@@ -33,6 +34,7 @@ def create_app():
     app.register_blueprint(auth_bp)
     app.register_blueprint(hotels_bp)
     app.register_blueprint(bookings_bp)
+    app.register_blueprint(payments_bp)
     app.register_blueprint(featured_bp)
     app.register_blueprint(destinations_bp)
     app.register_blueprint(testimonials_bp)

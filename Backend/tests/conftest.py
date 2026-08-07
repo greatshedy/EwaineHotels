@@ -106,6 +106,7 @@ def mock_db(monkeypatch):
     monkeypatch.setattr("routes.auth.get_collection", fake_get_collection)
     monkeypatch.setattr("routes.hotels.get_collection", fake_get_collection)
     monkeypatch.setattr("routes.bookings.get_collection", fake_get_collection)
+    monkeypatch.setattr("routes.payments.get_collection", fake_get_collection)
     monkeypatch.setattr("routes.featured.get_collection", fake_get_collection)
     monkeypatch.setattr("database.get_collection", fake_get_collection)
     monkeypatch.setattr("database.get_db", lambda: None)

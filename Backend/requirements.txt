@@ -10,6 +10,7 @@ bcrypt==5.0.0
 email-validator==2.3.0
 python-multipart==0.0.20
 waitress==3.0.2
+requests==2.32.4
 
 # Dev / testing
 pytest==8.3.5

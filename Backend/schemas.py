@@ -1,5 +1,6 @@
+from datetime import datetime, timezone
 from typing import Optional, Literal
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 
 class RoomType(BaseModel):
@@ -67,6 +68,19 @@ class BookingBase(BaseModel):
     checkIn: str
     checkOut: str
     totalPrice: float
+    guestPhone: Optional[str] = ""
+    guests: Optional[int] = None
+
+    @field_validator("checkIn", "checkOut")
+    @classmethod
+    def _normalize_datetime(cls, v: str) -> str:
+        try:
+            dt = datetime.fromisoformat(v.replace("Z", "+00:00"))
+        except (ValueError, TypeError):
+            return v
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.isoformat()
 
 
 class BookingCreate(BookingBase):

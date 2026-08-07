@@ -125,7 +125,7 @@ export default function Hotels() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold">{tripMode ? "TripAdvisor Results" : "Hotels"}</h1>
           <p className="text-text-secondary">
@@ -134,17 +134,17 @@ export default function Hotels() {
               : `${hotels.length} properties found`}
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <div className="flex border border-border dark:border-dark-border rounded-xl overflow-hidden">
             <button
               onClick={() => { setTripMode(false); setTrip({ hotels: [], loading: false, error: "" }); }}
-              className={`px-4 py-2 text-sm font-medium transition-colors ${!tripMode ? "bg-primary text-white" : "hover:bg-surface-alt"}`}
+              className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${!tripMode ? "bg-primary text-white" : "hover:bg-surface-alt"}`}
             >
               Our Hotels
             </button>
             <button
               onClick={() => { setTripMode(true); if (!searchQuery) setSearchParams({ search: 'Lagos' }); }}
-              className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1.5 ${tripMode ? "bg-primary text-white" : "hover:bg-surface-alt"}`}
+              className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1.5 ${tripMode ? "bg-primary text-white" : "hover:bg-surface-alt"}`}
             >
               <Globe className="w-4 h-4" />
               TripAdvisor

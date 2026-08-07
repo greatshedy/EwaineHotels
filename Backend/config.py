@@ -16,6 +16,12 @@ class Settings(BaseSettings):
     cors_origins: str = "http://localhost:5173,http://localhost:5174"
     flask_env: str = "development"
 
+    flutterwave_secret_key: str = ""
+    flutterwave_public_key: str = ""
+    flutterwave_encryption_key: str = ""
+    flutterwave_currency: str = "USD"
+    flutterwave_redirect_url: str = ""
+
     model_config = {
         "env_file": str(Path(__file__).parent / ".env"),
         "env_file_encoding": "utf-8",

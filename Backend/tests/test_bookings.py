@@ -1,3 +1,5 @@
+from datetime import datetime, timedelta, timezone
+
 SAMPLE_BOOKING = {
     "guestName": "John Doe",
     "guestEmail": "john@example.com",
@@ -23,6 +25,20 @@ def test_create_booking_past_dates(client):
     body = {**SAMPLE_BOOKING, "checkIn": "2020-01-01T00:00:00Z", "checkOut": "2020-01-05T00:00:00Z"}
     resp = client.post("/api/bookings", json=body)
     assert resp.status_code == 422
+
+
+def test_create_booking_naive_dates(client):
+    body = {**SAMPLE_BOOKING, "checkIn": "2030-09-01", "checkOut": "2030-09-05"}
+    resp = client.post("/api/bookings", json=body)
+    assert resp.status_code == 201
+
+
+def test_create_booking_same_day_checkin(client):
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    check_out = (datetime.now(timezone.utc) + timedelta(days=2)).strftime("%Y-%m-%d")
+    body = {**SAMPLE_BOOKING, "checkIn": today, "checkOut": check_out}
+    resp = client.post("/api/bookings", json=body)
+    assert resp.status_code == 201
 
 
 def test_create_booking_inverted_dates(client):

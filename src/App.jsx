@@ -12,6 +12,7 @@ const HotelDetails = lazy(() => import("./pages/HotelDetails"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 const UserDashboard = lazy(() => import("./pages/UserDashboard"));
+const PaymentStatus = lazy(() => import("./pages/PaymentStatus"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const AdminLogin = lazy(() => import("./pages/admin/AdminLogin"));
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="blog/:slug" element={<BlogPost />} />
           <Route path="favorites" element={<Favorites />} />
           <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="payment/status" element={<PaymentStatus />} />
         </Route>
 
         <Route element={<AdminProvider><Outlet /></AdminProvider>}>

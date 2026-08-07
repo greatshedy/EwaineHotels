@@ -41,7 +41,7 @@ def create_booking():
     if check_out <= check_in:
         return jsonify({"error": "checkOut must be after checkIn"}), 422
 
-    if check_in < datetime.now().astimezone(check_in.tzinfo or None):
+    if check_in.date() < datetime.now(check_in.tzinfo).date():
         return jsonify({"error": "checkIn cannot be in the past"}), 422
 
     coll = get_collection("bookings")

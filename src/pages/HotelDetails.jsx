@@ -6,7 +6,7 @@ import {
   Wifi, Waves, Dumbbell, Car, Wind, Coffee, PawPrint, X, ExternalLink,
 } from "lucide-react";
 import toast from "react-hot-toast";
-import { getHotel, createBooking, getHotels, getSettings } from "../services/api";
+import { getHotel, initializePayment, getHotels } from "../services/api";
 import { getHotelDetails as fetchTripDetails } from "../services/tripadvisor";
 import { mapDetailResult } from "../services/tripMapper";
 import HotelCard from "../components/HotelCard";
@@ -47,6 +47,7 @@ export default function HotelDetails() {
   const [guests, setGuests] = useState(1);
   const [selectedRoom, setSelectedRoom] = useState("");
   const [showBooking, setShowBooking] = useState(false);
+  const [processing, setProcessing] = useState(false);
   const [guestName, setGuestName] = useState(profile?.name || "");
   const [guestEmail, setGuestEmail] = useState(profile?.email || "");
   const [guestPhone, setGuestPhone] = useState(profile?.phone || "");
@@ -57,7 +58,6 @@ export default function HotelDetails() {
   const [error, setError] = useState("");
 
   const [tripState, setTripState] = useState({ hotel: null, loading: false, error: "" });
-  const [whatsappNumber, setWhatsappNumber] = useState("2348080769019");
 
   const isTripAdvisor = !hotel && !loading && !error;
 
@@ -91,12 +91,6 @@ export default function HotelDetails() {
     }
     return () => { cancelled = true; };
   }, [id]);
-
-  useEffect(() => {
-    getSettings()
-      .then((data) => { if (data?.whatsapp) setWhatsappNumber(data.whatsapp); })
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     if (!isTripAdvisor || loading) return;
@@ -164,6 +158,17 @@ export default function HotelDetails() {
     ? Math.max(1, Math.round((new Date(checkOut) - new Date(checkIn)) / (1000 * 60 * 60 * 24)))
     : 1;
 
+  const toLocalDate = (d) => {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  };
+  const today = toLocalDate(new Date());
+  const minCheckOut = checkIn
+    ? toLocalDate(new Date(new Date(`${checkIn}T12:00:00`).getTime() + 86400000))
+    : "";
+
   const hasBooking = !isTripAdvisor && displayHotel.roomTypes?.length > 0;
 
   const handleBookNow = () => {
@@ -183,30 +188,28 @@ export default function HotelDetails() {
       toast.error("Please fill in your name and email");
       return;
     }
+    if (processing) return;
+    setProcessing(true);
     try {
-      const booking = await createBooking({
+      const res = await initializePayment({
         hotelId: displayHotel.id,
         hotelName: displayHotel.name,
         guestName,
         guestEmail,
         guestPhone,
+        guests,
         checkIn,
         checkOut,
-        guests,
         roomType: selectedRoom || displayHotel.roomTypes?.[0]?.type || "Standard",
         totalPrice: roomPrice * nights,
       });
       setShowBooking(false);
-      setGuestName("");
-      setGuestEmail("");
-      setGuestPhone("");
-      const msg = encodeURIComponent(
-        `New Booking!\n\nHotel: ${displayHotel.name}\nGuest: ${guestName}\nEmail: ${guestEmail}\nPhone: ${guestPhone || "N/A"}\nCheck-in: ${checkIn}\nCheck-out: ${checkOut}\nGuests: ${guests}\nRoom: ${selectedRoom || displayHotel.roomTypes?.[0]?.type || "Standard"}\nTotal: $${roomPrice * nights}`
-      );
-      window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, "_blank");
-      toast.success("Booking submitted! Awaiting confirmation.");
+      setProcessing(false);
+      window.open(res.paymentLink, "_blank");
+      toast.success("Complete payment to confirm your booking.");
     } catch (err) {
-      toast.error(err?.response?.data?.error || "Booking failed");
+      setProcessing(false);
+      toast.error(err?.response?.data?.error || "Unable to start payment");
     }
   };
 
@@ -396,8 +399,8 @@ export default function HotelDetails() {
                         ))}
                       </select>
                     </div>
-                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" min={minCheckOut} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
                     <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
                   </div>
                   <div className="flex items-center justify-between text-sm text-text-secondary">
@@ -405,7 +408,7 @@ export default function HotelDetails() {
                     <span className="font-bold text-primary text-lg">${roomPrice * nights}</span>
                   </div>
                   <Button size="lg" className="w-full" onClick={handleBookNow}>Book Now</Button>
-                  <p className="text-xs text-text-secondary text-center">You will not be charged yet</p>
+                  <p className="text-xs text-text-secondary text-center">You will pay securely with Flutterwave</p>
                 </>
               ) : (
                 <div className="text-center space-y-3">
@@ -461,7 +464,7 @@ export default function HotelDetails() {
                 <label className="block text-sm font-medium mb-1">Phone (optional)</label>
                 <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
-              <Button size="lg" className="w-full" onClick={handleConfirmBooking}>Confirm Booking</Button>
+              <Button size="lg" className="w-full" onClick={handleConfirmBooking} disabled={processing}>{processing ? "Redirecting to payment..." : "Proceed to Payment"}</Button>
             </div>
           </div>
         </div>

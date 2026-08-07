@@ -142,6 +142,15 @@ export function updateBookingStatus(id, status) {
   return api.patch(`/bookings/${id}`, { status }).then((r) => r.data);
 }
 
+// Payments
+export function initializePayment(data) {
+  return api.post("/payments/initialize", data).then((r) => r.data);
+}
+
+export function verifyPayment(txRef) {
+  return api.get("/payments/verify", { params: { tx_ref: txRef } }).then((r) => r.data);
+}
+
 // Destinations
 export function getDestinations() {
   return api.get("/destinations").then((r) => r.data);
