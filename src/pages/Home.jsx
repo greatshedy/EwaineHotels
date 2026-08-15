@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Shield, BadgeCheck, Wallet, Headphones, ChevronLeft, ChevronRight, ArrowRight, Mail, Star } from "lucide-react";
+import { Shield, BadgeCheck, Wallet, Headphones, ChevronLeft, ChevronRight, ArrowRight, Star } from "lucide-react";
 import { searchLocation, searchHotels } from "../services/tripadvisor";
 import { mapSearchResult } from "../services/tripMapper";
 import { getFeatured, getTestimonials, getDestinations } from "../services/api";
@@ -253,25 +253,6 @@ export default function Home() {
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="py-20">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5   ">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-3">Stay in the Loop</h2>
-            <p className="text-text-secondary mb-6">Subscribe for exclusive deals, new hotel listings, and travel inspiration.</p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex-1 relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary" />
-                <input type="email" placeholder="your@email.com" className="w-full pl-10 pr-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary" />
-              </div>
-              <button type="submit" className="px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap">
-                Subscribe
-              </button>
-            </form>
-          </motion.div>
         </div>
       </section>
 

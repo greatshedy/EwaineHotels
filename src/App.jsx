@@ -6,7 +6,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
 const Hotels = lazy(() => import("./pages/Hotels"));
 const HotelDetails = lazy(() => import("./pages/HotelDetails"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -42,7 +41,6 @@ export default function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
           <Route path="hotels" element={<Hotels />} />
           <Route path="hotel/:id" element={<HotelDetails />} />
           <Route path="contact" element={<Contact />} />

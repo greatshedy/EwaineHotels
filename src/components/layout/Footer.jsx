@@ -23,7 +23,6 @@ const linkSections = [
     links: [
       { label: "Home", to: "/" },
       { label: "Hotels", to: "/hotels" },
-      { label: "About Us", to: "/about" },
       { label: "Contact", to: "/contact" },
     ],
   },
