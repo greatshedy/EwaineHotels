@@ -152,7 +152,7 @@ export default function Hotels() {
           </div>
           {!tripMode && (
             <>
-              <div className="flex border border-border  rounded-xl overflow-hidden">
+              <div className="hidden sm:flex border border-border  rounded-xl overflow-hidden">
                 <button onClick={() => setView("grid")} className={`p-2 ${view === "grid" ? "bg-primary text-white" : "hover:bg-surface-alt"}`} aria-label="Grid view"><Grid3X3 className="w-4 h-4" /></button>
                 <button onClick={() => setView("list")} className={`p-2 ${view === "list" ? "bg-primary text-white" : "hover:bg-surface-alt"}`} aria-label="List view"><List className="w-4 h-4" /></button>
               </div>
@@ -390,17 +390,19 @@ export default function Hotels() {
                   view === "grid" ? (
                     <HotelCard key={hotel.id} hotel={hotel} index={i} />
                   ) : (
-                    <motion.div key={hotel.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="flex gap-4 p-4 bg-white  rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                      <img src={hotel.images[0]} alt={hotel.name} loading="lazy" className="w-40 h-32 object-cover rounded-xl flex-shrink-0" />
+                    <motion.div key={hotel.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                      <Link to={`/hotel/${hotel.id}?checkIn=${checkIn || ''}&checkOut=${checkOut || ''}`} className="block flex-shrink-0">
+                        <img src={hotel.images[0]} alt={hotel.name} loading="lazy" className="w-full h-48 sm:w-44 sm:h-32 object-cover rounded-xl" />
+                      </Link>
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-lg truncate">{hotel.name}</h3>
                         <p className="text-sm text-text-secondary truncate">{hotel.city}, {hotel.state}</p>
                         <div className="flex items-center gap-1 mt-1"><span className="text-sm font-medium">{hotel.rating}</span><span className="text-xs text-text-secondary">({hotel.reviews})</span></div>
                         <div className="mt-2 text-lg font-bold text-primary">${hotel.price}<span className="text-xs text-text-secondary font-normal"> / night</span></div>
                       </div>
-                      <div className="flex flex-col justify-between items-end">
+                      <div className="flex sm:flex-col items-center justify-between sm:items-end flex-shrink-0 gap-3 sm:gap-0">
                         <button className="p-1.5 rounded-full hover:bg-surface-alt transition-colors"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></button>
-                        <a href={`/hotel/${hotel.id}`} className="px-4 py-1.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-dark transition-colors">Book</a>
+                        <Link to={`/hotel/${hotel.id}?checkIn=${checkIn || ''}&checkOut=${checkOut || ''}`} className="px-4 py-1.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-dark transition-colors">Book</Link>
                       </div>
                     </motion.div>
                   )
