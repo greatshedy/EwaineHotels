@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Shield, BadgeCheck, Wallet, Headphones, ChevronLeft, ChevronRight, ArrowRight, Mail, Star } from "lucide-react";
@@ -76,27 +76,31 @@ export default function Home() {
 
 
       {/* Hero */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-svh flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920"
-            alt="Luxury hotel lobby"
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920"
+            alt="Luxury hotel pool at dusk"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
-          <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 py-14 sm:py-20 text-center">
+          <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-5 leading-tight tracking-tight">
             Find Your Perfect <span className="text-gradient">Stay</span> Anywhere
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="text-lg sm:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }} className="text-lg sm:text-xl text-white/85 mb-10 max-w-2xl mx-auto font-light">
             Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <SearchBar />
           </motion.div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface dark:from-dark-bg to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-surface to-transparent" />
       </section>
 
       {/* Popular Destinations */}
@@ -122,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* Featured Hotels */}
-      <section className="py-20 bg-surface-alt dark:bg-dark-surface">
+      <section className="py-20 bg-surface-alt ">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="flex items-end justify-between mb-10">
             <div>
@@ -150,7 +154,7 @@ export default function Home() {
 
       {/* TripAdvisor Picks */}
       {taPicks.length > 0 && (
-        <section className="py-20 bg-surface-alt dark:bg-dark-surface">
+        <section className="py-20 bg-surface-alt ">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="flex items-end justify-between mb-10">
               <div>
@@ -166,7 +170,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {taPicks.map((hotel, i) => (
                 <motion.div key={hotel.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group relative bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative bg-white  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
                 >
                   <Link to={`/hotel/${hotel.id}${hotel.commerceUrl ? `?commerceUrl=${encodeURIComponent(hotel.commerceUrl)}` : ''}`} className="block relative aspect-[4/3] overflow-hidden">
                     <img src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600'} alt={hotel.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -210,7 +214,7 @@ export default function Home() {
         <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map((r) => (
             <motion.div key={r.title} variants={fadeUp} className="glass rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10  flex items-center justify-center mx-auto mb-4">
                 <r.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-bold text-lg mb-2">{r.title}</h3>
@@ -221,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-surface-alt dark:bg-dark-surface">
+      <section className="py-20 bg-surface-alt ">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl sm:text-4xl font-bold mb-10">
             What Our Guests Say
@@ -242,10 +246,10 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-            <button onClick={() => setTestiIdx((p) => (p === 0 ? testimonials.length - 1 : p - 1))} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-12 p-2 rounded-full glass hover:bg-white dark:hover:bg-dark-surface transition-colors" aria-label="Previous testimonial">
+            <button onClick={() => setTestiIdx((p) => (p === 0 ? testimonials.length - 1 : p - 1))} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-12 p-2 rounded-full glass hover:bg-white  transition-colors" aria-label="Previous testimonial">
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button onClick={() => setTestiIdx((p) => (p === testimonials.length - 1 ? 0 : p + 1))} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-12 p-2 rounded-full glass hover:bg-white dark:hover:bg-dark-surface transition-colors" aria-label="Next testimonial">
+            <button onClick={() => setTestiIdx((p) => (p === testimonials.length - 1 ? 0 : p + 1))} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-12 p-2 rounded-full glass hover:bg-white  transition-colors" aria-label="Next testimonial">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
@@ -255,13 +259,13 @@ export default function Home() {
       {/* Newsletter */}
       <section className="py-20">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 dark:from-primary/10 dark:via-accent/10 dark:to-secondary/10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5   ">
             <h2 className="text-3xl sm:text-4xl font-bold mb-3">Stay in the Loop</h2>
             <p className="text-text-secondary mb-6">Subscribe for exclusive deals, new hotel listings, and travel inspiration.</p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
               <div className="flex-1 relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-secondary" />
-                <input type="email" placeholder="your@email.com" className="w-full pl-10 pr-4 py-3 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="email" placeholder="your@email.com" className="w-full pl-10 pr-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <button type="submit" className="px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap">
                 Subscribe

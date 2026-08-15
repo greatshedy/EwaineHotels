@@ -1,4 +1,4 @@
-﻿import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SlidersHorizontal, Grid3X3, List, X, Search, MapPin, Globe, Star, ExternalLink } from "lucide-react";
@@ -135,7 +135,7 @@ export default function Hotels() {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex border border-border dark:border-dark-border rounded-xl overflow-hidden">
+          <div className="flex border border-border  rounded-xl overflow-hidden">
             <button
               onClick={() => { setTripMode(false); setTrip({ hotels: [], loading: false, error: "" }); }}
               className={`px-3 sm:px-4 py-2 text-sm font-medium transition-colors ${!tripMode ? "bg-primary text-white" : "hover:bg-surface-alt"}`}
@@ -152,18 +152,18 @@ export default function Hotels() {
           </div>
           {!tripMode && (
             <>
-              <div className="flex border border-border dark:border-dark-border rounded-xl overflow-hidden">
+              <div className="flex border border-border  rounded-xl overflow-hidden">
                 <button onClick={() => setView("grid")} className={`p-2 ${view === "grid" ? "bg-primary text-white" : "hover:bg-surface-alt"}`} aria-label="Grid view"><Grid3X3 className="w-4 h-4" /></button>
                 <button onClick={() => setView("list")} className={`p-2 ${view === "list" ? "bg-primary text-white" : "hover:bg-surface-alt"}`} aria-label="List view"><List className="w-4 h-4" /></button>
               </div>
-              <select value={sort} onChange={(e) => setSort(e.target.value)} className="px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+              <select value={sort} onChange={(e) => setSort(e.target.value)} className="px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                 <option value="default">Sort by</option>
                 <option value="price-asc">Price: Low to High</option>
                 <option value="price-desc">Price: High to Low</option>
                 <option value="rating">Rating</option>
                 <option value="name">Name</option>
               </select>
-              <button onClick={() => setShowFilters(!showFilters)} className="sm:hidden p-2 rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt">
+              <button onClick={() => setShowFilters(!showFilters)} className="sm:hidden p-2 rounded-xl border border-border  hover:bg-surface-alt">
                 <SlidersHorizontal className="w-5 h-5" />
               </button>
             </>
@@ -175,7 +175,7 @@ export default function Hotels() {
         {/* Filter Sidebar */}
         {!tripMode && (
           <aside className={`${showFilters ? "fixed inset-0 z-50 flex" : "hidden"} lg:relative lg:block lg:w-64 flex-shrink-0`}>
-            <div className={`${showFilters ? "w-full max-w-sm bg-white dark:bg-dark-surface p-6 overflow-y-auto" : "w-full"} lg:bg-transparent lg:p-0 lg:overflow-visible`}>
+            <div className={`${showFilters ? "w-full max-w-sm bg-white  p-6 overflow-y-auto" : "w-full"} lg:bg-transparent lg:p-0 lg:overflow-visible`}>
               {showFilters && (
                 <div className="flex items-center justify-between mb-4 lg:hidden">
                   <h3 className="font-bold text-lg">Filters</h3>
@@ -187,14 +187,14 @@ export default function Hotels() {
                   <label className="block text-sm font-medium mb-2">Search</label>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
-                    <input type="text" value={searchQuery} onChange={(e) => setSearchParams(e.target.value ? { search: e.target.value } : {})} placeholder="Hotel name..." className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    <input type="text" value={searchQuery} onChange={(e) => setSearchParams(e.target.value ? { search: e.target.value } : {})} placeholder="Hotel name..." className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Location</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
-                    <select value={filters.location} onChange={(e) => updateFilter("location", e.target.value)} className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+                    <select value={filters.location} onChange={(e) => updateFilter("location", e.target.value)} className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
                       <option value="">All Cities</option>
                       {cities.map((c) => <option key={c} value={c}>{c}</option>)}
                     </select>
@@ -203,13 +203,13 @@ export default function Hotels() {
                 <div>
                   <label className="block text-sm font-medium mb-2">Price Range</label>
                   <div className="flex gap-2">
-                    <input type="number" placeholder="Min" value={filters.minPrice} onChange={(e) => updateFilter("minPrice", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
-                    <input type="number" placeholder="Max" value={filters.maxPrice} onChange={(e) => updateFilter("maxPrice", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    <input type="number" placeholder="Min" value={filters.minPrice} onChange={(e) => updateFilter("minPrice", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    <input type="number" placeholder="Max" value={filters.maxPrice} onChange={(e) => updateFilter("maxPrice", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Minimum Rating</label>
-                  <select value={filters.rating} onChange={(e) => updateFilter("rating", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                  <select value={filters.rating} onChange={(e) => updateFilter("rating", e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">Any Rating</option>
                     {[4.5, 4, 3.5, 3].map((r) => <option key={r} value={r}>{r}+ Stars</option>)}
                   </select>
@@ -259,7 +259,7 @@ export default function Hotels() {
                 <h3 className="text-xl font-bold mb-2">Search TripAdvisor</h3>
                 <p className="text-text-secondary mb-6">Pick a destination or type one below.</p>
                 <form onSubmit={(e) => { e.preventDefault(); const q = e.target.destination.value.trim(); if (q) { setSearchParams({ search: q }); } }} className="flex gap-2 mb-8">
-                  <input name="destination" placeholder="e.g. Lagos, Accra, Nairobi..." className="flex-1 px-4 py-2.5 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" autoFocus />
+                  <input name="destination" placeholder="e.g. Lagos, Accra, Nairobi..." className="flex-1 px-4 py-2.5 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" autoFocus />
                   <button type="submit" className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap">Search</button>
                 </form>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -280,13 +280,13 @@ export default function Hotels() {
             ) : (
               <>
                 <form onSubmit={(e) => { e.preventDefault(); if (destSearch.trim()) { setSearchParams({ search: destSearch.trim() }); setDestSearch(""); } }} className="flex gap-2 mb-4">
-                  <input value={destSearch} onChange={(e) => setDestSearch(e.target.value)} placeholder="Search other destinations..." className="flex-1 px-4 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                  <input value={destSearch} onChange={(e) => setDestSearch(e.target.value)} placeholder="Search other destinations..." className="flex-1 px-4 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                   <button type="submit" className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-xl hover:bg-primary-dark transition-colors whitespace-nowrap">Search</button>
                 </form>
                 <div className="flex gap-2 overflow-x-auto pb-3 mb-6 -mx-4 px-4">
                   {destinations.map((d) => (
                     <button key={d.id} onClick={() => setSearchParams({ search: d.name })}
-                      className="flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-alt dark:bg-dark-surface text-sm font-medium hover:bg-primary hover:text-white transition-colors"
+                      className="flex-shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-alt  text-sm font-medium hover:bg-primary hover:text-white transition-colors"
                     >
                       {d.name}
                     </button>
@@ -299,7 +299,7 @@ export default function Hotels() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: i * 0.05 }}
-                      className="group relative bg-white dark:bg-dark-surface rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                      className="group relative bg-white  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
                     >
                       <Link to={`/hotel/${hotel.id}?checkIn=${checkIn || ''}&checkOut=${checkOut || ''}${hotel.commerceUrl ? `&commerceUrl=${encodeURIComponent(hotel.commerceUrl)}` : ''}`} className="block relative aspect-[4/3] overflow-hidden">
                         <img
@@ -341,13 +341,13 @@ export default function Hotels() {
                   ))}
                 </div>
                 {featuredTripHotels.length > 0 && (
-                  <div className="mt-12 pt-8 border-t border-border dark:border-dark-border">
+                  <div className="mt-12 pt-8 border-t border-border ">
                     <h2 className="text-2xl font-bold mb-2">Featured on TripAdvisor</h2>
                     <p className="text-text-secondary text-sm mb-6">Top-rated hotels from your search</p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                       {featuredTripHotels.map((hotel, i) => (
                         <motion.div key={hotel.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                          className="group bg-white dark:bg-dark-surface rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all"
+                          className="group bg-white  rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all"
                         >
                           <Link to={`/hotel/${hotel.id}?checkIn=${checkIn || ''}&checkOut=${checkOut || ''}${hotel.commerceUrl ? `&commerceUrl=${encodeURIComponent(hotel.commerceUrl)}` : ''}`} className="block relative aspect-[4/3] overflow-hidden">
                             <img src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600'} alt={hotel.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -390,7 +390,7 @@ export default function Hotels() {
                   view === "grid" ? (
                     <HotelCard key={hotel.id} hotel={hotel} index={i} />
                   ) : (
-                    <motion.div key={hotel.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="flex gap-4 p-4 bg-white dark:bg-dark-surface rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                    <motion.div key={hotel.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }} className="flex gap-4 p-4 bg-white  rounded-2xl shadow-md hover:shadow-lg transition-shadow">
                       <img src={hotel.images[0]} alt={hotel.name} loading="lazy" className="w-40 h-32 object-cover rounded-xl flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <h3 className="font-semibold text-lg truncate">{hotel.name}</h3>
@@ -410,11 +410,11 @@ export default function Hotels() {
               {/* Pagination */}
               {totalPages > 1 && (
                 <div className="flex items-center justify-center gap-2 mt-10">
-                  <button disabled={page === 1} onClick={() => setPage(page - 1)} className="px-3 py-2 rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt disabled:opacity-40 text-sm">Prev</button>
+                  <button disabled={page === 1} onClick={() => setPage(page - 1)} className="px-3 py-2 rounded-xl border border-border  hover:bg-surface-alt disabled:opacity-40 text-sm">Prev</button>
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-                    <button key={p} onClick={() => setPage(p)} className={`w-10 h-10 rounded-xl text-sm font-medium transition-colors ${p === page ? "bg-primary text-white" : "border border-border dark:border-dark-border hover:bg-surface-alt"}`}>{p}</button>
+                    <button key={p} onClick={() => setPage(p)} className={`w-10 h-10 rounded-xl text-sm font-medium transition-colors ${p === page ? "bg-primary text-white" : "border border-border  hover:bg-surface-alt"}`}>{p}</button>
                   ))}
-                  <button disabled={page === totalPages} onClick={() => setPage(page + 1)} className="px-3 py-2 rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt disabled:opacity-40 text-sm">Next</button>
+                  <button disabled={page === totalPages} onClick={() => setPage(page + 1)} className="px-3 py-2 rounded-xl border border-border  hover:bg-surface-alt disabled:opacity-40 text-sm">Next</button>
                 </div>
               )}
             </>

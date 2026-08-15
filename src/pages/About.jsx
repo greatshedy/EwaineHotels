@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BadgeCheck, Target, Eye, Heart, Award, Users, Building2, MapPin } from "lucide-react";
@@ -41,7 +41,7 @@ export default function About() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 dark:from-primary/20 dark:via-accent/10 dark:to-secondary/10">
+      <section className="relative py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10   ">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl font-bold mb-4">About EwaineHotels</motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="text-lg text-text-secondary max-w-2xl mx-auto">Connecting travelers with exceptional stays across Africa and beyond.</motion.p>
@@ -63,7 +63,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-surface-alt dark:bg-dark-surface">
+      <section className="py-16 bg-surface-alt ">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((s) => (
@@ -94,13 +94,13 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-surface-alt dark:bg-dark-surface">
+      <section className="py-20 bg-surface-alt ">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl font-bold text-center mb-12">Core Values</motion.h2>
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
               <motion.div key={v.title} variants={fadeUp} className="text-center p-6">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center mx-auto mb-4"><v.icon className="w-7 h-7 text-primary" /></div>
+                <div className="w-14 h-14 rounded-2xl bg-primary/10  flex items-center justify-center mx-auto mb-4"><v.icon className="w-7 h-7 text-primary" /></div>
                 <h3 className="font-bold text-lg mb-2">{v.title}</h3>
                 <p className="text-sm text-text-secondary">{v.desc}</p>
               </motion.div>
@@ -125,14 +125,14 @@ export default function About() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-surface-alt dark:bg-dark-surface">
+      <section className="py-20 bg-surface-alt ">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Our Journey</h2>
           <div className="space-y-8">
             {timeline.map((t, i) => (
               <motion.div key={t.year} initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-16 text-right"><span className="text-sm font-bold text-primary">{t.year}</span></div>
-                <div className="w-px h-full bg-border dark:bg-dark-border relative mt-2">
+                <div className="w-px h-full bg-border  relative mt-2">
                   <div className="absolute top-0 -left-1.5 w-3 h-3 rounded-full bg-primary" />
                 </div>
                 <div className="glass rounded-xl p-4 flex-1">

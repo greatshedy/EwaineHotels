@@ -1,19 +1,20 @@
 ﻿import { Link } from "react-router-dom";
-import { Mail, Globe, Camera, Music, X, MapPin, Phone, MessageCircle, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, MessageCircle, Clock } from "lucide-react";
 import logo from "../../assets/ewainehotel.png";
+import facebookIcon from "../../assets/facebook.png";
+import instagramIcon from "../../assets/instagram.png";
+import tiktokIcon from "../../assets/tik-tok.png";
+import twitterIcon from "../../assets/twitter.png";
 
 const contactInfo = [
-  { icon: MapPin, label: "Address", value: "123 Awolowo Road, Ikoyi, Lagos, Nigeria" },
-  { icon: Phone, label: "Phone", value: "+234 800 123 4567", href: "tel:+2348001234567" },
-  { icon: MessageCircle, label: "WhatsApp", value: "+234 800 123 4567", href: "https://wa.me/2348001234567" },
+  { icon: MapPin, label: "Address", value: "Plot H3, No 10 Obafemi Awolowo Way, Alpha Plaza, CBD Alausa Ikeja, Lagos, Nigeria" },
+  { icon: Phone, label: "Phone", value: "+234 907 771 1825", href: "tel:+2349077711825" },
+  { icon: MessageCircle, label: "WhatsApp", value: "+234 907 771 1825", href: "https://wa.me/2349077711825" },
   { icon: Clock, label: "Hours", value: "Mon–Sat: 8:00 AM – 6:00 PM" },
 ];
 
 const contactEmails = [
   { label: "Support", email: "support@ewainehotels.com" },
-  { label: "Reservations", email: "reservations@ewainehotels.com" },
-  { label: "Corporate", email: "corporate@ewainehotels.com" },
-  { label: "Partners", email: "partners@ewainehotels.com" },
 ];
 
 const linkSections = [
@@ -105,17 +106,17 @@ export default function Footer() {
         <div className="border-t border-dark-border mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-dark-text-secondary">&copy; {new Date().getFullYear()} EwaineHotels. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="https://www.facebook.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="Facebook">
-              <Globe className="w-5 h-5" />
+            <a href="https://www.facebook.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="Facebook">
+              <img src={facebookIcon} alt="Facebook" className="w-5 h-5 brightness-0 invert" />
             </a>
-            <a href="https://www.instagram.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="Instagram">
-              <Camera className="w-5 h-5" />
+            <a href="https://www.instagram.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="Instagram">
+              <img src={instagramIcon} alt="Instagram" className="w-5 h-5 brightness-0 invert" />
             </a>
-            <a href="https://www.tiktok.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="TikTok">
-              <Music className="w-5 h-5" />
+            <a href="https://www.tiktok.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="TikTok">
+              <img src={tiktokIcon} alt="TikTok" className="w-5 h-5 brightness-0 invert" />
             </a>
-            <a href="https://www.x.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="text-dark-text-secondary hover:text-primary transition-colors" aria-label="X">
-              <X className="w-5 h-5" />
+            <a href="https://www.x.com/ewainehotels" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="X">
+              <img src={twitterIcon} alt="X" className="w-5 h-5 brightness-0 invert" />
             </a>
           </div>
         </div>

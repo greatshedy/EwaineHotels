@@ -118,15 +118,15 @@ export default function AdminHotels() {
           placeholder="Search hotels..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </div>
 
-      <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border overflow-hidden">
+      <div className="bg-white  rounded-2xl shadow-sm border border-border  overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border bg-gray-50 dark:bg-dark-bg/50">
+              <tr className="text-left text-text-secondary border-b border-border  bg-gray-50 ">
                 <th className="p-3 font-medium">Name</th>
                 <th className="p-3 font-medium">City</th>
                 <th className="p-3 font-medium">Price</th>
@@ -140,7 +140,7 @@ export default function AdminHotels() {
               {filtered.map((hotel) => (
                 <tr
                   key={hotel.id}
-                  className="border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30"
+                  className="border-b border-border/50  hover:bg-gray-50 "
                 >
                   <td className="p-3 font-medium">{hotel.name}</td>
                   <td className="p-3 text-text-secondary">{hotel.city}</td>
@@ -164,7 +164,7 @@ export default function AdminHotels() {
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => openEdit(hotel)}
-                        className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-primary transition-colors"
+                        className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-primary transition-colors"
                         title="Edit"
                       >
                         <Edit3 className="w-4 h-4" />
@@ -174,7 +174,7 @@ export default function AdminHotels() {
                           if (window.confirm("Delete this hotel?"))
                             deleteHotel(hotel.id);
                         }}
-                        className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors"
+                        className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors"
                         title="Delete"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -204,10 +204,10 @@ export default function AdminHotels() {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="w-full max-w-2xl bg-white dark:bg-dark-surface rounded-2xl shadow-xl border border-border dark:border-dark-border overflow-hidden"
+            className="w-full max-w-2xl bg-white  rounded-2xl shadow-xl border border-border  overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark-border">
+            <div className="flex items-center justify-between p-4 border-b border-border ">
               <h2 className="text-lg font-bold">
                 {editing ? "Edit Hotel" : "Add Hotel"}
               </h2>
@@ -232,7 +232,7 @@ export default function AdminHotels() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -246,7 +246,7 @@ export default function AdminHotels() {
                     }
                     rows={3}
                     required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div>
@@ -261,7 +261,7 @@ export default function AdminHotels() {
                     }
                     required
                     min={0}
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div>
@@ -278,7 +278,7 @@ export default function AdminHotels() {
                     min={0}
                     max={5}
                     step={0.1}
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div>
@@ -291,7 +291,7 @@ export default function AdminHotels() {
                       setForm({ ...form, city: e.target.value })
                     }
                     required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div>
@@ -304,7 +304,7 @@ export default function AdminHotels() {
                       setForm({ ...form, state: e.target.value })
                     }
                     required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -317,7 +317,7 @@ export default function AdminHotels() {
                       setForm({ ...form, address: e.target.value })
                     }
                     required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -333,7 +333,7 @@ export default function AdminHotels() {
                         className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-colors ${
                           form.amenities.includes(a)
                             ? "bg-primary text-white border-primary"
-                            : "border-border dark:border-dark-border text-text-secondary hover:border-primary"
+                            : "border-border  text-text-secondary hover:border-primary"
                         }`}
                       >
                         {a}
@@ -355,7 +355,7 @@ export default function AdminHotels() {
                           setForm({ ...form, images: imgs });
                         }}
                         placeholder="https://images.unsplash.com/..."
-                        className="flex-1 px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                        className="flex-1 px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                       {form.images.length > 1 && (
                         <button
@@ -398,7 +398,7 @@ export default function AdminHotels() {
                             setForm({ ...form, roomTypes: rts });
                           }}
                           placeholder="Type (e.g. Deluxe)"
-                          className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                       </div>
                       <div className="w-24">
@@ -411,7 +411,7 @@ export default function AdminHotels() {
                             setForm({ ...form, roomTypes: rts });
                           }}
                           placeholder="Price"
-                          className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                       </div>
                       <div className="w-20">
@@ -427,7 +427,7 @@ export default function AdminHotels() {
                             setForm({ ...form, roomTypes: rts });
                           }}
                           placeholder="Qty"
-                          className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                          className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                       </div>
                       {form.roomTypes.length > 1 && (
@@ -473,7 +473,7 @@ export default function AdminHotels() {
                     onChange={(e) =>
                       setForm({ ...form, phone: e.target.value })
                     }
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div>
@@ -486,7 +486,7 @@ export default function AdminHotels() {
                     onChange={(e) =>
                       setForm({ ...form, email: e.target.value })
                     }
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -498,7 +498,7 @@ export default function AdminHotels() {
                     onChange={(e) =>
                       setForm({ ...form, website: e.target.value })
                     }
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="sm:col-span-2 flex items-center gap-6">
@@ -527,11 +527,11 @@ export default function AdminHotels() {
                 </div>
               </div>
 
-              <div className="flex justify-end gap-3 pt-2 border-t border-border dark:border-dark-border">
+              <div className="flex justify-end gap-3 pt-2 border-t border-border ">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors"
+                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border  hover:bg-surface-alt  transition-colors"
                 >
                   Cancel
                 </button>

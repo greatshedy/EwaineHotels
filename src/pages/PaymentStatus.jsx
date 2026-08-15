@@ -81,7 +81,7 @@ export default function PaymentStatus() {
         </p>
 
         {booking && (
-          <div className="bg-surface-alt dark:bg-dark-bg rounded-xl p-4 space-y-1 text-sm text-left mb-6">
+          <div className="bg-surface-alt  rounded-xl p-4 space-y-1 text-sm text-left mb-6">
             <p className="font-semibold">{booking.hotelName}</p>
             <p className="text-text-secondary">{booking.roomType} — ${booking.totalPrice}</p>
             <p className="text-text-secondary">{new Date(booking.checkIn).toLocaleDateString()} → {new Date(booking.checkOut).toLocaleDateString()}</p>
@@ -95,7 +95,7 @@ export default function PaymentStatus() {
               <Link to="/dashboard" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors">
                 <CalendarCheck className="w-4 h-4" /> View My Bookings
               </Link>
-              <a href={`https://wa.me/${DEFAULT_WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors font-medium">
+              <a href={`https://wa.me/${DEFAULT_WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border  hover:bg-surface-alt  transition-colors font-medium">
                 <MessageCircle className="w-4 h-4" /> Contact Hotel
               </a>
             </>

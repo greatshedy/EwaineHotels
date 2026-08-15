@@ -78,15 +78,15 @@ export default function AdminTestimonials() {
           placeholder="Search testimonials..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </div>
 
-      <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border overflow-hidden">
+      <div className="bg-white  rounded-2xl shadow-sm border border-border  overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border bg-gray-50 dark:bg-dark-bg/50">
+              <tr className="text-left text-text-secondary border-b border-border  bg-gray-50 ">
                 <th className="p-3 font-medium">Avatar</th>
                 <th className="p-3 font-medium">Name</th>
                 <th className="p-3 font-medium">Role</th>
@@ -97,7 +97,7 @@ export default function AdminTestimonials() {
             </thead>
             <tbody>
               {filtered.map((t) => (
-                <tr key={t.id} className="border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30">
+                <tr key={t.id} className="border-b border-border/50  hover:bg-gray-50 ">
                   <td className="p-3">
                     <img
                       src={t.avatar || `https://i.pravatar.cc/40?img=${t.id}`}
@@ -119,7 +119,7 @@ export default function AdminTestimonials() {
                     <div className="flex items-center justify-end gap-1">
                       <button
                         onClick={() => openEdit(t)}
-                        className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-primary transition-colors"
+                        className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-primary transition-colors"
                         title="Edit"
                       >
                         <Edit3 className="w-4 h-4" />
@@ -129,7 +129,7 @@ export default function AdminTestimonials() {
                           if (window.confirm("Delete this testimonial?"))
                             deleteTestimonial(t.id);
                         }}
-                        className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors"
+                        className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors"
                         title="Delete"
                       >
                         <Trash2 className="w-4 h-4" />
@@ -156,10 +156,10 @@ export default function AdminTestimonials() {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="w-full max-w-lg bg-white dark:bg-dark-surface rounded-2xl shadow-xl border border-border dark:border-dark-border overflow-hidden"
+            className="w-full max-w-lg bg-white  rounded-2xl shadow-xl border border-border  overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark-border">
+            <div className="flex items-center justify-between p-4 border-b border-border ">
               <h2 className="text-lg font-bold">
                 {editing ? "Edit Testimonial" : "Add Testimonial"}
               </h2>
@@ -175,7 +175,7 @@ export default function AdminTestimonials() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   required
-                  className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
@@ -184,7 +184,7 @@ export default function AdminTestimonials() {
                   value={form.role}
                   onChange={(e) => setForm({ ...form, role: e.target.value })}
                   placeholder="e.g. Business Traveler"
-                  className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
@@ -193,7 +193,7 @@ export default function AdminTestimonials() {
                   value={form.avatar}
                   onChange={(e) => setForm({ ...form, avatar: e.target.value })}
                   placeholder="https://i.pravatar.cc/150?img=1"
-                  className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <div>
@@ -221,15 +221,15 @@ export default function AdminTestimonials() {
                   onChange={(e) => setForm({ ...form, text: e.target.value })}
                   required
                   rows={4}
-                  className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
-              <div className="flex justify-end gap-3 pt-2 border-t border-border dark:border-dark-border">
+              <div className="flex justify-end gap-3 pt-2 border-t border-border ">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors"
+                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border  hover:bg-surface-alt  transition-colors"
                 >
                   Cancel
                 </button>

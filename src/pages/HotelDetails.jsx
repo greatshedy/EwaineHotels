@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -259,7 +259,7 @@ export default function HotelDetails() {
               <span className="flex items-center gap-1"><MapPin className="w-4 h-4" />{displayHotel.address}{displayHotel.city ? `, ${displayHotel.city}` : ''}{displayHotel.state ? `, ${displayHotel.state}` : ''}</span>
               <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" />{displayHotel.rating} ({displayHotel.reviews} reviews)</span>
               {isTripAdvisor && displayHotel.provider && (
-                <span className="text-xs bg-surface-alt dark:bg-dark-bg px-2 py-1 rounded-lg">via {displayHotel.provider}</span>
+                <span className="text-xs bg-surface-alt  px-2 py-1 rounded-lg">via {displayHotel.provider}</span>
               )}
             </div>
             {displayHotel.priceSummary && (
@@ -285,7 +285,7 @@ export default function HotelDetails() {
                 {displayHotel.amenities.map((a) => {
                   const Icon = amenityIcons[a] || Utensils;
                   return (
-                    <div key={a} className="flex items-center gap-2 p-3 rounded-xl bg-surface-alt dark:bg-dark-surface">
+                    <div key={a} className="flex items-center gap-2 p-3 rounded-xl bg-surface-alt ">
                       <Icon className="w-5 h-5 text-primary" />
                       <span className="text-sm">{a}</span>
                     </div>
@@ -301,7 +301,7 @@ export default function HotelDetails() {
               <h2 className="text-xl font-bold mb-4">Available Rooms</h2>
               <div className="space-y-3">
                 {displayHotel.roomTypes.map((r) => (
-                  <div key={r.type} className="flex items-center justify-between p-4 rounded-xl border border-border dark:border-dark-border">
+                  <div key={r.type} className="flex items-center justify-between p-4 rounded-xl border border-border ">
                     <div><h3 className="font-semibold">{r.type}</h3><p className="text-sm text-text-secondary">{r.available} rooms left</p></div>
                     <div className="text-right"><span className="text-xl font-bold text-primary">${r.price}</span><span className="text-xs text-text-secondary"> / night</span></div>
                   </div>
@@ -313,7 +313,7 @@ export default function HotelDetails() {
           {/* Location */}
           <div>
             <h2 className="text-xl font-bold mb-4">Location</h2>
-            <div className="rounded-2xl overflow-hidden h-64 bg-surface-alt dark:bg-dark-surface flex items-center justify-center">
+            <div className="rounded-2xl overflow-hidden h-64 bg-surface-alt  flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
                 <p className="text-sm text-text-secondary">{displayHotel.address || 'Address not available'}</p>
@@ -326,7 +326,7 @@ export default function HotelDetails() {
 
           {/* Contact Info */}
           {!isTripAdvisor && (
-            <div className="flex flex-wrap gap-4 p-4 rounded-xl bg-surface-alt dark:bg-dark-surface">
+            <div className="flex flex-wrap gap-4 p-4 rounded-xl bg-surface-alt ">
               {displayHotel.phone && <a href={`tel:${displayHotel.phone}`} className="flex items-center gap-2 text-sm hover:text-primary"><Phone className="w-4 h-4" />{displayHotel.phone}</a>}
               {displayHotel.email && <a href={`mailto:${displayHotel.email}`} className="flex items-center gap-2 text-sm hover:text-primary"><Mail className="w-4 h-4" />{displayHotel.email}</a>}
               {displayHotel.website && <a href={displayHotel.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-primary"><Globe className="w-4 h-4" />Website</a>}
@@ -339,7 +339,7 @@ export default function HotelDetails() {
             <div className="space-y-4">
               {isTripAdvisor && displayHotel.reviewSamples?.length > 0 ? (
                 displayHotel.reviewSamples.slice(0, 5).map((r, i) => (
-                  <div key={i} className="p-4 rounded-xl border border-border dark:border-dark-border">
+                  <div key={i} className="p-4 rounded-xl border border-border ">
                     <div className="flex items-center gap-3 mb-2">
                       <img src={r.avatar || `https://i.pravatar.cc/40?img=${i + 20}`} alt="" className="w-10 h-10 rounded-full" onError={(e) => { if (e.target.src !== `https://i.pravatar.cc/40?img=${i + 20}`) e.target.src = `https://i.pravatar.cc/40?img=${i + 20}`; }} />
                       <div>
@@ -353,7 +353,7 @@ export default function HotelDetails() {
                 ))
               ) : (
                 [1, 2, 3].map((i) => (
-                  <div key={i} className="p-4 rounded-xl border border-border dark:border-dark-border">
+                  <div key={i} className="p-4 rounded-xl border border-border ">
                     <div className="flex items-center gap-3 mb-2">
                       <img src={`https://i.pravatar.cc/40?img=${i + 20}`} alt="" className="w-10 h-10 rounded-full" />
                       <div><p className="font-semibold text-sm">Guest {i}</p><RatingStars value={4} /></div>
@@ -393,15 +393,15 @@ export default function HotelDetails() {
                   <div className="space-y-3">
                     <div>
                       <label className="block text-xs font-medium mb-1">Room Type</label>
-                      <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                      <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         {displayHotel.roomTypes.map((r) => (
                           <option key={r.type} value={r.type}>{r.type} - ${r.price}</option>
                         ))}
                       </select>
                     </div>
-                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" min={minCheckOut} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                    <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" min={minCheckOut} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
                   </div>
                   <div className="flex items-center justify-between text-sm text-text-secondary">
                     <span>${roomPrice} x {nights} night{nights > 1 ? "s" : ""}</span>
@@ -439,13 +439,13 @@ export default function HotelDetails() {
       {/* Booking Modal */}
       {showBooking && hasBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => setShowBooking(false)}>
-          <div className="w-full max-w-md bg-white dark:bg-dark-surface rounded-2xl shadow-xl border border-border dark:border-dark-border overflow-hidden" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark-border">
+          <div className="w-full max-w-md bg-white  rounded-2xl shadow-xl border border-border  overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between p-4 border-b border-border ">
               <h2 className="font-bold">Confirm Booking</h2>
               <button onClick={() => setShowBooking(false)} className="p-1 hover:text-primary"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-surface-alt dark:bg-dark-bg rounded-xl p-3 space-y-1 text-sm">
+              <div className="bg-surface-alt  rounded-xl p-3 space-y-1 text-sm">
                 <p className="font-semibold">{displayHotel.name}</p>
                 <p className="text-text-secondary">{selectedRoom || displayHotel.roomTypes?.[0]?.type} — ${roomPrice}/night</p>
                 <p className="text-text-secondary">{new Date(checkIn).toLocaleDateString()} → {new Date(checkOut).toLocaleDateString()}</p>
@@ -454,15 +454,15 @@ export default function HotelDetails() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Full Name</label>
-                <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="John Doe" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="John Doe" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Email</label>
-                <input type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} placeholder="john@example.com" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} placeholder="john@example.com" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Phone (optional)</label>
-                <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <Button size="lg" className="w-full" onClick={handleConfirmBooking} disabled={processing}>{processing ? "Redirecting to payment..." : "Proceed to Payment"}</Button>
             </div>

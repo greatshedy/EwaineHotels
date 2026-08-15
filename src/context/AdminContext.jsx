@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useEffect } from "react";
 import {
   login as apiLogin,
   getHotels,
@@ -74,6 +74,13 @@ export function AdminProvider({ children }) {
       setBookings(data);
     } catch {}
   }, []);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      refreshHotels();
+      refreshBookings();
+    }
+  }, [isAuthenticated, refreshHotels, refreshBookings]);
 
   const refreshTestimonials = useCallback(async () => {
     try {

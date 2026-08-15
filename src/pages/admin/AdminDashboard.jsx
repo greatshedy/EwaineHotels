@@ -63,7 +63,7 @@ export default function AdminDashboard() {
           return (
             <div
               key={s.key}
-              className="bg-white dark:bg-dark-surface rounded-2xl p-5 shadow-sm border border-border dark:border-dark-border"
+              className="bg-white  rounded-2xl p-5 shadow-sm border border-border "
             >
               <div className={`p-2.5 rounded-xl w-fit ${s.color} mb-3`}>
                 <Icon className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
         })}
       </div>
 
-      <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border p-5">
+      <div className="bg-white  rounded-2xl shadow-sm border border-border  p-5">
         <h2 className="text-lg font-bold mb-4">Recent Bookings</h2>
         {bookings.length === 0 ? (
           <p className="text-sm text-text-secondary">No bookings yet.</p>
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border">
+                <tr className="text-left text-text-secondary border-b border-border ">
                   <th className="pb-3 font-medium">Guest</th>
                   <th className="pb-3 font-medium">Hotel</th>
                   <th className="pb-3 font-medium">Check-in</th>
@@ -99,7 +99,7 @@ export default function AdminDashboard() {
                   .map((b) => (
                     <tr
                       key={b.id}
-                      className="border-b border-border/50 dark:border-dark-border/50"
+                      className="border-b border-border/50 "
                     >
                       <td className="py-3">{b.guestName}</td>
                       <td className="py-3">{b.hotelName}</td>

@@ -34,7 +34,7 @@ export default function AdminLayout() {
   };
 
   return (
-    <div className="min-h-screen flex bg-gray-50 dark:bg-dark-bg">
+    <div className="min-h-screen flex bg-gray-50 ">
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 lg:hidden"
@@ -96,7 +96,7 @@ export default function AdminLayout() {
       </aside>
 
       <div className="flex-1 flex flex-col min-h-screen">
-        <header className="sticky top-0 z-30 bg-white dark:bg-dark-surface border-b border-border dark:border-dark-border lg:hidden">
+        <header className="sticky top-0 z-30 bg-white  border-b border-border  lg:hidden">
           <div className="flex items-center justify-between px-4 h-14">
             <button
               onClick={() => setSidebarOpen(true)}

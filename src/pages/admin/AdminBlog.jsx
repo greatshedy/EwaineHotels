@@ -31,7 +31,7 @@ function Toolbar({ editor }) {
     <button type="button" onClick={onClick} className={`p-1.5 rounded text-sm font-medium transition-colors ${on ? "bg-primary text-white" : "hover:bg-surface-alt"}`}>{label}</button>
   );
   return (
-    <div className="flex flex-wrap gap-1 p-2 border-b border-border dark:border-dark-border bg-surface-alt dark:bg-dark-surface rounded-t-xl">
+    <div className="flex flex-wrap gap-1 p-2 border-b border-border  bg-surface-alt  rounded-t-xl">
       {btn(editor.isActive("bold"), () => editor.chain().focus().toggleBold().run(), <b>B</b>)}
       {btn(editor.isActive("italic"), () => editor.chain().focus().toggleItalic().run(), <i>I</i>)}
       {btn(editor.isActive("underline"), () => editor.chain().focus().toggleUnderline().run(), <u>U</u>)}
@@ -64,7 +64,7 @@ function TipTapInput({ value, onChange }) {
   }, [value, editor]);
 
   return (
-    <div className="border border-border dark:border-dark-border rounded-xl overflow-hidden">
+    <div className="border border-border  rounded-xl overflow-hidden">
       <Toolbar editor={editor} />
       <EditorContent editor={editor} className="prose prose-sm max-w-none p-3 min-h-[200px] focus:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror]:min-h-[200px]" />
     </div>
@@ -157,7 +157,7 @@ export default function AdminBlog() {
       <div className="relative mb-4">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
         <input type="text" placeholder="Search posts..." value={search} onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
       </div>
 
       {selectedIds.length > 0 && (
@@ -172,11 +172,11 @@ export default function AdminBlog() {
         </div>
       )}
 
-      <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border overflow-hidden">
+      <div className="bg-white  rounded-2xl shadow-sm border border-border  overflow-hidden">
         <div className="overflow-x-auto">
               <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border bg-gray-50 dark:bg-dark-bg/50">
+              <tr className="text-left text-text-secondary border-b border-border  bg-gray-50 ">
                 <th className="p-3 w-10">
                   <input type="checkbox" checked={filtered.length > 0 && selectedIds.length === filtered.length}
                     onChange={toggleSelectAll} className="rounded border-border text-primary focus:ring-primary" />
@@ -191,7 +191,7 @@ export default function AdminBlog() {
             </thead>
             <tbody>
               {filtered.map((p) => (
-                <tr key={p.id} className={`border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30 ${selectedIds.includes(p.id) ? "bg-primary/5" : ""}`}>
+                <tr key={p.id} className={`border-b border-border/50  hover:bg-gray-50  ${selectedIds.includes(p.id) ? "bg-primary/5" : ""}`}>
                   <td className="p-3 w-10">
                     <input type="checkbox" checked={selectedIds.includes(p.id)} onChange={() => toggleSelect(p.id)}
                       className="rounded border-border text-primary focus:ring-primary" />
@@ -213,8 +213,8 @@ export default function AdminBlog() {
                   <td className="p-3 text-text-secondary text-xs">{p.createdAt ? new Date(p.createdAt).toLocaleDateString() : "—"}</td>
                   <td className="p-3 text-right">
                     <div className="flex items-center justify-end gap-1">
-                      <button onClick={() => openEdit(p)} className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-primary transition-colors" title="Edit"><Edit3 className="w-4 h-4" /></button>
-                      <button onClick={() => { if (window.confirm("Delete this post?")) deleteBlogPost(p.id); }} className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors" title="Delete"><Trash2 className="w-4 h-4" /></button>
+                      <button onClick={() => openEdit(p)} className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-primary transition-colors" title="Edit"><Edit3 className="w-4 h-4" /></button>
+                      <button onClick={() => { if (window.confirm("Delete this post?")) deleteBlogPost(p.id); }} className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors" title="Delete"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </td>
                 </tr>
@@ -229,8 +229,8 @@ export default function AdminBlog() {
 
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-start justify-center p-4 pt-8 bg-black/50 overflow-y-auto" onClick={() => setShowModal(false)}>
-          <div className="w-full max-w-3xl bg-white dark:bg-dark-surface rounded-2xl shadow-xl border border-border dark:border-dark-border overflow-hidden" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between p-4 border-b border-border dark:border-dark-border">
+          <div className="w-full max-w-3xl bg-white  rounded-2xl shadow-xl border border-border  overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between p-4 border-b border-border ">
               <h2 className="text-lg font-bold">{editing ? "Edit Post" : "New Post"}</h2>
               <button onClick={() => { setShowModal(false); resetForm(); }} className="p-1 hover:text-primary"><X className="w-5 h-5" /></button>
             </div>
@@ -239,22 +239,22 @@ export default function AdminBlog() {
                 <div className="sm:col-span-2">
                   <label className="block text-sm font-medium mb-1">Title</label>
                   <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} required
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Author</label>
                   <input value={form.author} onChange={(e) => setForm({ ...form, author: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">Tags (comma-separated)</label>
                   <input value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} placeholder="Travel, Lagos, Review"
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="sm:col-span-2">
                   <label className="block text-sm font-medium mb-1">Cover Image URL</label>
                   <input value={form.coverImage} onChange={(e) => setForm({ ...form, coverImage: e.target.value })} placeholder="https://images.unsplash.com/..."
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="sm:col-span-2">
                   <label className="block text-sm font-medium mb-1">Content</label>
@@ -263,7 +263,7 @@ export default function AdminBlog() {
                 <div className="sm:col-span-2">
                   <label className="block text-sm font-medium mb-1">Excerpt (summary for listing)</label>
                   <textarea value={form.excerpt} onChange={(e) => setForm({ ...form, excerpt: e.target.value })} rows={3} maxLength={300}
-                    className="w-full px-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                    className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
                 </div>
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id="published" checked={form.published} onChange={(e) => setForm({ ...form, published: e.target.checked })}
@@ -271,9 +271,9 @@ export default function AdminBlog() {
                   <label htmlFor="published" className="text-sm font-medium">Published</label>
                 </div>
               </div>
-              <div className="flex justify-end gap-3 pt-2 border-t border-border dark:border-dark-border">
+              <div className="flex justify-end gap-3 pt-2 border-t border-border ">
                 <button type="button" onClick={() => { setShowModal(false); resetForm(); }}
-                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border dark:border-dark-border hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors">Cancel</button>
+                  className="px-4 py-2 text-sm font-medium rounded-xl border border-border  hover:bg-surface-alt  transition-colors">Cancel</button>
                 <button type="submit"
                   className="px-4 py-2 text-sm font-medium bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors">{editing ? "Save Changes" : "Publish"}</button>
               </div>

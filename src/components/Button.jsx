@@ -1,10 +1,10 @@
-﻿import { forwardRef } from "react";
+import { forwardRef } from "react";
 
 const variants = {
   primary: "bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/25",
   secondary: "bg-secondary text-white hover:bg-amber-600 shadow-lg shadow-secondary/25",
   outline: "border-2 border-primary text-primary hover:bg-primary hover:text-white",
-  ghost: "text-text-secondary hover:bg-surface-alt dark:hover:bg-dark-surface",
+  ghost: "text-text-secondary hover:bg-surface-alt ",
 };
 
 const sizes = {

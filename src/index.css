@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
   --color-primary: #7c3aed;
@@ -26,9 +26,6 @@
     @apply bg-surface text-text font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
   }
-  .dark body, body.dark {
-    @apply bg-dark-bg text-dark-text;
-  }
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
   }
@@ -40,9 +37,6 @@
 @layer utilities {
   .glass {
     @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
-  }
-  .dark .glass {
-    @apply bg-dark-surface/70 border-dark-border/30;
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;

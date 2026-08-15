@@ -78,12 +78,12 @@ export default function BlogPost() {
           )}
 
           <div
-            className="prose prose-sm sm:prose-base dark:prose-invert max-w-none leading-relaxed"
+            className="prose prose-sm sm:prose-base  max-w-none leading-relaxed"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </motion.article>
 
-        <div className="mt-12 pt-8 border-t border-border dark:border-dark-border">
+        <div className="mt-12 pt-8 border-t border-border ">
           <Link to="/blog" className="inline-flex items-center gap-2 text-primary font-semibold hover:underline">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>

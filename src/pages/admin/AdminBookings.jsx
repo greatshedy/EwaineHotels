@@ -30,15 +30,15 @@ export default function AdminBookings() {
           placeholder="Search bookings..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
         />
       </div>
 
-      <div className="bg-white dark:bg-dark-surface rounded-2xl shadow-sm border border-border dark:border-dark-border overflow-hidden">
+      <div className="bg-white  rounded-2xl shadow-sm border border-border  overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-text-secondary border-b border-border dark:border-dark-border bg-gray-50 dark:bg-dark-bg/50">
+              <tr className="text-left text-text-secondary border-b border-border  bg-gray-50 ">
                 <th className="p-3 font-medium">#</th>
                 <th className="p-3 font-medium">Guest</th>
                 <th className="p-3 font-medium">Email</th>
@@ -58,7 +58,7 @@ export default function AdminBookings() {
                 .map((b) => (
                   <tr
                     key={b.id}
-                    className="border-b border-border/50 dark:border-dark-border/50 hover:bg-gray-50 dark:hover:bg-dark-bg/30"
+                    className="border-b border-border/50  hover:bg-gray-50 "
                   >
                     <td className="p-3 text-text-secondary font-mono">
                       {b.id?.toString().slice(-6)}
@@ -91,7 +91,7 @@ export default function AdminBookings() {
                               onClick={() =>
                                 updateBookingStatus(b.id, "confirmed")
                               }
-                              className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-success transition-colors"
+                              className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-success transition-colors"
                               title="Confirm"
                             >
                               <CheckCircle2 className="w-4 h-4" />
@@ -100,7 +100,7 @@ export default function AdminBookings() {
                               onClick={() =>
                                 updateBookingStatus(b.id, "cancelled")
                               }
-                              className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors"
+                              className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors"
                               title="Cancel"
                             >
                               <XCircle className="w-4 h-4" />
@@ -112,7 +112,7 @@ export default function AdminBookings() {
                             onClick={() =>
                               updateBookingStatus(b.id, "cancelled")
                             }
-                            className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-error transition-colors"
+                            className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors"
                             title="Cancel"
                           >
                             <XCircle className="w-4 h-4" />
@@ -123,7 +123,7 @@ export default function AdminBookings() {
                             onClick={() =>
                               updateBookingStatus(b.id, "pending")
                             }
-                            className="p-2 hover:bg-surface-alt dark:hover:bg-dark-surface rounded-lg text-text-secondary hover:text-secondary transition-colors"
+                            className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-secondary transition-colors"
                             title="Reopen"
                           >
                             <CheckCircle2 className="w-4 h-4" />

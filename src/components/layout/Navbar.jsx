@@ -1,7 +1,6 @@
 ﻿import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Moon, Sun, Heart } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
+import { Menu, X, Heart } from "lucide-react";
 import { useFavorites } from "../../context/FavoritesContext";
 import logo from "../../assets/ewainehotel.png";
 
@@ -16,7 +15,6 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { dark, toggle } = useTheme();
   const { favorites } = useFavorites();
 
   return (
@@ -48,9 +46,6 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            <button onClick={toggle} className="p-2 rounded-full hover:bg-surface-alt dark:hover:bg-dark-surface transition-colors" aria-label="Toggle dark mode">
-              {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
           </div>
 
           <div className="flex md:hidden items-center gap-2">
@@ -62,9 +57,6 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-            <button onClick={toggle} className="p-2" aria-label="Toggle dark mode">
-              {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
             <button onClick={() => setOpen(!open)} className="p-2" aria-label="Toggle menu">
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
