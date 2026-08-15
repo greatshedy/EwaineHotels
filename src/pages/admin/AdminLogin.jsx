@@ -25,7 +25,7 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50  px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Hotel className="w-10 h-10 text-primary mx-auto mb-3" />
@@ -37,7 +37,7 @@ export default function AdminLogin() {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white  rounded-2xl p-6 shadow-lg space-y-4"
+          className="bg-white rounded-2xl p-6 space-y-4"
         >
           {error && (
             <div className="bg-error/10 text-error text-sm p-3 rounded-xl">
@@ -50,7 +50,7 @@ export default function AdminLogin() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-3 py-2.5 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="admin@ewaine.com"
             />
           </div>
@@ -60,7 +60,7 @@ export default function AdminLogin() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full px-3 py-2.5 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="••••••••"
             />
           </div>

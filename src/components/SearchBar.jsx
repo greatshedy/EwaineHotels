@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Search, MapPin, Calendar, Users } from "lucide-react";
 
@@ -23,7 +23,7 @@ export default function SearchBar() {
     "w-full bg-transparent text-sm font-medium text-text focus:outline-none placeholder:text-text-secondary/70";
 
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl lg:rounded-full shadow-2xl shadow-black/20 overflow-hidden">
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-2xl lg:rounded-full overflow-hidden">
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-2 lg:flex lg:items-stretch"

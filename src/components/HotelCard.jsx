@@ -22,7 +22,7 @@ export default function HotelCard({ hotel, index = 0 }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group relative bg-white  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+      className="group relative bg-white rounded-2xl overflow-hidden transition-all duration-300"
     >
       <Link to={`/hotel/${hotel.id}`} className="block relative aspect-[4/3] overflow-hidden">
         <img
@@ -72,7 +72,7 @@ export default function HotelCard({ hotel, index = 0 }) {
           {hotel.amenities.slice(0, 4).map((a) => {
             const Icon = amenityIcons[a];
             return (
-              <span key={a} className="inline-flex items-center gap-1 text-xs bg-surface-alt  px-2 py-1 rounded-lg text-text-secondary">
+              <span key={a} className="inline-flex items-center gap-1 text-xs bg-surface-alt px-2 py-1 rounded-lg text-text-secondary">
                 {Icon && <Icon className="w-3 h-3" />}
                 {a}
               </span>

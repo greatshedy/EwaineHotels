@@ -63,7 +63,7 @@ export default function AdminDashboard() {
           return (
             <div
               key={s.key}
-              className="bg-white  rounded-2xl p-5 shadow-sm border border-border "
+              className="bg-white rounded-2xl p-5 border border-border "
             >
               <div className={`p-2.5 rounded-xl w-fit ${s.color} mb-3`}>
                 <Icon className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
         })}
       </div>
 
-      <div className="bg-white  rounded-2xl shadow-sm border border-border  p-5">
+      <div className="bg-white rounded-2xl border border-border p-5">
         <h2 className="text-lg font-bold mb-4">Recent Bookings</h2>
         {bookings.length === 0 ? (
           <p className="text-sm text-text-secondary">No bookings yet.</p>

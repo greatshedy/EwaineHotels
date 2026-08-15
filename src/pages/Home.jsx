@@ -170,7 +170,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {taPicks.map((hotel, i) => (
                 <motion.div key={hotel.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                  className="group relative bg-white  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative bg-white rounded-2xl overflow-hidden transition-all duration-300"
                 >
                   <Link to={`/hotel/${hotel.id}${hotel.commerceUrl ? `?commerceUrl=${encodeURIComponent(hotel.commerceUrl)}` : ''}`} className="block relative aspect-[4/3] overflow-hidden">
                     <img src={hotel.images[0] || 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600'} alt={hotel.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -214,7 +214,7 @@ export default function Home() {
         <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map((r) => (
             <motion.div key={r.title} variants={fadeUp} className="glass rounded-2xl p-6 text-center hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-14 h-14 rounded-2xl bg-primary/10  flex items-center justify-center mx-auto mb-4">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                 <r.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-bold text-lg mb-2">{r.title}</h3>
@@ -246,10 +246,10 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
-            <button onClick={() => setTestiIdx((p) => (p === 0 ? testimonials.length - 1 : p - 1))} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-12 p-2 rounded-full glass hover:bg-white  transition-colors" aria-label="Previous testimonial">
+            <button onClick={() => setTestiIdx((p) => (p === 0 ? testimonials.length - 1 : p - 1))} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-12 p-2 rounded-full glass hover:bg-white transition-colors" aria-label="Previous testimonial">
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button onClick={() => setTestiIdx((p) => (p === testimonials.length - 1 ? 0 : p + 1))} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-12 p-2 rounded-full glass hover:bg-white  transition-colors" aria-label="Next testimonial">
+            <button onClick={() => setTestiIdx((p) => (p === testimonials.length - 1 ? 0 : p + 1))} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-12 p-2 rounded-full glass hover:bg-white transition-colors" aria-label="Next testimonial">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

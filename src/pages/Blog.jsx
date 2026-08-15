@@ -25,7 +25,7 @@ export default function Blog() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10   ">
+      <section className="relative py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 ">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl font-bold mb-4">Our Blog</motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }} className="text-lg text-text-secondary max-w-2xl mx-auto">Travel tips, hotel reviews, and stories from across Africa.</motion.p>
@@ -49,7 +49,7 @@ export default function Blog() {
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map((post, i) => (
               <motion.div key={post.id} variants={fadeUp}>
-                <Link to={`/blog/${post.slug}`} className="group block bg-white  rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
+                <Link to={`/blog/${post.slug}`} className="group block bg-white rounded-2xl overflow-hidden transition-all duration-300">
                   <div className="aspect-[16/10] overflow-hidden">
                     {post.coverImage ? (
                       <img src={post.coverImage} alt={post.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />

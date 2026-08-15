@@ -36,7 +36,7 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
   }
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;

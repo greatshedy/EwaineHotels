@@ -131,7 +131,7 @@ export default function UserDashboard() {
         {/* Profile Card */}
         <motion.div
           variants={item}
-          className="bg-white  rounded-2xl shadow-sm border border-border  p-6"
+          className="bg-white rounded-2xl border border-border p-6"
         >
           {editing ? (
             <form onSubmit={handleSaveProfile}>
@@ -158,7 +158,7 @@ export default function UserDashboard() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="John Doe"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -173,7 +173,7 @@ export default function UserDashboard() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="john@example.com"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export default function UserDashboard() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+234 800 000 0000"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
                 </div>
@@ -209,7 +209,7 @@ export default function UserDashboard() {
                       setPhone(profile.phone || "");
                       setEditing(false);
                     }}
-                    className="px-5 py-2 text-sm font-medium rounded-xl border border-border  hover:bg-surface-alt  transition-colors"
+                    className="px-5 py-2 text-sm font-medium rounded-xl border border-border hover:bg-surface-alt transition-colors"
                   >
                     Cancel
                   </button>
@@ -233,14 +233,14 @@ export default function UserDashboard() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => setEditing(true)}
-                    className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-primary transition-colors"
+                    className="p-2 hover:bg-surface-alt rounded-lg text-text-secondary hover:text-primary transition-colors"
                     title="Edit profile"
                   >
                     <Edit3 className="w-4 h-4" />
                   </button>
                   <button
                     onClick={handleLogout}
-                    className="p-2 hover:bg-surface-alt  rounded-lg text-text-secondary hover:text-error transition-colors"
+                    className="p-2 hover:bg-surface-alt rounded-lg text-text-secondary hover:text-error transition-colors"
                     title="Logout"
                   >
                     <LogOut className="w-4 h-4" />
@@ -262,7 +262,7 @@ export default function UserDashboard() {
               return (
                 <div
                   key={s.label}
-                  className="bg-white  rounded-2xl p-4 shadow-sm border border-border "
+                  className="bg-white rounded-2xl p-4 border border-border "
                 >
                   <div className={`p-2 rounded-xl w-fit ${s.color} mb-2`}>
                     <Icon className="w-4 h-4" />
@@ -278,7 +278,7 @@ export default function UserDashboard() {
         {/* My Bookings */}
         <motion.div
           variants={item}
-          className="bg-white  rounded-2xl shadow-sm border border-border  p-5"
+          className="bg-white rounded-2xl border border-border p-5"
         >
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-bold">My Bookings</h2>
@@ -384,7 +384,7 @@ export default function UserDashboard() {
                   to={`/hotel/${h.id}`}
                   className="flex-shrink-0 w-56 snap-start group"
                 >
-                  <div className="bg-white  rounded-2xl overflow-hidden shadow-sm border border-border  group-hover:shadow-md transition-shadow">
+                  <div className="bg-white rounded-2xl overflow-hidden border border-border transition-shadow">
                     <div className="aspect-[16/10] overflow-hidden">
                       <img
                         src={h.image}
@@ -430,7 +430,7 @@ export default function UserDashboard() {
           )}
           <Link
             to="/favorites"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border  hover:bg-surface-alt  transition-colors text-sm font-medium"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-surface-alt transition-colors text-sm font-medium"
           >
             <Heart className="w-4 h-4 text-error" /> Favorites
             {favorites.length > 0 && (

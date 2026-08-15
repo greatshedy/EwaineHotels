@@ -33,7 +33,7 @@ export default function AdminSettings() {
     <div>
       <h1 className="text-2xl font-bold mb-6">Settings</h1>
 
-      <div className="max-w-lg bg-white  rounded-2xl shadow-sm border border-border  p-6">
+      <div className="max-w-lg bg-white rounded-2xl border border-border p-6">
         <form onSubmit={handleSave} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1">WhatsApp Number for Bookings</label>
@@ -45,7 +45,7 @@ export default function AdminSettings() {
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
                 placeholder="2348080769019"
-                className="w-full pl-9 pr-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full pl-9 pr-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>

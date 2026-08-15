@@ -10,12 +10,19 @@ bookings_bp = Blueprint("bookings", __name__, url_prefix="/api/bookings")
 
 
 @bookings_bp.route("", methods=["GET"])
+@token_required
 def list_bookings():
     coll = get_collection("bookings")
     email = request.args.get("email", "").strip()
     if email:
+        if email != request.admin_email:
+            return jsonify({"error": "Forbidden"}), 403
         docs = list(coll.find({"guestEmail": email}))
     else:
+        admins = get_collection("admins")
+        admin = admins.find_one({"email": request.admin_email})
+        if not admin:
+            return jsonify({"error": "Forbidden"}), 403
         docs = list(coll.find({}))
     for d in docs:
         d.pop("_id", None)

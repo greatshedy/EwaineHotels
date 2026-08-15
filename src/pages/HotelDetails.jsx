@@ -259,7 +259,7 @@ export default function HotelDetails() {
               <span className="flex items-center gap-1"><MapPin className="w-4 h-4" />{displayHotel.address}{displayHotel.city ? `, ${displayHotel.city}` : ''}{displayHotel.state ? `, ${displayHotel.state}` : ''}</span>
               <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-secondary text-secondary" />{displayHotel.rating} ({displayHotel.reviews} reviews)</span>
               {isTripAdvisor && displayHotel.provider && (
-                <span className="text-xs bg-surface-alt  px-2 py-1 rounded-lg">via {displayHotel.provider}</span>
+                <span className="text-xs bg-surface-alt px-2 py-1 rounded-lg">via {displayHotel.provider}</span>
               )}
             </div>
             {displayHotel.priceSummary && (
@@ -313,7 +313,7 @@ export default function HotelDetails() {
           {/* Location */}
           <div>
             <h2 className="text-xl font-bold mb-4">Location</h2>
-            <div className="rounded-2xl overflow-hidden h-64 bg-surface-alt  flex items-center justify-center">
+            <div className="rounded-2xl overflow-hidden h-64 bg-surface-alt flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
                 <p className="text-sm text-text-secondary">{displayHotel.address || 'Address not available'}</p>
@@ -393,15 +393,15 @@ export default function HotelDetails() {
                   <div className="space-y-3">
                     <div>
                       <label className="block text-xs font-medium mb-1">Room Type</label>
-                      <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                      <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         {displayHotel.roomTypes.map((r) => (
                           <option key={r.type} value={r.type}>{r.type} - ${r.price}</option>
                         ))}
                       </select>
                     </div>
-                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" min={minCheckOut} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
-                    <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-in</label><input type="date" min={today} value={checkIn} onChange={(e) => setCheckIn(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Check-out</label><input type="date" min={minCheckOut} value={checkOut} onChange={(e) => setCheckOut(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" /></div>
+                    <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
                   </div>
                   <div className="flex items-center justify-between text-sm text-text-secondary">
                     <span>${roomPrice} x {nights} night{nights > 1 ? "s" : ""}</span>
@@ -439,13 +439,13 @@ export default function HotelDetails() {
       {/* Booking Modal */}
       {showBooking && hasBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={() => setShowBooking(false)}>
-          <div className="w-full max-w-md bg-white  rounded-2xl shadow-xl border border-border  overflow-hidden" onClick={(e) => e.stopPropagation()}>
+          <div className="w-full max-w-md bg-white rounded-2xl border border-border overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between p-4 border-b border-border ">
               <h2 className="font-bold">Confirm Booking</h2>
               <button onClick={() => setShowBooking(false)} className="p-1 hover:text-primary"><X className="w-5 h-5" /></button>
             </div>
             <div className="p-4 space-y-4">
-              <div className="bg-surface-alt  rounded-xl p-3 space-y-1 text-sm">
+              <div className="bg-surface-alt rounded-xl p-3 space-y-1 text-sm">
                 <p className="font-semibold">{displayHotel.name}</p>
                 <p className="text-text-secondary">{selectedRoom || displayHotel.roomTypes?.[0]?.type} — ${roomPrice}/night</p>
                 <p className="text-text-secondary">{new Date(checkIn).toLocaleDateString()} → {new Date(checkOut).toLocaleDateString()}</p>
@@ -454,15 +454,15 @@ export default function HotelDetails() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Full Name</label>
-                <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="John Doe" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="text" value={guestName} onChange={(e) => setGuestName(e.target.value)} placeholder="John Doe" className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Email</label>
-                <input type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} placeholder="john@example.com" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="email" value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} placeholder="john@example.com" className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Phone (optional)</label>
-                <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border  bg-white  text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
+                <input type="tel" value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} placeholder="+234 800 000 0000" className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary" />
               </div>
               <Button size="lg" className="w-full" onClick={handleConfirmBooking} disabled={processing}>{processing ? "Redirecting to payment..." : "Proceed to Payment"}</Button>
             </div>
