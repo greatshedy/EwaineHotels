@@ -8,6 +8,7 @@ from flask import Blueprint, request, jsonify
 from database import get_collection
 from schemas import BookingCreate
 from config import settings
+from extensions import limiter
 
 payments_bp = Blueprint("payments", __name__, url_prefix="/api/payments")
 
@@ -65,6 +66,7 @@ def _validate_booking(data):
 
 
 @payments_bp.route("/initialize", methods=["POST"])
+@limiter.limit("10 per minute")
 def initialize_payment():
     if not settings.flutterwave_secret_key:
         return jsonify({"error": "Payments are not configured"}), 501

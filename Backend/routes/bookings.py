@@ -4,6 +4,7 @@ from flask import Blueprint, request, jsonify
 from database import get_collection
 from schemas import BookingCreate, BookingStatusUpdate
 from routes.auth import token_required
+from extensions import limiter
 
 bookings_bp = Blueprint("bookings", __name__, url_prefix="/api/bookings")
 
@@ -22,6 +23,7 @@ def list_bookings():
 
 
 @bookings_bp.route("", methods=["POST"])
+@limiter.limit("20 per minute")
 def create_booking():
     data = request.get_json()
     if not data:

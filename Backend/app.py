@@ -2,6 +2,7 @@ import logging
 import sys
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from werkzeug.middleware.proxy_fix import ProxyFix
 from database import get_db
 from config import settings
 from extensions import limiter
@@ -28,6 +29,8 @@ def create_app():
 
     origins = [o.strip() for o in settings.cors_origins.split(",") if o.strip()]
     CORS(app, resources={r"/api/*": {"origins": origins if origins != ["*"] else "*"}})
+
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
 
     limiter.init_app(app)
 

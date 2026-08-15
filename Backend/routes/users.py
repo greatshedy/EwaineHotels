@@ -8,6 +8,7 @@ from flask import Blueprint, request, jsonify
 from database import get_collection
 from config import settings
 from schemas import UserRegister, UserLogin, UserProfileUpdate
+from extensions import limiter
 
 users_bp = Blueprint("users", __name__, url_prefix="/api/auth")
 
@@ -33,6 +34,7 @@ def user_token_required(f):
 
 
 @users_bp.route("/register", methods=["POST"])
+@limiter.limit("10 per minute")
 def register():
     data = request.get_json()
     if not data:
@@ -71,6 +73,7 @@ def register():
 
 
 @users_bp.route("/login", methods=["POST"])
+@limiter.limit("10 per minute")
 def login():
     data = request.get_json()
     if not data:
