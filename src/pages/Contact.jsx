@@ -41,7 +41,7 @@ export default function Contact() {
             {[
               { icon: MapPin, label: "Address", value: "Plot H3, No 10 Obafemi Awolowo Way, Alpha Plaza, CBD Alausa Ikeja, Lagos, Nigeria" },
               { icon: Phone, label: "Phone", value: "+234 907 771 1825" },
-              { icon: Mail, label: "Email", value: "hello@ewainehotels.com" },
+              { icon: Mail, label: "Email", value: "support@ewainehotels.com" },
               { icon: Clock, label: "Hours", value: "Monday - Saturday: 8:00 AM - 8:00 PM" },
             ].map((item) => (
               <div key={item.label} className="flex items-start gap-4">
