@@ -14,6 +14,7 @@ import Button from "../components/Button";
 import BackToTop from "../components/BackToTop";
 import { useRecentlyViewed } from "../context/RecentlyViewedContext";
 import { useUser } from "../context/UserContext";
+import { formatNaira } from "../utils/currency";
 
 const amenityIcons = {
   "Swimming Pool": Waves, WiFi: Wifi, Restaurant: Utensils, Gym: Dumbbell, Parking: Car,
@@ -303,7 +304,7 @@ export default function HotelDetails() {
                 {displayHotel.roomTypes.map((r) => (
                   <div key={r.type} className="flex items-center justify-between p-4 rounded-xl border border-border ">
                     <div><h3 className="font-semibold">{r.type}</h3><p className="text-sm text-text-secondary">{r.available} rooms left</p></div>
-                    <div className="text-right"><span className="text-xl font-bold text-primary">${r.price}</span><span className="text-xs text-text-secondary"> / night</span></div>
+                    <div className="text-right"><span className="text-xl font-bold text-primary">{formatNaira(r.price)}</span><span className="text-xs text-text-secondary"> / night</span></div>
                   </div>
                 ))}
               </div>
@@ -381,7 +382,7 @@ export default function HotelDetails() {
           <div className="lg:sticky lg:top-24 space-y-4">
             <div className="glass rounded-2xl p-6 space-y-4">
               <div>
-                <span className="text-3xl font-bold text-primary">${roomPrice}</span>
+                <span className="text-3xl font-bold text-primary">{formatNaira(roomPrice)}</span>
                 <span className="text-text-secondary text-sm"> / night</span>
                 {isTripAdvisor && displayHotel.provider && (
                   <p className="text-xs text-text-secondary mt-1">via {displayHotel.provider}</p>
@@ -395,7 +396,7 @@ export default function HotelDetails() {
                       <label className="block text-xs font-medium mb-1">Room Type</label>
                       <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary">
                         {displayHotel.roomTypes.map((r) => (
-                          <option key={r.type} value={r.type}>{r.type} - ${r.price}</option>
+                          <option key={r.type} value={r.type}>{r.type} - {formatNaira(r.price)}</option>
                         ))}
                       </select>
                     </div>
@@ -404,8 +405,8 @@ export default function HotelDetails() {
                     <div><label className="block text-xs font-medium mb-1">Guests</label><select value={guests} onChange={(e) => setGuests(Number(e.target.value))} className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary">{[1, 2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} Guest{n > 1 ? "s" : ""}</option>)}</select></div>
                   </div>
                   <div className="flex items-center justify-between text-sm text-text-secondary">
-                    <span>${roomPrice} x {nights} night{nights > 1 ? "s" : ""}</span>
-                    <span className="font-bold text-primary text-lg">${roomPrice * nights}</span>
+                    <span>{formatNaira(roomPrice)} x {nights} night{nights > 1 ? "s" : ""}</span>
+                    <span className="font-bold text-primary text-lg">{formatNaira(roomPrice * nights)}</span>
                   </div>
                   <Button size="lg" className="w-full" onClick={handleBookNow}>Book Now</Button>
                   <p className="text-xs text-text-secondary text-center">You will pay securely with Flutterwave</p>
@@ -447,10 +448,10 @@ export default function HotelDetails() {
             <div className="p-4 space-y-4">
               <div className="bg-surface-alt rounded-xl p-3 space-y-1 text-sm">
                 <p className="font-semibold">{displayHotel.name}</p>
-                <p className="text-text-secondary">{selectedRoom || displayHotel.roomTypes?.[0]?.type} — ${roomPrice}/night</p>
+                <p className="text-text-secondary">{selectedRoom || displayHotel.roomTypes?.[0]?.type} — {formatNaira(roomPrice)}/night</p>
                 <p className="text-text-secondary">{new Date(checkIn).toLocaleDateString()} → {new Date(checkOut).toLocaleDateString()}</p>
                 <p className="text-text-secondary">{guests} guest{guests > 1 ? "s" : ""} · {nights} night{nights > 1 ? "s" : ""}</p>
-                <p className="text-lg font-bold text-primary">Total: ${roomPrice * nights}</p>
+                <p className="text-lg font-bold text-primary">Total: {formatNaira(roomPrice * nights)}</p>
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1">Full Name</label>

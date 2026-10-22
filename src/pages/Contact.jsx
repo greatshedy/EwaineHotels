@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import toast from "react-hot-toast";
 import Button from "../components/Button";
+import { sendContactMessage } from "../services/api";
 
 const fadeUp = { initial: { opacity: 0, y: 30 }, animate: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
 
@@ -11,7 +14,31 @@ const faqs = [
   { q: "How do I contact a hotel?", a: "Each hotel's contact information is listed on their detail page." },
 ];
 
+const emptyForm = { name: "", email: "", subject: "", message: "" };
+
 export default function Contact() {
+  const [form, setForm] = useState(emptyForm);
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    try {
+      await sendContactMessage(form);
+      toast.success("Message sent! We'll be in touch soon.");
+      setForm(emptyForm);
+    } catch (err) {
+      toast.error(err?.response?.data?.error || "Unable to send your message. Please try again.");
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <div>
       <section className="relative py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10   ">
@@ -26,12 +53,12 @@ export default function Contact() {
           {/* Form */}
           <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={{ animate: { transition: { staggerChildren: 0.06 } } }}>
             <h2 className="text-2xl font-bold mb-6">Send us a message</h2>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <motion.div variants={fadeUp}><input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
-              <motion.div variants={fadeUp}><input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
-              <motion.div variants={fadeUp}><input type="text" placeholder="Subject" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
-              <motion.div variants={fadeUp}><textarea rows={5} placeholder="Your Message" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none" /></motion.div>
-              <motion.div variants={fadeUp}><Button size="lg">Send Message</Button></motion.div>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <motion.div variants={fadeUp}><input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
+              <motion.div variants={fadeUp}><input type="email" name="email" value={form.email} onChange={handleChange} required placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
+              <motion.div variants={fadeUp}><input type="text" name="subject" value={form.subject} onChange={handleChange} placeholder="Subject" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all" /></motion.div>
+              <motion.div variants={fadeUp}><textarea rows={5} name="message" value={form.message} onChange={handleChange} required placeholder="Your Message" className="w-full px-4 py-3 rounded-xl border border-border  bg-white  focus:outline-none focus:ring-2 focus:ring-primary transition-all resize-none" /></motion.div>
+              <motion.div variants={fadeUp}><Button type="submit" size="lg" disabled={sending}>{sending ? "Sending..." : "Send Message"}</Button></motion.div>
             </form>
           </motion.div>
 

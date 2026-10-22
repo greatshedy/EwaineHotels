@@ -5,6 +5,7 @@ import { Shield, BadgeCheck, Wallet, Headphones, ChevronLeft, ChevronRight, Arro
 import { searchLocation, searchHotels } from "../services/tripadvisor";
 import { mapSearchResult } from "../services/tripMapper";
 import { getFeatured, getTestimonials, getDestinations } from "../services/api";
+import { formatNaira } from "../utils/currency";
 import SearchBar from "../components/SearchBar";
 import HotelCard from "../components/HotelCard";
 import BackToTop from "../components/BackToTop";
@@ -186,7 +187,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center justify-between">
                       <div>
-                        <span className="text-xl font-bold text-primary">${hotel.price}</span>
+                        <span className="text-xl font-bold text-primary">{formatNaira(hotel.price)}</span>
                         <span className="text-xs text-text-secondary"> / night</span>
                       </div>
                       <Link to={`/hotel/${hotel.id}${hotel.commerceUrl ? `?commerceUrl=${encodeURIComponent(hotel.commerceUrl)}` : ''}`}

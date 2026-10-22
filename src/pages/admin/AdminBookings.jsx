@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAdmin } from "../../context/AdminContext";
 import { Search, CheckCircle2, XCircle } from "lucide-react";
+import { formatNaira } from "../../utils/currency";
 
 const statusColors = {
   pending: "bg-secondary/10 text-secondary",
@@ -73,7 +74,7 @@ export default function AdminBookings() {
                     <td className="p-3">
                       {new Date(b.checkOut).toLocaleDateString()}
                     </td>
-                    <td className="p-3 font-medium">${b.totalPrice}</td>
+                    <td className="p-3 font-medium">{formatNaira(b.totalPrice)}</td>
                     <td className="p-3">
                       <span
                         className={`text-xs font-medium px-2 py-1 rounded-full ${

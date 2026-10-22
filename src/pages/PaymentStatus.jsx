@@ -5,6 +5,7 @@ import {
   CheckCircle2, XCircle, Loader2, CalendarCheck, MessageCircle, ArrowRight,
 } from "lucide-react";
 import { verifyPayment, getSettings } from "../services/api";
+import { formatNaira } from "../utils/currency";
 
 const DEFAULT_WHATSAPP = "2348080769019";
 
@@ -20,7 +21,7 @@ export default function PaymentStatus() {
       .then((settings) => {
         const num = settings?.whatsapp || DEFAULT_WHATSAPP;
         const msg = encodeURIComponent(
-          `Payment received! Booking Confirmed.\n\nHotel: ${bk.hotelName}\nGuest: ${bk.guestName}\nEmail: ${bk.guestEmail}\nPhone: ${bk.guestPhone || "N/A"}\nCheck-in: ${bk.checkIn}\nCheck-out: ${bk.checkOut}\nRoom: ${bk.roomType}\nTotal Paid: $${bk.totalPrice}`
+          `Payment received! Booking Confirmed.\n\nHotel: ${bk.hotelName}\nGuest: ${bk.guestName}\nEmail: ${bk.guestEmail}\nPhone: ${bk.guestPhone || "N/A"}\nCheck-in: ${bk.checkIn}\nCheck-out: ${bk.checkOut}\nRoom: ${bk.roomType}\nTotal Paid: ${formatNaira(bk.totalPrice)}`
         );
         window.open(`https://wa.me/${num}?text=${msg}`, "_blank");
       })
@@ -83,7 +84,7 @@ export default function PaymentStatus() {
         {booking && (
           <div className="bg-surface-alt  rounded-xl p-4 space-y-1 text-sm text-left mb-6">
             <p className="font-semibold">{booking.hotelName}</p>
-            <p className="text-text-secondary">{booking.roomType} — ${booking.totalPrice}</p>
+            <p className="text-text-secondary">{booking.roomType} — {formatNaira(booking.totalPrice)}</p>
             <p className="text-text-secondary">{new Date(booking.checkIn).toLocaleDateString()} → {new Date(booking.checkOut).toLocaleDateString()}</p>
             <p className="text-xs text-text-secondary font-mono">Ref: {booking.txRef}</p>
           </div>

@@ -22,7 +22,7 @@ export async function searchLocation(query) {
   return fetchFromAPI(url);
 }
 
-export async function searchHotels({ geoId, checkIn, checkOut, pageNumber = 1, currencyCode = 'USD' }) {
+export async function searchHotels({ geoId, checkIn, checkOut, pageNumber = 1, currencyCode = 'NGN' }) {
   const cacheKey = `hotels-${geoId}-${checkIn}-${checkOut}-${pageNumber}`;
   const cached = getTripCache(cacheKey);
   if (cached) return cached;

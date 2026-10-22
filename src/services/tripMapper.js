@@ -12,9 +12,14 @@ function resolveDetailPhotoUrl(photo) {
     .replace('{height}', '600');
 }
 
+const NGN_RATE = 1600;
+
 function parsePrice(priceStr) {
   if (!priceStr) return 0;
-  return Number(priceStr.replace(/[^0-9.]/g, '')) || 0;
+  const num = Number(priceStr.replace(/[^0-9.]/g, '')) || 0;
+  // Defensive: if the API still returned USD despite the NGN request, convert to Naira.
+  if (/[$]|usd/i.test(priceStr)) return Math.round(num * NGN_RATE);
+  return num;
 }
 
 function parseReviewCount(countStr) {

@@ -10,6 +10,7 @@ import { useUser } from "../context/UserContext";
 import { useFavorites } from "../context/FavoritesContext";
 import { useRecentlyViewed } from "../context/RecentlyViewedContext";
 import { getBookings } from "../services/api";
+import { formatNaira } from "../utils/currency";
 
 const statusColors = {
   pending: "bg-secondary/10 text-secondary",
@@ -95,7 +96,7 @@ export default function UserDashboard() {
     },
     {
       label: "Total Spent",
-      value: `$${totalSpent.toLocaleString()}`,
+      value: formatNaira(totalSpent),
       icon: DollarSign,
       color: "text-success bg-success/10",
     },
@@ -352,7 +353,7 @@ export default function UserDashboard() {
                         <td className="py-3">
                           {new Date(b.checkOut).toLocaleDateString()}
                         </td>
-                        <td className="py-3 font-medium">${b.totalPrice}</td>
+                        <td className="py-3 font-medium">{formatNaira(b.totalPrice)}</td>
                         <td className="py-3">
                           <span
                             className={`text-xs font-medium px-2 py-1 rounded-full ${
@@ -401,7 +402,7 @@ export default function UserDashboard() {
                       </p>
                       <div className="flex items-center justify-between mt-1.5">
                         <span className="text-sm font-bold text-primary">
-                          ${h.price}
+                          {formatNaira(h.price)}
                         </span>
                         <span className="text-xs text-secondary">
                           ★ {h.rating}

@@ -7,6 +7,7 @@ import { searchLocation, searchHotels } from "../services/tripadvisor";
 import { mapSearchResult } from "../services/tripMapper";
 import HotelCard from "../components/HotelCard";
 import BackToTop from "../components/BackToTop";
+import { formatNaira } from "../utils/currency";
 
 const amenitiesList = ["Swimming Pool", "WiFi", "Restaurant", "Gym", "Parking", "Pet Friendly", "Air Conditioning", "Free Breakfast"];
 
@@ -326,7 +327,7 @@ export default function Hotels() {
                         </div>
                         <div className="flex items-center justify-between">
                           <div>
-                            <span className="text-xl font-bold text-primary">${hotel.price}</span>
+                            <span className="text-xl font-bold text-primary">{formatNaira(hotel.price)}</span>
                             <span className="text-xs text-text-secondary"> / night</span>
                           </div>
                           <Link
@@ -362,7 +363,7 @@ export default function Hotels() {
                               <span className="text-[10px] text-text-secondary">({hotel.reviews})</span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="text-sm font-bold text-primary">${hotel.price}</span>
+                              <span className="text-sm font-bold text-primary">{formatNaira(hotel.price)}</span>
                               <span className="text-[10px] text-text-secondary">{hotel.provider}</span>
                             </div>
                           </div>
@@ -398,7 +399,7 @@ export default function Hotels() {
                         <h3 className="font-semibold text-lg truncate">{hotel.name}</h3>
                         <p className="text-sm text-text-secondary truncate">{hotel.city}, {hotel.state}</p>
                         <div className="flex items-center gap-1 mt-1"><span className="text-sm font-medium">{hotel.rating}</span><span className="text-xs text-text-secondary">({hotel.reviews})</span></div>
-                        <div className="mt-2 text-lg font-bold text-primary">${hotel.price}<span className="text-xs text-text-secondary font-normal"> / night</span></div>
+                        <div className="mt-2 text-lg font-bold text-primary">{formatNaira(hotel.price)}<span className="text-xs text-text-secondary font-normal"> / night</span></div>
                       </div>
                       <div className="flex sm:flex-col items-center justify-between sm:items-end flex-shrink-0 gap-3 sm:gap-0">
                         <button className="p-1.5 rounded-full hover:bg-surface-alt transition-colors"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></button>

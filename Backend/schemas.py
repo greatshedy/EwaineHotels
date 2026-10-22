@@ -183,6 +183,13 @@ class BlogPost(BaseModel):
     updatedAt: str = ""
 
 
+class ContactMessage(BaseModel):
+    name: str
+    email: EmailStr
+    subject: str = ""
+    message: str
+
+
 class BlogCreate(BaseModel):
     title: str
     content: str

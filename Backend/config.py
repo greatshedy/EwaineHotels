@@ -19,8 +19,14 @@ class Settings(BaseSettings):
     flutterwave_secret_key: str = ""
     flutterwave_public_key: str = ""
     flutterwave_encryption_key: str = ""
-    flutterwave_currency: str = "USD"
+    flutterwave_currency: str = "NGN"
     flutterwave_redirect_url: str = ""
+
+    email_js_public_key: str = ""
+    email_js_private_key: str = ""
+    email_js_service_id: str = ""
+    email_js_template_id: str = ""
+    contact_recipient: str = "greatboyshedy@gmail.com"
 
     model_config = {
         "env_file": str(Path(__file__).parent / ".env"),

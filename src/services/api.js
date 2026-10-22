@@ -142,6 +142,11 @@ export function updateBookingStatus(id, status) {
   return api.patch(`/bookings/${id}`, { status }).then((r) => r.data);
 }
 
+// Contact
+export function sendContactMessage(data) {
+  return api.post("/contact", data).then((r) => r.data);
+}
+
 // Payments
 export function initializePayment(data) {
   return api.post("/payments/initialize", data).then((r) => r.data);

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Heart, Star, MapPin, Wifi, Waves, Dumbbell, Car, Wind, Coffee, PawPrint } from "lucide-react";
 import { useFavorites } from "../context/FavoritesContext";
+import { formatNaira } from "../utils/currency";
 
 const amenityIcons = {
   "Swimming Pool": Waves,
@@ -82,7 +83,7 @@ export default function HotelCard({ hotel, index = 0 }) {
 
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-xl font-bold text-primary">${hotel.price}</span>
+            <span className="text-xl font-bold text-primary">{formatNaira(hotel.price)}</span>
             <span className="text-xs text-text-secondary"> / night</span>
           </div>
           <Link

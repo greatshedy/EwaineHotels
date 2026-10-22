@@ -19,6 +19,7 @@ from routes.users import users_bp
 from routes.favorites import favorites_bp
 from routes.recent import recent_bp
 from routes.blog import blog_bp
+from routes.contact import contact_bp
 from seed import run_seed
 
 
@@ -47,6 +48,7 @@ def create_app():
     app.register_blueprint(favorites_bp)
     app.register_blueprint(recent_bp)
     app.register_blueprint(blog_bp)
+    app.register_blueprint(contact_bp)
 
     @app.before_request
     def log_request():

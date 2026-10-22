@@ -92,7 +92,7 @@ def initialize_payment():
     payload = {
         "tx_ref": tx_ref,
         "amount": round(float(booking.totalPrice), 2),
-        "currency": settings.flutterwave_currency or "USD",
+        "currency": settings.flutterwave_currency or "NGN",
         "redirect_url": _redirect_url(),
         "customer": {
             "email": booking.guestEmail,

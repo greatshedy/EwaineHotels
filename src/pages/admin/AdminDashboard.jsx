@@ -5,6 +5,7 @@ import {
   DollarSign,
   TrendingUp,
 } from "lucide-react";
+import { formatNaira } from "../../utils/currency";
 
 const stats = [
   {
@@ -43,7 +44,7 @@ export default function AdminDashboard() {
   const statsData = {
     hotels: hotels.length,
     bookings: bookings.length,
-    revenue: `$${revenue.toLocaleString()}`,
+    revenue: formatNaira(revenue),
     active: activeBookings.length,
   };
 
@@ -106,7 +107,7 @@ export default function AdminDashboard() {
                       <td className="py-3">
                         {new Date(b.checkIn).toLocaleDateString()}
                       </td>
-                      <td className="py-3 font-medium">${b.totalPrice}</td>
+                      <td className="py-3 font-medium">{formatNaira(b.totalPrice)}</td>
                       <td className="py-3">
                         <span
                           className={`text-xs font-medium px-2 py-1 rounded-full ${

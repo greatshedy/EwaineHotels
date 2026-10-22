@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAdmin } from "../../context/AdminContext";
 import { Plus, Edit3, Trash2, Search, X } from "lucide-react";
+import { formatNaira } from "../../utils/currency";
 
 const emptyHotel = {
   name: "",
@@ -144,7 +145,7 @@ export default function AdminHotels() {
                 >
                   <td className="p-3 font-medium">{hotel.name}</td>
                   <td className="p-3 text-text-secondary">{hotel.city}</td>
-                  <td className="p-3">${hotel.price}</td>
+                  <td className="p-3">{formatNaira(hotel.price)}</td>
                   <td className="p-3">{hotel.rating}</td>
                   <td className="p-3">
                     <span
@@ -251,7 +252,7 @@ export default function AdminHotels() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-1">
-                    Price ($/night)
+                    Price (₦/night)
                   </label>
                   <input
                     type="number"
@@ -410,7 +411,7 @@ export default function AdminHotels() {
                             rts[i] = { ...rts[i], price: e.target.value };
                             setForm({ ...form, roomTypes: rts });
                           }}
-                          placeholder="Price"
+                          placeholder="Price (₦)"
                           className="w-full px-3 py-2 rounded-xl border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                         />
                       </div>
