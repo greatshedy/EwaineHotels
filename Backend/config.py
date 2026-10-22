@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     email_js_private_key: str = ""
     email_js_service_id: str = ""
     email_js_template_id: str = ""
-    contact_recipient: str = "greatboyshedy@gmail.com"
+    contact_recipient: str = ""
 
     model_config = {
         "env_file": str(Path(__file__).parent / ".env"),

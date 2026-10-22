@@ -3,6 +3,7 @@ import { useSearchParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { SlidersHorizontal, Grid3X3, List, X, Search, MapPin, Globe, Star, ExternalLink } from "lucide-react";
 import { getHotels, getDestinations } from "../services/api";
+import destinationsData from "../data/destinations.json";
 import { searchLocation, searchHotels } from "../services/tripadvisor";
 import { mapSearchResult } from "../services/tripMapper";
 import HotelCard from "../components/HotelCard";
@@ -22,7 +23,7 @@ export default function Hotels() {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cities, setCities] = useState([]);
-  const [destinations, setDestinations] = useState([]);
+  const [destinations, setDestinations] = useState(destinationsData);
 
   const searchQuery = searchParams.get("search") || "";
   const checkIn = searchParams.get("checkIn") || "";
@@ -77,7 +78,7 @@ export default function Hotels() {
 
   useEffect(() => {
     getDestinations()
-      .then((data) => setDestinations(data || []))
+      .then((data) => { if (Array.isArray(data) && data.length) setDestinations(data); })
       .catch(() => {});
   }, []);
 

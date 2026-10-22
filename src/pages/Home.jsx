@@ -5,6 +5,7 @@ import { Shield, BadgeCheck, Wallet, Headphones, ChevronLeft, ChevronRight, Arro
 import { searchLocation, searchHotels } from "../services/tripadvisor";
 import { mapSearchResult } from "../services/tripMapper";
 import { getFeatured, getTestimonials, getDestinations } from "../services/api";
+import destinationsData from "../data/destinations.json";
 import { formatNaira } from "../utils/currency";
 import SearchBar from "../components/SearchBar";
 import HotelCard from "../components/HotelCard";
@@ -33,7 +34,7 @@ export default function Home() {
   const [taPicks, setTaPicks] = useState([]);
   const [taLoaded, setTaLoaded] = useState(false);
   const [testimonials, setTestimonials] = useState([]);
-  const [destinations, setDestinations] = useState([]);
+  const [destinations, setDestinations] = useState(destinationsData);
 
   useEffect(() => {
     getFeatured()
@@ -43,7 +44,7 @@ export default function Home() {
       .then((data) => setTestimonials(data || []))
       .catch(() => { });
     getDestinations()
-      .then((data) => setDestinations(data || []))
+      .then((data) => { if (Array.isArray(data) && data.length) setDestinations(data); })
       .catch(() => { });
   }, []);
 
@@ -110,10 +111,16 @@ export default function Home() {
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-bold mb-3">Popular Destinations</motion.h2>
           <motion.p variants={fadeUp} className="text-text-secondary max-w-xl mx-auto">Explore our most sought-after destinations across Africa.</motion.p>
         </motion.div>
-        <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {destinations.map((d) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {destinations.map((d, i) => (
             <Link key={d.id} to={`/hotels?search=${d.name}`} className="block">
-              <motion.div variants={fadeUp} className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer"
+              >
                 <img src={d.image} alt={d.name} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
@@ -123,7 +130,7 @@ export default function Home() {
               </motion.div>
             </Link>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* Featured Hotels */}
