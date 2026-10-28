@@ -2,7 +2,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Heart } from "lucide-react";
 import { useFavorites } from "../../context/FavoritesContext";
-import logo from "../../assets/ewainehotel.png";
+import logo from "../../assets/ewainehotel1.jpeg";
 
 const links = [
   { to: "/", label: "Home" },

@@ -233,7 +233,8 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-surface-alt ">
+      {testimonials.length > 0 && (
+        <section className="py-20 bg-surface-alt ">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl sm:text-4xl font-bold mb-10">
             What Our Guests Say
@@ -263,6 +264,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      )}
 
       <BackToTop />
     </div>
