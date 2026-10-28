@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <Link to="/" className="flex items-center mb-4">
-              <img src={logo} alt="EwaineHotels" className="h-16 w-auto brightness-0 invert" />
+              <img src={logo} alt="EwaineHotels" className="h-16 w-auto" />
             </Link>
             <p className="text-dark-text-secondary text-sm leading-relaxed">
               Discover luxury hotels, budget accommodations, and unforgettable experiences around the world.
